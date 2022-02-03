@@ -4,6 +4,7 @@ module.exports.withSyntaxHighlighting = () => {
   return (tree) => {
     let preTree = { children: [] }
     let componentName
+
     tree.children = tree.children.flatMap((node) => {
       if (node.type !== 'code') return node
       if (node.lang === null) return node
