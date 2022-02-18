@@ -197,6 +197,14 @@ export const documentationNav = [
   horizontalLine(),
   collapsable('Release Notes', [
     page('how-to-guides/upgrade-webiny'),
+    collapsable('5.23.0', [
+      page('release-notes/5.23.0/changelog'),
+      page('release-notes/5.23.0/upgrade-guide'),
+    ]),
+    collapsable('5.22.1', [
+      page('release-notes/5.22.1/changelog'),
+      page('release-notes/5.22.1/upgrade-guide'),
+    ]),
     collapsable('5.22.0', [
       page('release-notes/5.22.0/changelog'),
       page('release-notes/5.22.0/upgrade-guide'),
@@ -288,6 +296,11 @@ export const documentationNav = [
   collapsable('Contributing', [
     page('contributing/documentation'),
     page('contributing/new-page-template'),
+  ]),
+  collapsable('Enterprise', [
+    page('enterprise/multi-tenancy'),
+    page('enterprise/theme-manager'),
+    page('enterprise/okta-integration'),
   ]),
   page('webiny-telemetry'),
 ]

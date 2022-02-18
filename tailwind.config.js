@@ -17,15 +17,33 @@ module.exports = {
     extend: {
       colors: {
         'dark-blue': '#334155',
+        'dark-theme': '#1F2227',
         gray: '#000E1A',
         blue: '#01579B',
         nordic: '#002D39',
         orange: '#FA5A28',
+        burgundy: '#D14343',
         purple: '#F3F6FF',
+        'dark-grey': '#4E4E4E',
+        'dark-grey-2': '#33363B',
+        'dark-grey-3': '#1F2227',
+        'dark-grey-4': '#2A2C31',
+        'light-grey': '#CBCBCB',
+        'light-grey-2': '#959595',
+        'light-grey-3': '#6D738A',
+        'light-grey-4': '#798099',
+        'light-grey-5': '#8F9093',
         'dark-purple': '#696F8C',
+        'dark-theme-purple': '#003762',
+        'blue-icon': '#3366FF',
         green: '#DFF1F1',
+        'dark-theme-green': '#007044',
+        'green-icon': '#52BD94',
         yellow: '#FFFAF1',
+        'dark-theme-yellow': '#935F00',
+        'yellow-icon': '#FFB020',
         peach: '#FCE8E6',
+        'dark-theme-peach': '#490000',
         smoke: '#F8F8F8',
         border: '#E5E5E5',
         white: '#ffffff',
@@ -69,6 +87,9 @@ module.exports = {
               fontSize: '1.375rem',
               lineHeight: '1.625rem',
             },
+            'h1 *, h2 *, h3 *, h4 *': {
+              fontSize: 'inherit !important',
+            },
             p: {
               fontSize: '0.875rem',
               lineHeight: '1.75rem',
@@ -102,6 +123,27 @@ module.exports = {
               borderRadius: '999px',
               backgroundColor: '#FA5A28',
             },
+            'diagram-letter': {
+              position: 'relative',
+              color: '#FFFFFF',
+              fontSize: '0.8125rem',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              marginLeft: '0.25rem',
+              marginRight: '0.25rem',
+              zIndex: '10',
+            },
+            'diagram-letter::before': {
+              content: '""',
+              position: 'absolute',
+              top: '-0.1rem',
+              left: '-0.4rem',
+              backgroundColor: '#000000',
+              width: '1.3rem',
+              height: '1.3rem',
+              borderRadius: '0.7rem',
+              zIndex: '-5',
+            },
             '.success-box li::before': {
               backgroundColor: '#52BD94',
             },
@@ -120,12 +162,12 @@ module.exports = {
               marginBottom: '20px',
               marginTop: '20px',
             },
-            'ol li': {
+            'ol > li': {
               counterIncrement: 'cupcake',
               listStyle: 'none',
               position: 'relative',
             },
-            'ol li::before': {
+            'ol > li::before': {
               backgroundColor: '#fff',
               position: 'absolute',
               color: '#000',
@@ -238,30 +280,50 @@ module.exports = {
               lineHeight: '1.625rem',
               textAlign: 'center',
               marginTop: '0.625rem',
+              color: '#6F7886',
             },
           },
         },
         dark: {
           css: {
-            color: theme('colors.slate.400'),
-            'h2, h3, h4, thead th': {
-              color: theme('colors.slate.200'),
+            color: theme('colors.white'),
+            'h1, h2, h3, h4, thead th': {
+              color: theme('colors.white'),
             },
             'h2 small, h3 small, h4 small': {
-              color: theme('colors.slate.400'),
+              color: '#FFF',
             },
             code: {
               color: theme('colors.slate.200'),
             },
+            blockquote: {
+              color: theme('colors.white'),
+            },
             pre: {
               boxShadow: 'inset 0 0 0 1px rgb(255 255 255 / 0.1)',
             },
+            '.success-box li::before': {
+              backgroundColor: '#FFF',
+            },
+            '.info-box li::before': {
+              backgroundColor: '#FFF',
+            },
+            '.warning-box li::before': {
+              backgroundColor: '#FFF',
+            },
+            '.danger-box li::before': {
+              backgroundColor: '#FFF',
+            },
             a: {
-              color: theme('colors.white'),
-              borderBottomColor: theme('colors.sky.400'),
+              color: '#FA5A28',
+              borderBottomColor: '#FA5A28',
             },
             strong: {
               color: theme('colors.slate.200'),
+            },
+            code: {
+              boxShadow: 'inset 0 0 0 1px #4E4E4E',
+              backgroundColor: '#33363B',
             },
             thead: {
               color: theme('colors.slate.300'),
@@ -269,6 +331,12 @@ module.exports = {
             },
             'tbody tr': {
               borderBottomColor: 'rgb(148 163 184 / 0.1)',
+            },
+            figure: {
+              backgroundColor: '#33363B',
+            },
+            'figure figcaption': {
+              color: '#C1C2C4',
             },
           },
         },
@@ -293,6 +361,9 @@ module.exports = {
             h4: {
               fontSize: '1.75rem',
               lineHeight: '2.0625rem',
+            },
+            'h1 *, h2 *, h3 *, h4 *': {
+              fontSize: 'inherit !important',
             },
             p: {
               fontSize: '1rem',
