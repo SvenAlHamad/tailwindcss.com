@@ -5,10 +5,7 @@ description: Learn how to upgrade Webiny from 5.21.0 to 5.22.0.
 
 import { Alert } from "@/components/Alert"
 
-
-<Alert type="success">
-
- What you’ll learn
+<Alert type="success" title="What you’ll learn">
 
 - how to upgrade Webiny from 5.21.0 to 5.22.0
 
@@ -36,8 +33,11 @@ yarn up "@webiny/*@5.22.0"
 Once the upgrade has finished, running the `yarn webiny --version` command in your terminal should return `5.22.0`.
 
 <Alert type="info">
+
 Before moving on, make sure you commit all your changes.
+
 </Alert>
+
 ## 2. Run the Upgrade Command
 
 The next step is to run the project upgrade:
@@ -59,7 +59,7 @@ yarn webiny deploy --env {environment}
 
 <Alert type="warning">
 
-As stated in the [Overview](/docs/how-to-guides/upgrade-webiny#pre-production-environments-first) section, we recommend that you first deploy your changes into one of your pre-production environments, like `dev` or `staging`.
+As stated in the [Upgrade Webiny](/docs/how-to-guides/upgrade-webiny#pre-production-environments-first) section, we recommend that you first deploy your changes into one of your pre-production environments, like `dev` or `staging`.
 
 </Alert>
 
