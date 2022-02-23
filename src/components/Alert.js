@@ -98,10 +98,10 @@ export function Alert({ type, children, title }) {
         getBgByType(type)
       )}
     >
-      <div>{getIconByType(type)}</div>
+      <div className={title ?? clsx('flex items-center')}>{getIconByType(type)}</div>
       <div>
         {title ? (
-          <div className="text-center lg:text-left font-bold uppercase -mt-[2px] mb-[20px]">
+          <div className="text-center lg:text-left font-bold uppercase -mt-[2px] mb-[5px]">
             {title}
           </div>
         ) : null}
