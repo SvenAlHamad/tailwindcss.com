@@ -417,7 +417,7 @@ module.exports = {
           },
         ],
         'sidebar-right-title': [
-          '1.375rem',
+          '1rem',
           {
             lineHeight: '1.5rem',
           },

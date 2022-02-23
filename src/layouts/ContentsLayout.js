@@ -143,11 +143,11 @@ function WasThisArticleHelpful({ className }) {
     >
       <div className="text-sidebar-right-title font-bold">Was this article helpful?</div>
       <div className="flex mt-[1.1875rem]">
-        <button className="h-9 w-[4.0625rem] border border-neutral-200 rounded flex items-center justify-center font-semibold text-sm leading-6 mr-2.5">
+        <button className="h-9 w-[4.0625rem] border border-neutral-200 hover:border-orange rounded flex items-center justify-center font-semibold text-sm leading-6 mr-2.5">
           <div className="mr-[0.375rem]">{LikeIcon}</div>
           Yes
         </button>
-        <button className="h-9 w-[4.0625rem] border border-neutral-200 rounded flex items-center justify-center font-semibold text-sm leading-6">
+        <button className="h-9 w-[4.0625rem] border border-neutral-200 hover:border-orange rounded flex items-center justify-center font-semibold text-sm leading-6">
           <div className="mr-[0.375rem]">{DislikeIcon}</div>
           No
         </button>
