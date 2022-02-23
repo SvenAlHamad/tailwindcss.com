@@ -158,7 +158,7 @@ module.exports = {
             },
             ol: {
               counterReset: 'cupcake',
-              paddingLeft: '20px',
+              paddingLeft: '27px',
               marginBottom: '20px',
               marginTop: '20px',
             },
