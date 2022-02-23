@@ -238,7 +238,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
 
   return (
     <div className="max-w-3xl mx-auto mt-[5.25rem] md:mt-[5.875rem] mb-[1.875rem] md:mb-[3.75rem] xl:pt-10 xl:max-w-[53.6875rem] xl:ml-0 xl:mr-[15.5rem] 2xl:mr-[22rem] xl:px-10 xl:border border-neutral-200 dark:border-dark-grey rounded-[0.625rem]">
-      <PageHeader title={meta.title} description={meta.description} />
+      <PageHeader title={meta.title} />
       <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
         <div
           id="content"
