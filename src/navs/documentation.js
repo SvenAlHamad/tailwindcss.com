@@ -1,7 +1,56 @@
 import { collapsable, horizontalLine, page, section } from '@/utils/navElements'
 
 export const documentationNav = [
-  page('webiny/introduction'),
+  collapsable('Get Started', [
+    page('get-started/install-webiny'),    
+  ]),
+  collapsable('Webiny Overview', [
+    page('overview/introduction'),
+    section('Applications', [
+      page('overview/applications/admin'),
+      page('overview/applications/apw'),
+      page('overview/applications/control-panel'),
+      page('overview/applications/file-manager'),
+      page('overview/applications/form-builder'),
+      page('overview/applications/headless-cms'),
+      page('overview/applications/page-builder'),
+    ]),
+    section('Features', [
+      page('overview/features/access-control'),
+      page('overview/features/cli'),
+      page('overview/features/framework'),
+      page('overview/features/multi-tenancy'),
+      page('overview/features/multiple-environments'),
+      page('overview/features/self-hosted'),
+      page('overview/features/serverless-infrastructure'),
+      page('overview/features/site-reliability'),
+      page('overview/features/security'),
+    ])
+  ]),
+  horizontalLine(),
+  collapsable('Page Builder', [
+      section('Theming', [
+        page('page-builder/theming/introduction'),
+        page('page-builder/theming/colors'),
+        page('page-builder/theming/elements'),
+        page('page-builder/theming/layouts'),
+      ]),
+      section('Extending functionality', [
+        page('tutorials/page-builder/create-a-new-page-element'),  
+        page('tutorials/page-builder/customize-an-existing-page-builder-element'),
+        page('how-to-guides/webiny-applications/page-builder/extend-graphql-api'),
+        page('how-to-guides/webiny-applications/page-builder/extend-page-settings'),
+        page('key-topics/page-builder/lifecycle-events'),
+      ]),
+      section('References', [
+        page('page-builder/references/plugins')
+      ]),
+  ]),
+
+
+
+  horizontalLine(),
+  
   page('tutorials/install-webiny'),
   collapsable('Core Concepts', [
     collapsable('Project Organization', [

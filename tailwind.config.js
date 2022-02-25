@@ -355,11 +355,11 @@ module.exports = {
               lineHeight: '2.625rem',
             },
             h3: {
-              fontSize: '2rem',
+              fontSize: '1.5rem',
               lineHeight: '2.375rem',
             },
             h4: {
-              fontSize: '1.75rem',
+              fontSize: '1.25rem',
               lineHeight: '2.0625rem',
             },
             'h1 *, h2 *, h3 *, h4 *': {
@@ -399,9 +399,10 @@ module.exports = {
           },
         ],
         'nav-subdirectory': [
-          '1rem',
+          '0.85rem',
           {
             lineHeight: '1.1875rem',
+            fontWeight: 500
           },
         ],
         'nav-link': [

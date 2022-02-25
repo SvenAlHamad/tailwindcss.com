@@ -107,7 +107,7 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
 
   return (
     <>
-      {/* second line */}
+      {/* top level */}
       <li
         href="#"
         onClick={() => setShowMenu(!showMenu)}
@@ -136,7 +136,7 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
           {title}
         </button>
       </li>
-      <ul className={clsx({ 'ml-[30px]': depth > 0, block: showMenu, hidden: !showMenu })}>
+      <ul className={clsx({ 'ml-[20px]': depth > 0, block: showMenu, hidden: !showMenu })}>
         {subElements.map((navElement, index) => (
           <NavTreeElement key={index} element={navElement} ref={ref} depth={depth + 1} />
         ))}
@@ -151,7 +151,7 @@ const Page = forwardRef(({ title, link, isActive, depth = 0 }, ref) => {
       <Link href={link}>
         {/* first line */}
         <a
-          className={clsx('grid content-center block my-[15px] h-[30px] cursor-pointer', {
+          className={clsx('link-element grid content-center block my-[15px] h-[20px] cursor-pointer', {
             'text-orange border-orange border-r-[2px] font-bold': isActive,
             'hover:border-r-[2px] hover:text-dark-purple hover:border-orange/50': !isActive,
             'font-semibold text-nav-directory': depth === 0,
@@ -166,22 +166,27 @@ const Page = forwardRef(({ title, link, isActive, depth = 0 }, ref) => {
     </li>
   )
 })
+// second level section
 const Section = forwardRef(({ title, subElements = [], isActiveChild, depth = 0 }, ref) => {
+
+  // sort sub elements by title attribute
+  //subElements.sort((a, b) => (a.title > b.title) ? 1 : -1);
+
   return (
     <>
       <li className="flex items-center">
         <span
           className={clsx({
-            'my-[10px] uppercase text-dark-blue font-normal text-nav-subdirectory dark:text-light-grey':
+            'section-title mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory dark:text-light-grey':
               !isActiveChild,
-            'my-[10px] uppercase text-dark-blue font-semibold text-nav-subdirectory': isActiveChild,
+            'section-title-active mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory': isActiveChild,
           })}
         >
           {title}
         </span>
       </li>
-      <ul className={clsx({ 'ml-[10px]': depth > 0 })}>
-        {subElements.map((navElement, index) => (
+      <ul className={clsx({ 'ml-[0px]': depth > 0 })}>
+        {subElements.sort().map((navElement, index) => (
           <NavTreeElement key={index} element={navElement} ref={ref} depth={depth + 1} />
         ))}
       </ul>

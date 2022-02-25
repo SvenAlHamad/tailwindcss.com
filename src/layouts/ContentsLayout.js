@@ -261,11 +261,13 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
       <div
         className={`fixed z-20 top-[4.15rem] bottom-0 right-[max(0px,calc(50%-48.5rem))] 2xl:right-[max(0px,calc(50%-50rem))] w-[19.5rem] 2xl:w-[22rem] pl-[4.3125rem] pr-[1.8125rem] overflow-y-auto hidden xl:block ${scroll}`}
       >
+        {toc.length > 0 && (
         <div className="border-l-2 border-orange pl-5 pt-[0.3125rem] pb-2.5 mt-[1.725rem]">
-          {toc.length > 0 && (
+          
             <TableOfContents tableOfContents={toc} currentSection={currentSection} />
-          )}
+          
         </div>
+        )}
         <WasThisArticleHelpful />
       </div>
     </div>

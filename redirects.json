@@ -1,12 +1,75 @@
 [
   {
     "source": "/",
-    "destination": "/docs/webiny/introduction",
-    "permanent": false
+    "destination": "/docs/get-started/install-webiny",
+    "permanent": true
   },
   {
     "source": "/docs",
-    "destination": "/docs/webiny/introduction",
-    "permanent": false
+    "destination": "/docs/get-started/install-webiny",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny/introduction",
+    "destination": "/docs/get-started/install-webiny",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/serverless-cms/apps/page-builder",
+    "destination": "/docs/overview/applications/page-builder",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/serverless-cms/apps/headless-cms",
+    "destination": "/docs/overview/applications/headless-cms",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/serverless-cms/apps/form-builder",
+    "destination": "/docs/overview/applications/form-builder",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/serverless-cms/apps/file-manager",
+    "destination": "/docs/overview/applications/file-manager",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/page-builder/introduction",
+    "destination": "/docs/page-builder/theming/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/docs/webiny-overview/security",
+    "destination": "/docs/overview/security",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/serverless-cms/apps/intro",
+    "destination": "/docs/overview/introduction",
+    "permanent": true
+  },
+
+  
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/page-builder/introduction",
+    "destination": "/docs/page-builder/theming/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/page-builder/colors",
+    "destination": "/docs/page-builder/theming/colors",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/page-builder/elements",
+    "destination": "/docs/page-builder/theming/elements",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/page-builder/layouts",
+    "destination": "/docs/page-builder/theming/layouts",
+    "permanent": true
   }
+  
 ]
