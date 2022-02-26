@@ -51,7 +51,6 @@ export const documentationNav = [
 
   horizontalLine(),
   
-  page('tutorials/install-webiny'),
   collapsable('Core Concepts', [
     collapsable('Project Organization', [
       page('key-topics/project-organization/project-applications'),

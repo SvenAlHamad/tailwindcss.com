@@ -94,7 +94,7 @@ export function Alert({ type, children, title }) {
   return (
     <div
       className={clsx(
-        'grid grid-cols-1 lg:grid-cols-[4.125rem__minmax(0,_auto)] gap-[0.625rem] lg:gap-0 text-dark-purple dark:text-white py-5 lg:py-6 pl-[0.875rem] lg:pl-0 pr-[0.875rem] lg:pr-[4.125rem] mb-5 rounded-[0.625rem]',
+        'alert-box grid grid-cols-1 lg:grid-cols-[4.125rem__minmax(0,_auto)] gap-[0.625rem] lg:gap-0 text-dark-purple dark:text-white py-5 lg:py-6 pl-[0.875rem] lg:pl-0 pr-[0.875rem] lg:pr-[4.125rem] mb-5 rounded-[0.625rem]',
         getBgByType(type)
       )}
     >

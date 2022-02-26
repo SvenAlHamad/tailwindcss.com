@@ -392,7 +392,7 @@ module.exports = {
       },
       fontSize: {
         'nav-directory': [
-          '1.126rem',
+          '1rem',
           {
             lineHeight: '1.3125rem',
           },
