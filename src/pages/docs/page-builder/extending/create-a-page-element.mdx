@@ -1,6 +1,6 @@
 ---
 title: Create a New Page Element
-description: Create a new Page Builder element.
+description: Tutorial on how to create a new element for Webiny Page Builder.
 ---
 
 import { Alert } from '@/components/Alert'
@@ -102,14 +102,14 @@ You can check the Webiny version by running the `yarn webiny --version` command 
 
 - add `"apps/extensions/pb-element-iframe"` to `workspaces` packages inside [`package.json`](https://github.com/webiny/webiny-js/blob/3a2facb072af70b1f4d647ab23219a4c42e1bf74/package.json) in project root
 
-```json {project-root}/package.json {7}
+```diff-js json {project-root}/package.json
 (...)
 "workspaces": {
   "packages": [
     "apps/admin/code",
     "apps/website/code"
     // (...)
-    "apps/extensions/pb-element-iframe"
++    "apps/extensions/pb-element-iframe"
   ]
 // (...)
 }
@@ -458,31 +458,31 @@ Along with the actual page, this plugin will also responsible for rendering the 
 Now that we've created plugins for the `iframe` element, we need to register them in the Admin Area application to work.
 Let's make the following changes in `apps/admin/code/src/plugins/pageBuilder/editorPlugins.ts` file:
 
-```ts apps/admin/code/src/plugins/pageBuilder/editorPlugins.ts {4,7-8}
+```diff-js ts apps/admin/code/src/plugins/pageBuilder/editorPlugins.ts
 (...)
 
 // Import the `iframe` element and it's settings
-import iframeElement, { iframeSettings } from "@extensions/pb-element-iframe/admin";
++ import iframeElement, { iframeSettings } from "@extensions/pb-element-iframe/admin";
 
 export default [
-    iframeElement(),
-    iframeSettings,
-    // Rest of the plugins
-    (...)
++    iframeElement(),
++    iframeSettings,
+     // Rest of the plugins
+     (...)
 ];
 ```
 
 Also in `apps/admin/code/src/plugins/pageBuilder/renderPlugins.ts` file:
 
-```ts apps/admin/code/src/plugins/pageBuilder/renderPlugins.ts {4,8}
+```diff-js ts apps/admin/code/src/plugins/pageBuilder/renderPlugins.ts
 (...)
 
 // Import the `iframe` element
-import iframeElement from "@extensions/pb-element-iframe/render";
++ import iframeElement from "@extensions/pb-element-iframe/render";
 
 export default [
     // Elements
-    iframeElement(),
++   iframeElement(),
     // Rest of the plugins
     (...)
 ];
@@ -503,24 +503,24 @@ With the [`webiny watch`](/docs/how-to-guides/use-watch-command/) command up and
 In the Website application, we will reuse the [Render Element Plugin](#render-element-plugin) to render the `iframe` page element.
 To reuse the `Render Element Plugin`, simply register it by making the following changes in the `apps/website/code/src/plugins/pageBuilder.ts` file:
 
-```ts apps/website/code/src/plugins/pageBuilder.ts {5,10}
+```diff-js ts apps/website/code/src/plugins/pageBuilder.ts
 // Some code is removed for the sake of brevity.
 (...)
 
 // Import `iframe` element
-import iframeElement from "@extensions/pb-element-iframe/render";
++ import iframeElement from "@extensions/pb-element-iframe/render";
 
 export default [
     (...)
     // Page elements
-    iframeElement(),
++   iframeElement(),
     (...)
 ];
 ```
 
 After registering the plugins successfully, the page element should be visible in your Website application:
 
-![Page preview inside editor](../assets/page-builder/iframe-website.png)
+![Page preview inside editor](./assets/iframe-website.png)
 
 ## Conclusion
 

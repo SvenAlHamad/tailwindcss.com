@@ -70,6 +70,11 @@
     "source": "/docs/how-to-guides/webiny-applications/themes/page-builder/layouts",
     "destination": "/docs/page-builder/theming/layouts",
     "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/page-builder/create-a-new-page-element",
+    "destination": "/docs/page-builder/extending/create-a-page-element",
+    "permanent": true
   }
   
 ]

@@ -146,20 +146,8 @@ export function NavItems() {
   return (
     <>
       <li>
-        <Link href="https://www.webiny.com/">
+        <Link href="/">
           <a className="text-nav-subdirectory dark:text-white">Webiny Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/docs/installation">
-          <a href="/docs/installation" className="text-nav-subdirectory dark:text-white">
-            Loremipsum
-          </a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/docs/installation">
-          <a className="text-nav-subdirectory dark:text-white">Dolor</a>
         </Link>
       </li>
     </>

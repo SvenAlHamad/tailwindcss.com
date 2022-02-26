@@ -295,6 +295,8 @@ module.exports = {
             },
             code: {
               color: theme('colors.slate.200'),
+              boxShadow: 'none',
+              backgroundColor: 'transparent',
             },
             blockquote: {
               color: theme('colors.white'),
@@ -321,10 +323,6 @@ module.exports = {
             strong: {
               color: theme('colors.slate.200'),
             },
-            code: {
-              boxShadow: 'inset 0 0 0 1px #4E4E4E',
-              backgroundColor: '#33363B',
-            },
             thead: {
               color: theme('colors.slate.300'),
               borderBottomColor: 'rgb(148 163 184 / 0.2)',
@@ -338,6 +336,7 @@ module.exports = {
             'figure figcaption': {
               color: '#C1C2C4',
             },
+
           },
         },
         md: {

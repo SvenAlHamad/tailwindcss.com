@@ -36,7 +36,7 @@ export const documentationNav = [
         page('page-builder/theming/layouts'),
       ]),
       section('Extending functionality', [
-        page('tutorials/page-builder/create-a-new-page-element'),  
+        page('page-builder/extending/create-a-page-element'),  
         page('tutorials/page-builder/customize-an-existing-page-builder-element'),
         page('how-to-guides/webiny-applications/page-builder/extend-graphql-api'),
         page('how-to-guides/webiny-applications/page-builder/extend-page-settings'),
