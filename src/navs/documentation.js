@@ -37,7 +37,7 @@ export const documentationNav = [
       ]),
       section('Extending functionality', [
         page('page-builder/extending/create-a-page-element'),  
-        page('tutorials/page-builder/customize-an-existing-page-builder-element'),
+        page('page-builder/extending/customize-an-existing-element'),
         page('how-to-guides/webiny-applications/page-builder/extend-graphql-api'),
         page('how-to-guides/webiny-applications/page-builder/extend-page-settings'),
         page('key-topics/page-builder/lifecycle-events'),
@@ -50,7 +50,7 @@ export const documentationNav = [
 
 
   horizontalLine(),
-  
+
   collapsable('Core Concepts', [
     collapsable('Project Organization', [
       page('key-topics/project-organization/project-applications'),

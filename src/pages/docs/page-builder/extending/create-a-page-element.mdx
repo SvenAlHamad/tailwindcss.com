@@ -22,7 +22,7 @@ To achieve that, we can utilize a couple of simple plugins, which is what we'll 
 We’ll create a new page element that allows content creators to embed content using an `iframe`.
 Here's what the final result will look like:
 
-![Iframe page element](./assets/iframe-end.png)
+![Iframe page element](./assets/create-a-page-element/iframe-end.png)
 
 <Alert type="info">
 
@@ -153,7 +153,7 @@ After successfully performing the above-mentioned steps, the folder structure of
 
 Click the **plus** icon located on the left sidebar of the editor to access all the available page elements:
 
-![Iframe page element](./assets/iframe-add-element.png)
+![Iframe page element](./assets/create-a-page-element/iframe-add-element.png)
 
 As mentioned, this list of page elements can be expanded, and custom page elements can be created via plugins.
 Now let's create all the necessary plugins for the Admin Area application.
@@ -169,7 +169,7 @@ import styled from '@emotion/styled'
 import { PbEditorPageElementPlugin, DisplayMode } from '@webiny/app-page-builder/types'
 import { createInitialPerDeviceSettingValue } from '@webiny/app-page-builder/editor/plugins/elementSettings/elementSettingsUtils'
 
-import { ReactComponent as IFrameIcon } from './assets/iframe-icon.svg'
+import { ReactComponent as IFrameIcon } from './assets/create-a-page-element/iframe-icon.svg'
 import IframeEditor from './components/iframeEditor'
 
 const PreviewBox = styled('div')({
@@ -279,7 +279,7 @@ import React from 'react'
 import { css } from 'emotion'
 import styled from '@emotion/styled'
 import { ElementRoot } from '@webiny/app-page-builder/render/components/ElementRoot'
-import { ReactComponent as IFrameIcon } from '../assets/iframe-icon.svg'
+import { ReactComponent as IFrameIcon } from '../assets/create-a-page-element/iframe-icon.svg'
 
 const outerWrapper = css({
   boxSizing: 'border-box',
@@ -388,7 +388,7 @@ export default {
 
 As mentioned, this code will show the settings UI in sidebar and ask for the URL of the `iframe`, as shown below:
 
-![Iframe page element settings](./assets/drop-iframe-element.gif)
+![Iframe page element settings](./assets/create-a-page-element/drop-iframe-element.gif)
 
 ### Render Element Plugin
 
@@ -451,7 +451,7 @@ export default IFrame
 
 Along with the actual page, this plugin will also responsible for rendering the element in the page preview, as shown in the image below:
 
-![Page preview inside editor](./assets/preview.png)
+![Page preview inside editor](./assets/create-a-page-element/preview.png)
 
 ### Register Plugins in the Admin Area Application
 
@@ -490,7 +490,7 @@ export default [
 
 After registering the plugins successfully, we should be able to see the `iframe` element in the Admin Area application, as shown below:
 
-![Editor Iframe page element](./assets/iframe-element.gif)
+![Editor Iframe page element](./assets/create-a-page-element/iframe-element.gif)
 
 <Alert type="success">
 
@@ -520,7 +520,7 @@ export default [
 
 After registering the plugins successfully, the page element should be visible in your Website application:
 
-![Page preview inside editor](./assets/iframe-website.png)
+![Page preview inside editor](./assets/create-a-page-element/iframe-website.png)
 
 ## Conclusion
 

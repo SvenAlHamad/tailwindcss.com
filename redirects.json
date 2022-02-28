@@ -75,6 +75,11 @@
     "source": "/docs/tutorials/page-builder/create-a-new-page-element",
     "destination": "/docs/page-builder/extending/create-a-page-element",
     "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/page-builder/customize-an-existing-page-builder-element",
+    "destination": "/docs/page-builder/extending/customize-an-existing-element",
+    "permanent": true
   }
   
 ]

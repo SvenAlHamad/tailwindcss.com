@@ -8,7 +8,7 @@ export function PageHeader({ title, description, parents }) {
       id="header"
       className="dark:prose-dark xl:-mt-[0.75rem] mb-[1.875rem] xl:mb-[3.75rem]"
     >
-      <p class="mb-3 text-sm leading-6 font-semibold text-orange">{parent}</p>
+      <p className="mb-3 text-sm leading-6 font-semibold text-orange">{parent}</p>
       <h1 className="text-4xl font-extrabold text-slate-900 mb-0">{title}</h1>
       <div className="mt-0 md:mt-0 -mb-5">
         {description && <p className="text-lg mt-0 md:mt-0">{description}</p>}
