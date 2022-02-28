@@ -1,9 +1,7 @@
 import { collapsable, horizontalLine, page, section } from '@/utils/navElements'
 
 export const documentationNav = [
-  collapsable('Get Started', [
-    page('get-started/install-webiny'),    
-  ]),
+  collapsable('Get Started', [page('get-started/install-webiny')]),
   collapsable('Webiny Overview', [
     page('overview/introduction'),
     section('Applications', [
@@ -25,29 +23,27 @@ export const documentationNav = [
       page('overview/features/serverless-infrastructure'),
       page('overview/features/site-reliability'),
       page('overview/features/security'),
-    ])
+    ]),
   ]),
   horizontalLine(),
   collapsable('Page Builder', [
-      section('Theming', [
-        page('page-builder/theming/introduction'),
-        page('page-builder/theming/colors'),
-        page('page-builder/theming/elements'),
-        page('page-builder/theming/layouts'),
-      ]),
-      section('Extending functionality', [
-        page('page-builder/extending/create-a-page-element'),  
-        page('page-builder/extending/customize-an-existing-element'),
-        page('how-to-guides/webiny-applications/page-builder/extend-graphql-api'),
-        page('how-to-guides/webiny-applications/page-builder/extend-page-settings'),
-        page('key-topics/page-builder/lifecycle-events'),
-      ]),
-      section('References', [
-        page('page-builder/references/plugins')
-      ]),
+    section('Theming', [
+      page('page-builder/theming/introduction'),
+      page('page-builder/theming/colors'),
+      page('page-builder/theming/elements'),
+      page('page-builder/theming/layouts'),
+    ]),
+    section('Extending functionality', [
+      page('page-builder/extending/create-a-page-element'),
+      page('page-builder/extending/customize-an-existing-element'),
+      page('page-builder/extending/extend-graphql-api'),
+      page('page-builder/extending/extend-page-settings'),
+    ]),
+    section('References', [
+      page('page-builder/references/lifecycle-events'),
+      page('page-builder/references/plugins'),
+    ]),
   ]),
-
-
 
   horizontalLine(),
 
@@ -125,7 +121,6 @@ export const documentationNav = [
       page('tutorials/page-builder/customize-an-existing-page-builder-element'),
       page('how-to-guides/webiny-applications/page-builder/extend-graphql-api'),
       page('how-to-guides/webiny-applications/page-builder/extend-page-settings'),
-      page('key-topics/page-builder/lifecycle-events'),
       collapsable('Themes', [
         page('how-to-guides/webiny-applications/themes/page-builder/introduction'),
         page('how-to-guides/webiny-applications/themes/page-builder/colors'),

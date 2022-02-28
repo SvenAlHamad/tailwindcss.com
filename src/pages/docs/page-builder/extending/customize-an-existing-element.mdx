@@ -168,7 +168,7 @@ It is a function that gets the default value as the argument and returns the dat
 
 Let's see the example below:
 
-```ts {13-32} apps/admin/code/src/plugins/pageBuilder/editorPlugins.ts
+```diff-js ts apps/admin/code/src/plugins/pageBuilder/editorPlugins.ts
 import { set } from 'dot-prop-immutable'
 import { createInitialPerDeviceSettingValue } from '@webiny/app-page-builder/editor/plugins/elementSettings/elementSettingsUtils'
 import { DisplayMode } from '@webiny/app-page-builder/types'
@@ -181,26 +181,26 @@ button({
     'pb-editor-page-element-style-settings-padding',
     'pb-editor-page-element-style-settings-width',
   ],
-  create: (defaultValue) => {
-    // Set default value for the padding property
-    let elementData = set(
-      defaultValue,
-      'data.settings.padding',
-      createInitialPerDeviceSettingValue(
-        { advanced: true, top: '12px', right: '16px', bottom: '12px', left: '16px' },
-        DisplayMode.DESKTOP
-      )
-    )
-
-    // Set default value for the width property
-    elementData = set(
-      elementData,
-      'data.settings.width',
-      createInitialPerDeviceSettingValue({ value: '150px' }, DisplayMode.DESKTOP)
-    )
-
-    return elementData
-  },
++ create: (defaultValue) => {
++    // Set default value for the padding property
++    let elementData = set(
++      defaultValue,
++      'data.settings.padding',
++      createInitialPerDeviceSettingValue(
++        { advanced: true, top: '12px', right: '16px', bottom: '12px', left: '16px' }+,
++        DisplayMode.DESKTOP
++      )
++    )
++
++    // Set default value for the width property
++    elementData = set(
++      elementData,
++      'data.settings.width',
++      createInitialPerDeviceSettingValue({ value: '150px' }, DisplayMode.DESKTOP)
++    )
++
++    return elementData
++  },
 })
 
 //
