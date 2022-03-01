@@ -26,6 +26,16 @@ export const documentationNav = [
     ]),
   ]),
   horizontalLine(),
+  collapsable('Headless CMS', [
+    section('Basics', [
+      page('headless-cms/basics/graphql-api'),
+      page('headless-cms/basics/using-graphql-api'),
+    ]),
+    section('Extending functionality', [
+      page('headless-cms/extending/extend-graphql-api'),
+      page('headless-cms/extending/custom-field-type'),
+    ]),
+  ]),
   collapsable('Page Builder', [
     section('Theming', [
       page('page-builder/theming/introduction'),

@@ -360,6 +360,26 @@
     "source": "/docs/key-topics/webiny-applications/themes/form-builder/layouts",
     "destination": "/docs/how-to-guides/webiny-applications/themes/form-builder/layouts",
     "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/webiny-applications/headless-cms/graphql-api",
+    "destination": "/docs/headless-cms/basics/graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/headless-cms/using-graphql-api",
+    "destination": "/docs/headless-cms/basics/using-graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/headless-cms/extend-graphql-api",
+    "destination": "/docs/headless-cms/extending/extend-graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/headless-cms/create-a-webiny-headless-cms-custom-field-plugin",
+    "destination": "/docs/headless-cms/extending/custom-field-type",
+    "permanent": true
   }
   
 ]
