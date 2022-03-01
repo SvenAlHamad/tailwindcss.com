@@ -380,6 +380,11 @@
     "source": "/docs/tutorials/headless-cms/create-a-webiny-headless-cms-custom-field-plugin",
     "destination": "/docs/headless-cms/extending/custom-field-type",
     "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/headless-cms/content-model-plugins",
+    "destination": "/docs/headless-cms/extending/define-content-models-via-code",
+    "permanent": true
   }
   
 ]

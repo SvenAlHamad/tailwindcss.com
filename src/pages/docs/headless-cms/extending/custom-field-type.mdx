@@ -1,5 +1,5 @@
 ---
-title: Custom Field Type
+title: Create a Custom Field Type
 description: Create a Webiny Headless CMS Custom Field Plugin.
 ---
 
@@ -123,7 +123,7 @@ As a result, our new field should be shown in **Fields** menu:
 As our next step, we'll define a renderer for our new field. The renderer determines how this field will be rendered in the content entry form, when you create/update your data. We'll be using the `CmsEditorFieldRendererPlugin` plugin type.
 
 1. Create a file [`secretTextFieldRendererPlugin.tsx`](https://github.com/webiny/webiny-examples/blob/master/headless-cms/custom-field-plugin/ui/secretTextFieldRendererPlugin.tsx) in `apps/admin/code/src/plugins/headlessCMS/fields/secretText` directory.
-  ```ts secretTextFieldRendererPlugin.tsx
+```ts secretTextFieldRendererPlugin.tsx
   import React from 'react'
   import { CmsEditorFieldRendererPlugin } from '@webiny/app-headless-cms/types'
   import { Input } from '@webiny/ui/Input'
@@ -187,7 +187,7 @@ Cool, so far, we are done with the UI part of the custom field. In the next step
 
 1. Create `fields/secretText` directory in `api/code/headlessCMS/src`.
 2. Create a file [`secretTextFieldPlugin.ts`](https://github.com/webiny/webiny-examples/blob/master/headless-cms/custom-field-plugin/api/secretTextFieldPlugin.ts) in newly created directory.
-  ```ts api/code/headlessCMS/src/fields/secretText/secretTextFieldPlugin.ts
+```ts api/code/headlessCMS/src/fields/secretText/secretTextFieldPlugin.ts
   import { CmsModelFieldToGraphQLPlugin } from '@webiny/api-headless-cms/types'
 
   const createListFilters = ({ field }) => {
@@ -231,19 +231,19 @@ Cool, so far, we are done with the UI part of the custom field. In the next step
   ```
 
 3. Import this new plugin in `api/code/headlessCMS/src/index.ts`.
-  ```ts api/code/headlessCMS/src/index.ts {5,12}
+```diff-js api/code/headlessCMS/src/index.ts
   (...)
   import scaffoldsPlugins from "./plugins/scaffolds";
 
   // Import the `secretTextFieldPlugin` plugin
-  import secretTextFieldPlugin from "./fields/secretText/secretTextFieldPlugin"
++ import secretTextFieldPlugin from "./fields/secretText/secretTextFieldPlugin"
 
   export const handler = createHandler({
       plugins: [
       // Rest of the plugins
       (...)
       scaffoldsPlugins(),
-      secretTextFieldPlugin
++     secretTextFieldPlugin
       (...)
   });
   ```
@@ -309,12 +309,12 @@ export default () => {
 
 As a next step, import this new plugin in `api/code/headlessCMS/src/index.ts`.
 
-```ts api/code/headlessCMS/src/index.ts {5,13}
+```diff-js api/code/headlessCMS/src/index.ts
 (...)
 import scaffoldsPlugins from "./plugins/scaffolds";
 
 // Import the `secretTextFieldStoragePlugin` plugin
-import secretTextFieldStoragePlugin from "./fields/secretText/secretTextFieldStoragePlugin"
++ import secretTextFieldStoragePlugin from "./fields/secretText/secretTextFieldStoragePlugin"
 
 export const handler = createHandler({
     plugins: [
@@ -322,7 +322,7 @@ export const handler = createHandler({
     (...)
     elasticsearchDataGzipCompression(),
     secretTextFieldPlugin,
-    secretTextFieldStoragePlugin()
++   secretTextFieldStoragePlugin()
     (...)
 });
 ```
