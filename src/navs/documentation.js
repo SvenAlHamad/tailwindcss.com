@@ -36,6 +36,9 @@ export const documentationNav = [
       page('headless-cms/extending/custom-field-type'),
       page('headless-cms/extending/extend-graphql-api'),
     ]),
+    section('References', [
+      page('headless-cms/references/lifecycle-events'),
+    ]),
   ]),
   collapsable('Page Builder', [
     section('Theming', [
@@ -118,7 +121,6 @@ export const documentationNav = [
       page('how-to-guides/webiny-applications/headless-cms/using-graphql-api'),
       page('how-to-guides/webiny-applications/headless-cms/extend-graphql-api'),
       page('tutorials/headless-cms/create-a-webiny-headless-cms-custom-field-plugin'),
-      page('key-topics/headless-cms/lifecycle-events'),
       page('how-to-guides/webiny-applications/headless-cms/create-a-content-model-form-layout'),
       page('how-to-guides/webiny-applications/headless-cms/rendering-rich-text'),
       collapsable('Plugins', [

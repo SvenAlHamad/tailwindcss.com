@@ -385,6 +385,11 @@
     "source": "/docs/how-to-guides/webiny-applications/headless-cms/content-model-plugins",
     "destination": "/docs/headless-cms/extending/define-content-models-via-code",
     "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/headless-cms/lifecycle-events",
+    "destination": "/docs/headless-cms/references/lifecycle-events",
+    "permanent": true
   }
   
 ]
