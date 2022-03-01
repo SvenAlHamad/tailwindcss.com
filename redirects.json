@@ -390,6 +390,21 @@
     "source": "/docs/key-topics/headless-cms/lifecycle-events",
     "destination": "/docs/headless-cms/references/lifecycle-events",
     "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/headless-cms/create-a-content-model-form-layout",
+    "destination": "/docs/headless-cms/extending/customize-entry-form-layout",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/headless-cms/rendering-rich-text",
+    "destination": "/docs/headless-cms/extending/render-rich-text-content",
+    "permanent": true
+  },
+  {
+    "source": "/docs/serverless-cms/headless-cms/plugins/storage-transform-plugin",
+    "destination": "/docs/headless-cms/references/storage-transform-plugin",
+    "permanent": true
   }
   
 ]
