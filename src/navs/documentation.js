@@ -62,6 +62,13 @@ export const documentationNav = [
       page('page-builder/references/plugins'),
     ]),
   ]),
+  collapsable('Form Builder', [
+    section('Theming', [
+      page('form-builder/theming/introduction'),
+      page('form-builder/theming/layouts'),
+    ]),
+    section('References', [page('form-builder/references/plugins')]),
+  ]),
 
   horizontalLine(),
 

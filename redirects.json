@@ -405,6 +405,16 @@
     "source": "/docs/serverless-cms/headless-cms/plugins/storage-transform-plugin",
     "destination": "/docs/headless-cms/references/storage-transform-plugin",
     "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/form-builder/introduction",
+    "destination": "/docs/form-builder/theming/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/themes/form-builder/layouts",
+    "destination": "/docs/form-builder/theming/layouts",
+    "permanent": true
   }
   
 ]
