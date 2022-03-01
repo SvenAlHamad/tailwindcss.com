@@ -249,7 +249,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
         >
           <MDXProvider components={{ 
             Heading,
-            ol: (props) => <ol {...props} style={{'--start':props.start}} />,
+            ol: (props) => <ol {...props} style={{'--start':(props.start ?? 1)}} />,
           }}>{children}</MDXProvider>
         </div>
       </ContentsContext.Provider>
