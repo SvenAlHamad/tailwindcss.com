@@ -27,7 +27,7 @@ The code that we cover in this section can also be found in our GitHub [examples
 
 It's time to create the **New Pin** modal dialog, which the users will open by clicking on the **&#10753;** icon, located in the top right corner of the screen.
 
-![Open New Pin Modal Dialog](./new-pin-modal-dialog/plus-header-button.png)
+![Open New Pin Modal Dialog](./assets/new-pin-modal-dialog/plus-header-button.png)
 
 For starters, let's create the [`NewPinModal`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/03-new-pin-modal-dialog/pinterest-clone/app/code/src/components/NewPinModal.tsx#L26) React component in the [`pinterest-clone/app/code/src/components/NewPinModal.tsx`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/03-new-pin-modal-dialog/pinterest-clone/app/code/src/components/NewPinModal.tsx) file:
 
@@ -134,20 +134,20 @@ Now that we have the **New Pin** modal dialog ready to go, let's create the ment
 
 So, let's update the [`Layout`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/03-new-pin-modal-dialog/pinterest-clone/app/code/src/components/Layout.tsx#L12) component with the following lines of code:
 
-```tsx pinterest-clone/app/code/src/components/Layout.tsx {1,2,3,6,13,24-32,38}
-import React, { useState } from "react";
-import { Divider, Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+```diff-js pinterest-clone/app/code/src/components/Layout.tsx 
++ import React, { useState } from "react";
++ import { Divider, Button } from "antd";
++ import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "@webiny/react-router";
 import logo from "~/images/logo.png";
-import NewPinModal from "./NewPinModal";
++ import NewPinModal from "./NewPinModal";
 
 /**
  * The default layout component which you can use on any page.
  * Feel free to customize it or create additional layout components.
  */
 const Layout: React.FC<{ className: string }> = props => {
-    const [visible, setVisible] = useState(false);
++    const [visible, setVisible] = useState(false);
 
     return (
         <div className="layout">
@@ -158,21 +158,21 @@ const Layout: React.FC<{ className: string }> = props => {
                         <img src={logo} className="logo" alt={"Pinterest Clone"} />
                     </Link>
                 </div>
-                <div>
-                    <Button
-                        onClick={() => setVisible(true)}
-                        type="primary"
-                        size={"large"}
-                        shape="circle"
-                        icon={<PlusOutlined />}
-                    />
-                </div>
++                <div>
++                    <Button
++                       onClick={() => setVisible(true)}
++                       type="primary"
++                       size={"large"}
++                       shape="circle"
++                       icon={<PlusOutlined />}
++                   />
++                </div>
             </nav>
             <Divider style={{ margin: 0 }} />
 
             {/* The pages are rendered within the `main` tag. */}
             <main className={props.className}>{props.children}</main>
-            <NewPinModal visible={visible} onClose={() => setVisible(false)} />
++           <NewPinModal visible={visible} onClose={() => setVisible(false)} />
         </div>
     );
 };
@@ -184,7 +184,7 @@ export default Layout;
 
 With all of the code updates in place, we should be able to see the **&#10753;** icon in the header and open the **New Pin** dialog by clicking on it. And, of course, we should be able to create new pins by simply filling the form and pressing the **OK** button. Feel free to create as much pins as you like!
 
-![New Pin Modal Dialog](./new-pin-modal-dialog/new-pin-modal-dialog.png)
+![New Pin Modal Dialog](./assets/new-pin-modal-dialog/new-pin-modal-dialog.png)
 
 <Alert type="info">
 

@@ -1,5 +1,5 @@
 ---
-title: Adjusting "webiny.config.ts" Configuration File
+title: Adjusting "webiny.config.ts" config
 description: Learn how to we can transfer all of the stack output properties that we've previously added in GraphQL API and React application cloud infrastructure code, into our React application.
 ---
 
@@ -41,7 +41,7 @@ Changes made to the [`webiny.config.ts`](https://github.com/webiny/webiny-exampl
 
 The following code highlights the changes that need to be performed:
 
-```ts pinterest-clone/app/code/webiny.config.ts {16-18,21-23,40-47,67-74}
+```diff-ts pinterest-clone/app/code/webiny.config.ts
 import invariant from "invariant";
 import { createWatchApp, createBuildApp } from "@webiny/project-utils";
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
@@ -57,14 +57,14 @@ import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
 const API_MAP = {
     REACT_APP_API_URL: "${apiUrl}",
     REACT_APP_GRAPHQL_API_URL: "${apiUrl}/graphql",
-    REACT_APP_USER_POOL_REGION: "${region}",
-    REACT_APP_USER_POOL_ID: "${cognitoUserPool.id}",
-    REACT_APP_USER_POOL_DOMAIN: "${cognitoUserPool.domain}"
++   REACT_APP_USER_POOL_REGION: "${region}",
++   REACT_APP_USER_POOL_ID: "${cognitoUserPool.id}",
++   REACT_APP_USER_POOL_DOMAIN: "${cognitoUserPool.domain}"
 };
 
-const APP_MAP = {
-    REACT_APP_USER_POOL_WEB_CLIENT_ID: "${cognitoUserPool.clientId}"
-};
++ const APP_MAP = {
++   REACT_APP_USER_POOL_WEB_CLIENT_ID: "${cognitoUserPool.clientId}"
++ };
 
 const NO_ENV_MESSAGE = `Please specify the environment via the "--env" argument, for example: "--env dev".`;
 
@@ -81,14 +81,14 @@ export default {
                 })
             );
 
-            Object.assign(
-                process.env,
-                getStackOutput({
-                    folder: "pinterest-clone/app",
-                    env: options.env,
-                    map: APP_MAP,
-                })
-            );
++           Object.assign(
++               process.env,
++               getStackOutput({
++                   folder: "pinterest-clone/app",
++                   env: options.env,
++                   map: APP_MAP,
++               })
++           );
 
             // Starts the local development server at port 3002.
             Object.assign(process.env, { PORT: 3002 });
@@ -108,14 +108,14 @@ export default {
                 })
             );
 
-            Object.assign(
-                process.env,
-                getStackOutput({
-                    folder: "pinterest-clone/app",
-                    env: options.env,
-                    map: APP_MAP,
-                })
-            );
++           Object.assign(
++               process.env,
++               getStackOutput({
++                   folder: "pinterest-clone/app",
++                   env: options.env,
++                   map: APP_MAP,
++               })
++           );
 
             // Creates a production build of your application, ready to be deployed to
             // a hosting provider of your choice, for example Amazon S3.
@@ -190,9 +190,7 @@ With all of the new stack output properties now being passed to our React applic
 
 ## FAQ
 
-### Placeholder
-
-#### Is there a way to detect whether we're deploying our React application for the first time?
+### Is there a way to detect whether we're deploying our React application for the first time?
 
 To determine whether the React application has been deployed or not, we can run the following [`webiny output`](/docs/key-topics/webiny-cli#yarn-webiny-output---env-env) command:
 
@@ -202,7 +200,7 @@ yarn webiny output pinterest-clone/app --env  --json
 
 If the result is different from `"null"`, that would mean the application has been previously deployed.
 
-![Running webiny Output Command on a Non-existing and Existing Environments](./adjusting-webiny-config-ts/stack-output-example.png)
+![Running webiny Output Command on a Non-existing and Existing Environments](./assets/adjusting-webiny-config-ts/stack-output-example.png)
 
 <Alert type="info">
 

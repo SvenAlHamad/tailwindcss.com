@@ -29,7 +29,7 @@ The code that we cover in this section can also be found in our GitHub [examples
 
 In this section, we'll be performing all of the needed cloud infrastructure code changes within the [`dev`](https://github.com/webiny/webiny-examples/tree/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev) stack. Note that you should perform the same changes within the [`prod`](https://github.com/webiny/webiny-examples/tree/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/prod) stack as well.
 
-In case you missed it, check out the [`dev` and `prod` Stacks](/docs/tutorials/create-custom-application/security/getting-started#dev-and-prod-stacks) section.
+In case you missed it, check out the [dev and prod Stacks](../security-overview/get-started#dev-and-prod-stacks) section.
 
 </Alert>
 
@@ -37,7 +37,7 @@ Let's start by defining a new User Pool and a User Pool Domain within our GraphQ
 
 Inside of the [`pinterest-clone/api/pulumi/dev`](https://github.com/webiny/webiny-examples/tree/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev) folder, let's create the new [`cognito.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev/cognito.ts) file. It should export the following [`Cognito`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev/cognito.ts#L6) class that encapsulates new cloud infrastructure code:
 
-```ts pinterest-clone/api/pulumi/dev/cognito.ts {14,42}
+```diff-ts pinterest-clone/api/pulumi/dev/cognito.ts
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import * as crypto from "crypto";
@@ -51,7 +51,7 @@ class Cognito {
         // Creates a new user pool. For more information on all of the available options, see:
         // https://www.pulumi.com/docs/reference/pkg/aws/cognito/userpool/
         // https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html
-        this.userPool = new aws.cognito.UserPool("pinterest-clone", {
++       this.userPool = new aws.cognito.UserPool("pinterest-clone", {
             schemas: BASE_ATTRIBUTE_NAMES.map(name => ({
                 name,
                 attributeDataType: "String",
@@ -79,7 +79,7 @@ class Cognito {
         // For more information on all of the available options, see:
         // https://www.pulumi.com/docs/reference/pkg/aws/cognito/userpooldomain/
         // https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.html
-        this.userPoolDomain = new aws.cognito.UserPoolDomain("pinterest-clone", {
++       this.userPoolDomain = new aws.cognito.UserPoolDomain("pinterest-clone", {
             domain: this.userPool.id.apply((id: string) => {
                 // Create a unique MD5 hash of the User Pool ID and use that for the domain name.
                 return crypto.createHash("md5").update(id).digest("hex");
@@ -112,12 +112,12 @@ First, in order for the new cloud infrastructure code to be actually executed, w
 
 Ultimately, this is how the updated [`index.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev/index.ts) entrypoint file should look like:
 
-```ts pinterest-clone/api/pulumi/dev/index.ts {5,17,53-56}
+```diff-ts pinterest-clone/api/pulumi/dev/index.ts
 import DynamoDB from "./dynamoDb";
 import Graphql from "./graphql";
 import ApiGateway from "./apiGateway";
 import Cloudfront from "./cloudfront";
-import Cognito from "./cognito";
++ import Cognito from "./cognito";
 
 // Among other things, this determines the amount of information we reveal on runtime errors.
 // https://www.webiny.com/docs/how-to-guides/environment-variables/#debug-environment-variable
@@ -129,7 +129,7 @@ const WEBINY_LOGS_FORWARD_URL = String(process.env.WEBINY_LOGS_FORWARD_URL);
 
 export default () => {
   const dynamoDb = new DynamoDB();
-  const cognito = new Cognito();
++ const cognito = new Cognito();
 
   const api = new Graphql({
     dbTable: dynamoDb.table,
@@ -165,10 +165,10 @@ export default () => {
     apiUrl: cloudfront.getDistributionUrl(),
     graphqlApiUrl: cloudfront.getDistributionUrl("/graphql"),
     dynamoDbTable: dynamoDb.table.name,
-    cognitoUserPool: {
-      id: cognito.userPool.id,
-      domain: cognito.getUserPoolDomain(),
-    }
++   cognitoUserPool: {
++     id: cognito.userPool.id,
++     domain: cognito.getUserPoolDomain(),
++   }
   };
 };
 ```
@@ -181,11 +181,11 @@ In order to continue further development, the new cloud infrastructure resources
 
 If you had the [`webiny watch`](/docs/how-to-guides/use-watch-command) command up and running while making the shown changes, the new cloud infrastructure resources should have been deployed automatically for you:
 
-![Automatic Re-deployment of Cloud Infrastructure](./adding-user-pool-and-user-pool-domain/cloud-infra-auto-deploy.png)
+![Automatic Re-deployment of Cloud Infrastructure](./assets/adding-user-pool-and-user-pool-domain/cloud-infra-auto-deploy.png)
 
 If not, you can either start a new watch session, or simply deploy the changes via the [`webiny deploy`](/docs/how-to-guides/deployment/deploy-your-project) command.
 
-![Automatic Re-deployment of Cloud Infrastructure](./adding-user-pool-and-user-pool-domain/cloud-infra-deploy.png)
+![Automatic Re-deployment of Cloud Infrastructure](./assets/adding-user-pool-and-user-pool-domain/cloud-infra-deploy.png)
 
 <Alert type="success">
 

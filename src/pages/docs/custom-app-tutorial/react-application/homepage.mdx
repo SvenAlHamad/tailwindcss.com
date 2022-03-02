@@ -1,8 +1,5 @@
 ---
-id: homepage
 title: Homepage
-sidebar_label: Homepage
-keywords: ["create", "custom", "application", "react", "application", "homepage"]
 description: Learn how to create a simple homepage that lists the pins created by different users.
 ---
 
@@ -34,7 +31,7 @@ Now that we have our **New Pin** modal dialog working as expected, we're can con
 
 Like in the previous section, fetching the list of created pins can be easily done via the [Apollo Client](https://www.apollographql.com/docs/react/v2/) and its [`useQuery`](https://www.apollographql.com/docs/react/v2/data/queries/#executing-a-query) React hook. A bit trickier part is rendering the pins in a mosaic layout, which is how the original [Pinterest](https://www.pinterest.com/) website does it.
 
-![Pinterest - The Mosaic Layout](./homepage/pinterest-mosaic-layout.png)
+![Pinterest - The Mosaic Layout](./assets/homepage/pinterest-mosaic-layout.png)
 
 Luckily, we can achieve this pretty easily with a small React library called [`react-columned`](https://www.npmjs.com/package/react-columned), which we'll need to add to our React application. Once we have that, we can start working on our homepage by adjusting the existing [`Home`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/04-homepage/pinterest-clone/app/code/src/plugins/routes/home.tsx#L25) React component.
 
@@ -139,10 +136,10 @@ export default new RoutePlugin({
 
 All of these plugins are then registered in the [`pinterest-clone/app/code/src/plugins/index.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/04-homepage/pinterest-clone/app/code/src/plugins/index.ts) plugins entrypoint file. For example, in case of the **Homepage**, we have the following:
 
-```ts pinterest-clone/app/code/src/plugins/index.ts {3,12}
+```diff-js pinterest-clone/app/code/src/plugins/index.ts
 import { plugins } from "@webiny/plugins";
 import apolloLinkPlugins from "./apollo";
-import home from "./routes/home";
++ import home from "./routes/home";
 import notFound from "./routes/notFound";
 
 // Imports and registers all defined plugins.
@@ -151,7 +148,7 @@ plugins.register([
     apolloLinkPlugins,
 
     // Application routes.
-    home,
++   home,
     notFound
 ]);
 ```
@@ -191,7 +188,7 @@ Not super important, but making this change this will make the pins listed on ou
 
 With this component in place, our homepage should look like the following:
 
-![Homepage - List of Pins](./homepage/homepage.png)
+![Homepage - List of Pins](./assets/homepage/homepage.png)
 
 At the moment, we could probably say that our homepage looks a bit bland and maybe boring. But we don't need to worry about that for now. The whole page will start looking much more lively as soon as we bring the missing cover image field and file upload functionality into the mix.
 

@@ -101,7 +101,21 @@ export const documentationNav = [
     ]),
     section('Step 2: Create a React App', [
       page('custom-app-tutorial/react-application/introduction'),
+      page('custom-app-tutorial/react-application/layout'),
+      page('custom-app-tutorial/react-application/new-pin-modal-dialog'),
+      page('custom-app-tutorial/react-application/homepage'),
+      page('custom-app-tutorial/react-application/pin-details-page'),
     ]),
+    section('Step 3: Security prep work', [
+      page('custom-app-tutorial/security-overview/introduction'),
+      page('custom-app-tutorial/security-overview/get-started'),
+    ]),
+    section('Step 4: Adding User Pools', [
+      page('custom-app-tutorial/adding-user-pools/adding-user-pool-and-user-pool-domain'),
+      page('custom-app-tutorial/adding-user-pools/adding-user-pool-client'),
+      page('custom-app-tutorial/adding-user-pools/adjusting-webiny-config-ts-configuration-file'),
+    ]),
+    section('Step 5: Securing React App', []),
   ]),
 
   horizontalLine(),

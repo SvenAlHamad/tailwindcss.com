@@ -495,7 +495,53 @@
     "source": "/docs/tutorials/create-custom-application/react-application/introduction",
     "destination": "/docs/custom-app-tutorial/react-application/introduction",
     "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/react-application/layout",
+    "destination": "/docs/custom-app-tutorial/react-application/layout",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/react-application/new-pin-modal-dialog",
+    "destination": "/docs/custom-app-tutorial/react-application/new-pin-modal-dialog",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/react-application/homepage",
+    "destination": "/docs/custom-app-tutorial/react-application/homepage",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/react-application/pin-details-page",
+    "destination": "/docs/custom-app-tutorial/react-application/pin-details-page",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/introduction",
+    "destination": "/docs/custom-app-tutorial/security-overview/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/getting-started",
+    "destination": "/docs/custom-app-tutorial/security-overview/get-started",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/cloud-infrastructure/adding-user-pool-and-user-pool-domain",
+    "destination": "/docs/custom-app-tutorial/adding-user-pools/adding-user-pool-and-user-pool-domain",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/cloud-infrastructure/adding-user-pool-client",
+    "destination": "/docs/custom-app-tutorial/adding-user-pools/adding-user-pool-client",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/cloud-infrastructure/adjusting-webiny-config-ts-configuration-file",
+    "destination": "/docs/custom-app-tutorial/adding-user-pools/adjusting-webiny-config-ts-configuration-file",
+    "permanent": true
   }
+  
   
   
 ]

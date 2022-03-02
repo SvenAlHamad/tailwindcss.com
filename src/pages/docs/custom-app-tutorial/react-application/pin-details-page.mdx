@@ -117,10 +117,10 @@ As we can see, we're still using the [Ant Design](https://ant.design/docs/react/
 
 In order to form this URL structure and be able to read the ID from it, we've passed `/pins/:id` as the `path` prop to our [`Route`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-router/index.d.ts#L99) component:
 
-```tsx pinterest-clone/app/code/src/plugins/routes/pinDetails.tsx {3}
+```diff-js pinterest-clone/app/code/src/plugins/routes/pinDetails.tsx
 // We register routes via the `RoutePlugin` plugin.
 export default new RoutePlugin({
-    route: <Route path="/pins/:id" exact component={PinDetails} />
++   route: <Route path="/pins/:id" exact component={PinDetails} />
 });
 ```
 
@@ -148,11 +148,11 @@ In case you missed it, the [`@webiny/react-router`](https://www.npmjs.com/packag
 
 One last step we need to take here is register the exported [`RoutePlugin`](https://github.com/webiny/webiny-js/blob/v5.18.0/packages/app/src/plugins/RoutePlugin.tsx#L8) plugin in the [`pinterest-clone/app/code/src/plugins/index.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/05-pin-details-page/pinterest-clone/app/code/src/plugins/index.ts). We can do that like so:
 
-```ts pinterest-clone/app/code/src/plugins/index.ts {4,14}
+```diff-js pinterest-clone/app/code/src/plugins/index.ts
 import { plugins } from "@webiny/plugins";
 import apolloLinkPlugins from "./apollo";
 import home from "./routes/home";
-import pinDetails from "./routes/pinDetails";
++ import pinDetails from "./routes/pinDetails";
 import notFound from "./routes/notFound";
 
 // Imports and registers all defined plugins.
@@ -162,7 +162,7 @@ plugins.register([
 
     // Application routes.
     home,
-    pinDetails,
++   pinDetails,
     notFound
 ]);
 ```
@@ -192,20 +192,20 @@ So let's create a new [`pinDetails.scss`](https://github.com/webiny/webiny-examp
 }
 ```
 
-Then, similarly to what we did in the previous [Registering the `RoutePlugin` Plugin](/docs/tutorials/create-custom-application/react-application/pin-details-page#registering-the-routeplugin-plugin) section, let's import this newly created file in the [`App.scss`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/05-pin-details-page/pinterest-clone/app/code/src/App.scss) file, like so:
+Then, similarly to what we did in the previous [Registering the RoutePlugin Plugin](#registering-the-routeplugin-plugin) section, let's import this newly created file in the [`App.scss`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/04-react-application/05-pin-details-page/pinterest-clone/app/code/src/App.scss) file, like so:
 
-```scss pinterest-clone/app/code/src/App.scss {4}
+```diff-scss pinterest-clone/app/code/src/App.scss
 // An entrypoint file that imports all styles your application might have.
 @import "./styles/global";
 @import "./styles/home";
 @import "./styles/pinDetails";
-@import "./styles/notFound";
++ @import "./styles/notFound";
 ```
 
 ## Final Result
 
 Finally, with all of the both React and Sass code in place, if we were to click on an arbitrary pin from the homepage, we should be redirected to the **Pin Details** page and see something like the following:
 
-![Pin Details Page](./pin-details-page/pin-details-page.png)
+![Pin Details Page](./assets/pin-details-page/pin-details-page.png)
 
 If that's the case, then all of the steps were performed correctly. This also means we can move on to the following section of this tutorial, in which we'll talk about securing your application.
