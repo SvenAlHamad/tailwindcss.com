@@ -54,7 +54,7 @@ For this tutorial, we'll go with the second approach. So, in your terminal of ch
 ```bash
 yarn webiny scaffold
 ```
-![Extend GraphQL API Scaffold](./graphql-api/extend-gql-api-scaffold.png)
+![Extend GraphQL API Scaffold](./assets/create-a-graphql-api/extend-gql-api-scaffold.png)
 
 Once we've selected the **Extend GraphQL API** scaffold from the list, we'll get presented with the the following two questions:
 
@@ -65,7 +65,7 @@ As the answer to the first question, we can simply use the [`pinterest-clone/api
 
 Once we've answered all of the questions, after a quick confirmation step, scaffolding will start and eventually, we should end up with the following output in our terminal:
 
-![Extend GraphQL API Scaffold - Full Output](./graphql-api/extend-gql-api-scaffold-output.png)
+![Extend GraphQL API Scaffold - Full Output](./assets/create-a-graphql-api/extend-gql-api-scaffold-output.png)
 
 After the scaffolding process has been completed, we should end up with the following new GraphQL query and mutation operations in our GraphQL API:
 
@@ -143,7 +143,7 @@ mutation CreatePin($data: PinCreateInput!) {
 
 Once run, we should receive a response similar to the following (the only piece of information that should be different on your end should be the returned `id`):
 
-![CreatePin Mutation Test](./graphql-api/create-pin-mutation-test.png)
+![CreatePin Mutation Test](./assets/create-a-graphql-api/create-pin-mutation-test.png)
 
 <Alert type="info">
 
@@ -162,7 +162,7 @@ Adding the missing `coverImage` field can be done by making the following change
 
 So, for starters, let's open our [`Pin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/03-graphql-api/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/entities/Pin.ts#L10) entity and simply define the new attribute on it (parts of code removed for brevity):
 
-```diff-js ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/entities/Pin.ts
+```diff-js pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/entities/Pin.ts
 // https://github.com/jeremydaly/dynamodb-toolbox
 import { Entity } from "dynamodb-toolbox";
 import table from "./table";
@@ -203,14 +203,14 @@ For more information, check out the [Storing and Retrieving Data](/docs/how-to-g
 
 Notice how we're passing the [`PinEntity`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/03-graphql-api/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/types.ts#L6) interface upon instantiating the `Entity` class. Since the interface is essentially listing all attributes that our entity consists of, let's update it as well:
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/types.ts {7}
+```diff-js pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/types.ts {7}
 export interface PinEntity {
   PK: string;
   SK: string;
   id: string;
   title: string;
   description?: string;
-  coverImage?: string;
++ coverImage?: string;
   createdOn: string;
   savedOn: string;
   webinyVersion: string;
@@ -219,13 +219,13 @@ export interface PinEntity {
 
 Finally, let's update our `Pin` GraphQL types in our schema, located in the [`typeDefs.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/03-graphql-api/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts) file:
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts {6,14,20}
+```diff-js pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts
 export default /* GraphQL */ `
     type Pin {
         id: ID!
         title: String!
         description: String
-        coverImage: String
++       coverImage: String
         createdOn: DateTime!
         savedOn: DateTime!
     }
@@ -233,13 +233,13 @@ export default /* GraphQL */ `
     input PinCreateInput {
         title: String!
         description: String
-        coverImage: String
++       coverImage: String
     }
 
     input PinUpdateInput {
         title: String
         description: String
-        coverImage: String
++       coverImage: String
     }
 
     (...)
@@ -277,7 +277,7 @@ mutation CreatePin($data: PinCreateInput!) {
 }
 ```
 
-![CreatePin Mutation Test](./graphql-api/cover-image-preview.png)
+![CreatePin Mutation Test](./assets/create-a-graphql-api/cover-image-preview.png)
 
 <Alert type="info">
 
@@ -292,13 +292,10 @@ Now that we've defined our fundamental [`Pin`](https://github.com/webiny/webiny-
 But, do note that we'll still be returning to our GraphQL API. As already mentioned, we'll still need to implement a couple of missing pieces here. Most importantly: security and the image upload functionality. We will tackle these separately in the upcoming sections of this tutorial.
 
 ## FAQ
-
-### Placeholder
-
-#### Which database is used in the generated GraphQL API application code?
+### Which database is used in the generated GraphQL API application code?
 
 The generated GraphQL API application code relies exclusively on [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) for storing and retrieving data. Of course, you're certainly free to bring your own databases and import different database clients, if need be. In essence, this will require you to remove the Amazon DynamoDB table definition in the cloud infrastructure code, and integrate the preferred database and a database client in your application code.
 
-#### I see DynamoDB Toolbox is being used for interacting with Amazon DynamoDB. Can I use a different library?
+### I see DynamoDB Toolbox is being used for interacting with Amazon DynamoDB. Can I use a different library?
 
 Yes, you can, but this is not something that can be done automatically. The library replacement will need to be done by you, manually. One of the libraries you could use is the default [AWS DynamoDB Document Client](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/dynamodb-example-document-client.html), but feel free to bring the one you prefer the most.

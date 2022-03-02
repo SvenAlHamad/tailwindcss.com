@@ -167,8 +167,8 @@ module.exports = {
               listStyle: 'none',
               position: 'relative',
             },
-            'ol li::before': {
-              content:'counter(cupcake)',
+            'ol>li::before': {
+              content: 'counter(cupcake)',
               backgroundColor: '#fff',
               position: 'absolute',
               color: '#000',
@@ -336,7 +336,6 @@ module.exports = {
             'figure figcaption': {
               color: '#C1C2C4',
             },
-
           },
         },
         md: {
@@ -401,7 +400,7 @@ module.exports = {
           '0.85rem',
           {
             lineHeight: '1.1875rem',
-            fontWeight: 500
+            fontWeight: 500,
           },
         ],
         'nav-link': [

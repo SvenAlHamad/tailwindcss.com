@@ -91,6 +91,21 @@ export const documentationNav = [
 
   horizontalLine(),
 
+  collapsable('Custom App Tutorial', [
+    section('Tutorial Overview', [
+      page('custom-app-tutorial/overview/introduction'),
+      page('custom-app-tutorial/overview/get-started'),
+    ]),
+    section('Step 1: Create a GraphQL API', [
+      page('custom-app-tutorial/graphql-api/create-a-graphql-api'),
+    ]),
+    section('Step 2: Create a React App', [
+      page('custom-app-tutorial/react-application/introduction'),
+    ]),
+  ]),
+
+  horizontalLine(),
+
   collapsable('Core Concepts', [
     collapsable('Project Organization', [
       page('key-topics/project-organization/project-applications'),
@@ -102,6 +117,7 @@ export const documentationNav = [
     page('how-to-guides/deployment/deploy-your-project'),
     page('key-topics/webiny-cli'),
   ]),
+  /*
   collapsable('Create Custom Application', [
     page('tutorials/create-custom-application/introduction'),
     page('tutorials/create-custom-application/getting-started'),
@@ -142,6 +158,7 @@ export const documentationNav = [
       page('tutorials/create-custom-application/security/wrapping-it-up'),
     ]),
   ]),
+  */
   ///////////////////////// HERES BE NEW BLOCKS////////////////////
 
   collapsable('Deployment', [

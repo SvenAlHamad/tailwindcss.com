@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Get Started
 description: Learn how to use the existing Full Stack Application scaffold in order to start building your first custom Webiny application.
 ---
 
@@ -35,7 +35,7 @@ Speaking of deployment, note that we'll need to deploy the newly created GraphQL
 
 In order to host the GraphQL API, these are the cloud infrastructure resources that will get deployed:
 
-![Cloud Infrastructure Resources](./getting-started/new_graphql_api_scaffold.png)
+![Cloud Infrastructure Resources](./assets/getting-started/new_graphql_api_scaffold.png)
 
 Note that we will expand this infrastructure with a couple of additional resources, in the following sections of this tutorial.
 
@@ -47,7 +47,7 @@ Note that, for development purposes, except having the GraphQL API deployed, we 
 
 In order to host the React application, these are the cloud infrastructure resources that will get deployed:
 
-![Cloud Infrastructure Resources](./getting-started/new_react_app_scaffold.png)
+![Cloud Infrastructure Resources](./assets/getting-started/new_react_app_scaffold.png)
 
 ## Running the Scaffold
 
@@ -59,7 +59,7 @@ yarn webiny scaffold
 
 Running this command should give us the following list of available scaffolds:
 
-![Scaffolds List](./getting-started/scaffolds-list.png)
+![Scaffolds List](./assets/getting-started/scaffolds-list.png)
 
 Once we've selected the **Full Stack Application** scaffold from the list, we'll get presented with the the following three questions:
 
@@ -75,7 +75,7 @@ Furthermore, we'll also be asked about whether we want to immediately deploy the
 
 Ultimately, we should end up with the following output in our terminal:
 
-![Full Stack Application - Full Output](./getting-started/full-stack-app-scaffold.png)
+![Full Stack Application - Full Output](./assets/getting-started/full-stack-app-scaffold.png)
 
 As we can see, the scaffold created the GraphQL API inside the [`pinterest-clone/api`](https://github.com/webiny/webiny-examples/tree/master/create-custom-application/02-getting-started/pinterest-clone/api), and the React application inside the [`pinterest-clone/app`](https://github.com/webiny/webiny-examples/tree/master/create-custom-application/02-getting-started/pinterest-clone/app) folder.
 
@@ -115,7 +115,7 @@ Since two separate project applications were created in the scaffolding process,
 
 ### GraphQL API
 
-The following command will start a new watch session on our GraphQL API application code:
+The following command starts a new watch session on our GraphQL API application code:
 
 ```bash
 yarn webiny watch pinterest-clone/api --env dev
@@ -123,13 +123,13 @@ yarn webiny watch pinterest-clone/api --env dev
 
 <Alert type="success" title="Misplaced GraphQL API URL?">
 
-Running the `yarn webiny output pinterest-clone/api --env dev` command from your project root will display all of the values that were exported from your cloud infrastructure code. That includes GraphQL API URL, Amazon DynamoDB table name, and more.
+Running the `yarn webiny output pinterest-clone/api --env dev` command from your project root displays all of the values that were exported from your cloud infrastructure code. That includes GraphQL API URL, Amazon DynamoDB table name, and more.
 
 </Alert>
 
 ### React Application
 
-The following command will start a new watch session on our React application code:
+The following command starts a new watch session on our React application code:
 
 ```bash
 yarn webiny watch pinterest-clone/app --env dev
@@ -143,7 +143,7 @@ Once started, by default, the React application should be locally accessible via
 
 #### No Continuous Deployment Needed
 
-In contrast to [GraphQL API](/docs/tutorials/extend-admin-area/getting-started#graphql-api) development, where the application code needs to be redeployed into the cloud as we're making changes to it, React application can be developed locally. Meaning, once the watch command is run, no automatic deployments will be performed.
+In contrast to [Admin App GraphQL API](/docs/tutorials/extend-admin-area/getting-started#graphql-api) development, where the application code needs to be redeployed into the cloud as we're making changes to it, React application can be developed locally. Meaning, once the watch command is run, no automatic deployments will be performed.
 
 #### Why the `--env` Argument?
 
@@ -159,7 +159,7 @@ When we say _scripts need to pick up some of the values exported from GraphQL AP
 
 The following screenshot shows the two [`webiny watch`](/docs/how-to-guides/use-watch-command) commands run side-by-side in two separate terminal sessions:
 
-![Watching GraphQL API and React Application](./getting-started/watch-commands.png)
+![Watching GraphQL API and React Application](./assets/getting-started/watch-commands.png)
 
 ## Deployments
 
@@ -187,16 +187,14 @@ Note that, throughout the whole tutorial, we'll be using `dev` as the environmen
 
 ## FAQ
 
-### Placeholder
-
-#### Which database is used in the generated GraphQL API application code?
+### Which database is used in the generated GraphQL API application code?
 
 The generated GraphQL API application code relies exclusively on [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) for storing and retrieving data. Of course, you're certainly free to bring your own databases and import different database clients, if need be. In essence, this will require you to remove the Amazon DynamoDB table definition in the cloud infrastructure code, and integrate the preferred database and a database client in your application code.
 
-#### Do I need to deploy the created React application in order to continue development?
+### Do I need to deploy the created React application in order to continue development?
 
 No. As mentioned above, frontend application development can still be performed locally, on the developer's machine. You only deploy the application when you need to have it online.
 
-#### Into which environment the GraphQL API was deployed?
+### Into which environment the GraphQL API was deployed?
 
 During the Full Stack Application scaffold's setup, we get to decide whether we want to immediately deploy the newly created GraphQL API or not. If we choose yes, the GraphQL API will automatically be deployed into the `dev` environment.
