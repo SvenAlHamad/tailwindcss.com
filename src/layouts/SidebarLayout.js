@@ -4,6 +4,7 @@ import { createContext, forwardRef, useEffect, useRef, useState } from 'react'
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import clsx from 'clsx'
 import { Dialog } from '@headlessui/react'
+import { SearchButton } from '@/components/Search'
 
 import { scroll } from './SidebarLayout.module.css'
 
@@ -91,8 +92,8 @@ const NavTreeElement = forwardRef(({ element, depth = 0 }, ref) => {
 
 const HorizontalLine = () => {
   return (
-    <div className="pr-[10px]">
-      <div className="border-b-[1px] border-neutral-200 dark:border-zinc-200 w-full -ml-[10px]"></div>
+    <div className="pr-[10px] my-[20px]">
+      <div className="border-b-[1px] border-neutral-200 dark:border-dark-grey-2 w-full -ml-[10px]"></div>
     </div>
   )
 }
@@ -133,7 +134,7 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
             'text-nav-subdirectory font-normal text-dark-purple dark:text-light-grey':
               (!showMenu && depth > 0 && !isActiveChild) ||
               (!isActiveChild && showMenu && depth > 0),
-            'text-dark-blue dark:text-white font-semibold text-nav-directory': depth === 0,
+            'text-dark-blue dark:text-light-grey font-semibold text-nav-directory': depth === 0,
           })}
         >
           {title}
@@ -153,9 +154,9 @@ const Page = forwardRef(({ title, link, isActive, depth = 0 }, ref) => {
     <li
       ref={ref}
       className={clsx(
-        'link-element grid content-center block my-[15px] pl-[15px] cursor-pointer border-slate-100 dark:border-slate-800',
+        'link-element grid content-center block my-[15px] ml-[-1px] pl-[15px] cursor-pointer border-slate-100 dark:border-transparent',
         {
-          'border-l-[1px] text-orange border-l-orange font-bold': isActive,
+          '--active border-l-[1px] text-orange border-l-orange font-bold dark:border-orange/50': isActive,
           'border-l-[1px] hover:border-l-[1px] hover:text-dark-purple hover:border-orange/50':
             !isActive,
           'font-semibold text-nav-directory': depth === 0,
@@ -182,16 +183,16 @@ const Section = forwardRef(({ title, subElements = [], isActiveChild, depth = 0 
       <li className="flex items-center">
         <span
           className={clsx({
-            'section-title mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory dark:text-light-grey':
+            'section-title mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory dark:text-light-grey-2':
               !isActiveChild,
-            'section-title-active mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory':
+            'section-title-active mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory dark:text-light-grey':
               isActiveChild,
           })}
         >
           {title}
         </span>
       </li>
-      <ul className={clsx({ 'border-l border-slate-100 dark:border-slate-800': depth > 0 })}>
+      <ul className={clsx({ 'parent-list border-l border-slate-100 dark:border-dark-grey': depth > 0 })}>
         {subElements.sort().map((navElement, index) => (
           <NavTreeElement key={index} element={navElement} ref={ref} depth={depth + 1} />
         ))}
@@ -288,37 +289,7 @@ export function SidebarLayout({
             {
               //here goes search
             }
-            <div class="sticky z-10 bg-white top-0 -ml-[5px] pointer-events-none mr-[15px]">
-              <div class="h-10 bg-white dark:bg-slate-900"></div>
-              <div class="bg-white dark:bg-slate-900 relative pointer-events-auto">
-                <button
-                  type="button"
-                  class="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
-                >
-                  <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none">
-                    <path
-                      d="m19 19-3.5-3.5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                    <circle
-                      cx="11"
-                      cy="11"
-                      r="6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></circle>
-                  </svg>
-                  Quick search...
-                  <span class="ml-auto pl-3 flex-none text-xs font-semibold">⌘K</span>
-                </button>
-              </div>
-              <div class="h-8 bg-gradient-to-b from-white dark:from-slate-900"></div>
-            </div>
+            <SearchButton/>
             <Nav nav={nav}>{sidebar}</Nav>
           </div>
           <div className="lg:pl-[20.875rem]">{children}</div>

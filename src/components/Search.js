@@ -159,52 +159,90 @@ export function SearchButton({ children, ...props }) {
     }
   }, [onInput, searchButtonRef])
 
-  return (
-    <button type="button" ref={searchButtonRef} onClick={handleClick} {...props}>
-      {typeof children === 'function' ? (
-        children({ actionKey })
-      ) : isOpen ? (
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+  if(props.type==='mobile'){
+    return (<button type="button" ref={searchButtonRef} onClick={handleClick} {...props}>
+    {typeof children === 'function' ? (
+      children({ actionKey })
+    ) : isOpen ? (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17 1L1 17"
+          className="stroke-dark-blue dark:stroke-white"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M1 1L17 17"
+          className="stroke-dark-blue dark:stroke-white"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ) : (
+      <svg
+        width="19"
+        height="20"
+        viewBox="0 0 19 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M13.8597 14.386L17.9474 18.4737L13.8597 14.386C10.9179 17.3279 6.14823 17.3279 3.20642 14.386C0.264525 11.4442 0.264525 6.6745 3.20642 3.7327C6.14823 0.790801 10.9179 0.790801 13.8597 3.7327C16.8016 6.6745 16.8016 11.4442 13.8597 14.386V14.386Z"
+          className="stroke-dark-blue dark:stroke-white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    )}
+  </button>);
+  }else{
+    return (
+      <div class="sticky z-10 top-[-1px] overflow-hidden -ml-[5px] pointer-events-none mr-[15px] invisible lg:visible">
+      <div class="h-5 bg-white dark:bg-dark-theme"></div>
+      <div class="bg-white dark:bg-dark-theme relative pointer-events-auto px-[15px]">
+        <button
+        ref={searchButtonRef} onClick={handleClick} {...props}
+          type="button"
+          class="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-dark-grey-2 dark:highlight-white/5 dark:hover:bg-slate-700"
         >
-          <path
-            d="M17 1L1 17"
-            className="stroke-dark-blue dark:stroke-white"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M1 1L17 17"
-            className="stroke-dark-blue dark:stroke-white"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      ) : (
-        <svg
-          width="19"
-          height="20"
-          viewBox="0 0 19 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M13.8597 14.386L17.9474 18.4737L13.8597 14.386C10.9179 17.3279 6.14823 17.3279 3.20642 14.386C0.264525 11.4442 0.264525 6.6745 3.20642 3.7327C6.14823 0.790801 10.9179 0.790801 13.8597 3.7327C16.8016 6.6745 16.8016 11.4442 13.8597 14.386V14.386Z"
-            className="stroke-dark-blue dark:stroke-white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )}
-    </button>
-  )
+          <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none">
+            <path
+              d="m19 19-3.5-3.5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <circle
+              cx="11"
+              cy="11"
+              r="6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></circle>
+          </svg>
+          Quick search...
+          <span class="ml-auto pl-3 flex-none text-xs font-semibold">⌘K</span>
+        </button>
+      </div>
+      <div class="h-5 bg-gradient-to-b from-white dark:from-dark-theme"></div>
+    </div>
+    );
+  }
+
+  
+
 }
 
 function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {

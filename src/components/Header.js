@@ -193,7 +193,6 @@ export function Header({ navIsOpen, onNavToggle }) {
           </Link>
           <Featured />
           <div className="relative hidden lg:flex items-center ml-auto">
-            <SearchButton className="text-slate-500 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300" />
             <nav className="flex items-center h-[2.375rem] text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200 border-l border-border dark:border-dark-grey ml-[1.875rem] pl-[1.875rem]">
               <ul className="flex space-x-8">
                 <NavItems />
@@ -243,7 +242,7 @@ export function Header({ navIsOpen, onNavToggle }) {
               <ThemeToggle panelClassName="" />
             </div>
           </div>
-          <SearchButton className="ml-auto text-slate-500 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300" />
+          <SearchButton type={'mobile'} className="ml-auto text-slate-500 -my-1 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300 lg:invisible" />
           <NavPopover className="ml-[1.3781rem] -my-1" display="lg:hidden" />
         </div>
       </div>
