@@ -475,6 +475,26 @@
     "source": "/docs/tutorials/extend-admin-area/security/admin-area",
     "destination": "/docs/admin-area/new-app-tutorial/securing-client-app",
     "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/introduction",
+    "destination": "/docs/custom-app-tutorial/overview/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/getting-started",
+    "destination": "/docs/custom-app-tutorial/overview/get-started",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/graphql-api",
+    "destination": "/docs/custom-app-tutorial/graphql-api/create-a-graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/react-application/introduction",
+    "destination": "/docs/custom-app-tutorial/react-application/introduction",
+    "permanent": true
   }
   
   
