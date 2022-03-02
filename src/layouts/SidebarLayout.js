@@ -9,16 +9,17 @@ import { scroll } from './SidebarLayout.module.css'
 
 const Arrow = ({ className }) => {
   return (
-  <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M1 11.0585L5.36871 6.26225L1.03281 1.31022"
-      className={className}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)};
-export default Arrow;
+    <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 11.0585L5.36871 6.26225L1.03281 1.31022"
+        className={className}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+export default Arrow
 
 export const SidebarContext = createContext()
 
@@ -115,12 +116,14 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
       >
         <div className={`${depth === 0 ? 'absolute left-[-15px] top-[9px]' : 'mr-[10px]'}`}>
           <div className={showMenu ? 'rotate-90' : ''} alt="collapsable">
-            <Arrow className={clsx({
-              "stroke-dark-blue dark:stroke-white": depth === 0,
-              'stroke-light-grey-3 dark:stroke-light-grey-4':
-              (!showMenu && depth > 0 && !isActiveChild) ||
-              (!isActiveChild && showMenu && depth > 0),
-            })} />
+            <Arrow
+              className={clsx({
+                'stroke-dark-blue dark:stroke-white': depth === 0,
+                'stroke-light-grey-3 dark:stroke-light-grey-4':
+                  (!showMenu && depth > 0 && !isActiveChild) ||
+                  (!isActiveChild && showMenu && depth > 0),
+              })}
+            />
           </div>
         </div>
         <button
@@ -147,26 +150,30 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
 
 const Page = forwardRef(({ title, link, isActive, depth = 0 }, ref) => {
   return (
-    <li ref={ref} className={clsx('link-element grid content-center block my-[15px] pl-[15px] cursor-pointer border-slate-100 dark:border-slate-800', {
-      'border-l-[1px] text-orange border-l-orange font-bold': isActive,
-      'border-l-[1px] hover:border-l-[1px] hover:text-dark-purple hover:border-orange/50': !isActive,
-      'font-semibold text-nav-directory': depth === 0,
-      'my-[7px] text-nav-link': depth > 0,
-      'text-dark-blue dark:text-white': depth === 0 && !isActive,
-      'text-dark-blue dark:text-light-grey-2': depth > 0 && !isActive,
-    })}>
+    <li
+      ref={ref}
+      className={clsx(
+        'link-element grid content-center block my-[15px] pl-[15px] cursor-pointer border-slate-100 dark:border-slate-800',
+        {
+          'border-l-[1px] text-orange border-l-orange font-bold': isActive,
+          'border-l-[1px] hover:border-l-[1px] hover:text-dark-purple hover:border-orange/50':
+            !isActive,
+          'font-semibold text-nav-directory': depth === 0,
+          'my-[7px] text-nav-link': depth > 0,
+          'text-dark-blue dark:text-white': depth === 0 && !isActive,
+          'text-dark-blue dark:text-light-grey-2': depth > 0 && !isActive,
+        }
+      )}
+    >
       <Link href={link}>
         {/* first line */}
-        <a className='leading-6'>
-          {title}
-        </a>
+        <a className="leading-6">{title}</a>
       </Link>
     </li>
   )
 })
 // second level section
 const Section = forwardRef(({ title, subElements = [], isActiveChild, depth = 0 }, ref) => {
-
   // sort sub elements by title attribute
   //subElements.sort((a, b) => (a.title > b.title) ? 1 : -1);
 
@@ -177,7 +184,8 @@ const Section = forwardRef(({ title, subElements = [], isActiveChild, depth = 0 
           className={clsx({
             'section-title mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory dark:text-light-grey':
               !isActiveChild,
-            'section-title-active mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory': isActiveChild,
+            'section-title-active mt-[10px] mb-[5px] uppercase text-dark-grey font-semibold text-nav-subdirectory':
+              isActiveChild,
           })}
         >
           {title}
@@ -277,6 +285,40 @@ export function SidebarLayout({
           <div
             className={`hidden lg:block fixed z-20 inset-0 top-[4.15rem] right-auto w-[20.875rem] pb-10 pl-[18px] overflow-y-auto border-r border-neutral-200 dark:border-[#36383a] ${scroll}`}
           >
+            {
+              //here goes search
+            }
+            <div class="sticky z-10 bg-white top-0 -ml-[5px] pointer-events-none mr-[15px]">
+              <div class="h-10 bg-white dark:bg-slate-900"></div>
+              <div class="bg-white dark:bg-slate-900 relative pointer-events-auto">
+                <button
+                  type="button"
+                  class="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
+                >
+                  <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none">
+                    <path
+                      d="m19 19-3.5-3.5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <circle
+                      cx="11"
+                      cy="11"
+                      r="6"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></circle>
+                  </svg>
+                  Quick search...
+                  <span class="ml-auto pl-3 flex-none text-xs font-semibold">⌘K</span>
+                </button>
+              </div>
+              <div class="h-8 bg-gradient-to-b from-white dark:from-slate-900"></div>
+            </div>
             <Nav nav={nav}>{sidebar}</Nav>
           </div>
           <div className="lg:pl-[20.875rem]">{children}</div>
