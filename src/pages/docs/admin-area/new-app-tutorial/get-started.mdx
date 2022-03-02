@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Get Started
 description: Learn how to use the existing Extend Admin Area scaffold in order to start extending your Admin Area application in no time.
 ---
 
@@ -19,9 +19,9 @@ In order to follow this tutorial, you must use Webiny version **5.9.0** or great
 
 ## Extend Admin Area Scaffold
 
-The best way to start extending the Admin Area application would be to use the [Extend Admin Area](/docs/how-to-guides/scaffolding/extend-admin-area) scaffold, which will automatically generate all of the fundamental application pieces for us. On the application code level, this includes the necessary plugins which will create the following:
+The best way to start extending the Admin Area application would be to use the [Extend Admin Area](./scaffolding) scaffold, which will automatically generate all of the fundamental application pieces for us. On the application code level, this includes the necessary plugins which create the following:
 
-- in the Admin Area application: a new route, menu item, and a [CRUD view](/docs/how-to-guides/scaffolding/extend-admin-area#new-webiny-admin-area-module)
+- in the Admin Area application: a new route, menu item, and a [CRUD view](./scaffolding#new-webiny-admin-area-module)
 - in the GraphQL API: supporting GraphQL query and mutation operations
 
 So, in our terminal of choice, from our project root, let's run the following command:
@@ -32,9 +32,9 @@ yarn webiny scaffold
 
 Running this command should give us the following list of available scaffolds:
 
-![Scaffolds List](./scaffolding/scaffolds-list.png)
+![Scaffolds List](./assets/get-started/scaffolds-list.png)
 
-Once we've selected the **Extend Admin Area** scaffold from the list, we'll get presented with the the following three questions:
+Once we've selected the **Extend Admin Area** scaffold from the list, we'll get presented with the following three questions:
 
 1. the path to our GraphQL API's plugins folder (`api/code/graphql/src/plugins` by default)
 2. the path to our Admin Area application's plugins folder (`apps/admin/code/src/plugins` by default)
@@ -44,7 +44,7 @@ For the first two, we can just use the default paths by simply pressing the **En
 
 Once we've answered all of the questions, after a quick confirmation step, scaffolding will start and eventually, we should end up with the following output in our terminal:
 
-![Extend Admin Area - Full Output](./scaffolding/scaffold-full-output.png)
+![Extend Admin Area - Full Output](./assets/get-started/scaffold-full-output.png)
 
 ## Using the Watch Command
 
@@ -92,13 +92,13 @@ In contrast to the [GraphQL API](/docs/tutorials/extend-admin-area/getting-start
 
 The following screenshot shows the two watch commands run side-by-side in two separate terminal sessions:
 
-![Watching Our Application Code](./scaffolding/watch-sessions.png)
+![Watching Our Application Code](./assets/get-started/watch-sessions.png)
 
 ### Admin Area Application
 
 Once the two watch sessions have been started, in our Admin Area application, we should be able to see the new **Car Manufacturers** module and, via the generated [CRUD view](/docs/how-to-guides/scaffolding/extend-admin-area/#new-webiny-admin-area-module), perform essential CRUD operations.
 
-![New Car Manufacturers Module](./scaffolding/scaffolds-admin-area.png)
+![New Car Manufacturers Module](./assets/get-started/scaffolds-admin-area.png)
 
 <Alert type="success">
 
@@ -115,9 +115,6 @@ Usually, on the GraphQL API side, we'd want to start by extending the [`CarManuf
 To learn more, continue reading the following [Extending Entities](/docs/tutorials/extend-admin-area/extending-entities) section.
 
 ## FAQ
-
-### Placeholder
-
-#### Which database is used in the generated GraphQL API application code?
+### Which database is used in the generated GraphQL API application code?
 
 The generated GraphQL API application code relies exclusively on [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) for storing and retrieving data. Of course, you're certainly free to [bring your own](/docs/how-to-guides/scaffolding/extend-graphql-api#storing-and-retrieving-data) databases and import different database clients, if need be.

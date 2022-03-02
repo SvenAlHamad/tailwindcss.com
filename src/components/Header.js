@@ -17,7 +17,7 @@ function Featured() {
         rel="noreferrer"
       >
         <span className="text-nav-link dark:text-white ml-2">
-          ⭐️ If you like Webiny, give it a star on GitHub! ⭐
+          ⭐️ If you like Webiny, help us out by giving us a star on GitHub!
         </span>
         <svg
           width="6"

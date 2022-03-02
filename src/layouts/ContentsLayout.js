@@ -247,10 +247,25 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
           id="content"
           className="relative z-20 prose md:prose-md prose-slate mt-8 dark:prose-dark"
         >
-          <MDXProvider components={{ 
-            Heading,
-            ol: (props) => <ol {...props} style={{'--start':(props.start ?? 1)}} />,
-          }}>{children}</MDXProvider>
+          <MDXProvider
+            components={{
+              Heading,
+              ol: (props) => <ol {...props} style={{ '--start': props.start ?? 1 }} />,
+              a: (props) => {
+                if (props.href.startsWith('http')) {
+                  return (
+                    <a target="_blank" href={props.href}>
+                      {props.children}
+                    </a>
+                  )
+                } else {
+                  return <Link href={props.href}>{props.children}</Link>
+                }
+              },
+            }}
+          >
+            {children}
+          </MDXProvider>
         </div>
       </ContentsContext.Provider>
 
@@ -268,11 +283,9 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
         className={`fixed z-20 top-[4.15rem] bottom-0 right-[max(0px,calc(50%-48.5rem))] 2xl:right-[max(0px,calc(50%-50rem))] w-[19.5rem] 2xl:w-[22rem] pl-[4.3125rem] pr-[1.8125rem] overflow-y-auto hidden xl:block ${scroll}`}
       >
         {toc.length > 0 && (
-        <div className="border-l-2 border-orange pl-5 pt-[0.3125rem] pb-2.5 mt-[1.725rem]">
-          
+          <div className="border-l-2 border-orange pl-5 pt-[0.3125rem] pb-2.5 mt-[1.725rem]">
             <TableOfContents tableOfContents={toc} currentSection={currentSection} />
-          
-        </div>
+          </div>
         )}
         <WasThisArticleHelpful />
       </div>

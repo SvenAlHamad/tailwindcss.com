@@ -70,22 +70,23 @@ export const documentationNav = [
     section('References', [page('form-builder/references/plugins')]),
   ]),
   collapsable('File Manager', [
-    section('Extending functionality', [
-      page('file-manager/extending/create-a-file-type-plugin'),
-    ]),
+    section('Extending functionality', [page('file-manager/extending/create-a-file-type-plugin')]),
   ]),
   collapsable('Admin Area', [
     section('Basics', [
       page('admin-area/basics/framework'),
       page('admin-area/basics/api-playground'),
     ]),
-    section('Extending functionality', [
-      page('admin-area/extending/change-logo')
-    ]),
+    section('Extending functionality', [page('admin-area/extending/change-logo')]),
     section('New App Tutorial', [
       page('admin-area/new-app-tutorial/introduction'),
       page('admin-area/new-app-tutorial/scaffolding'),
-    ])
+      page('admin-area/new-app-tutorial/get-started'),
+      page('admin-area/new-app-tutorial/extending-entities'),
+      page('admin-area/new-app-tutorial/security'),
+      page('admin-area/new-app-tutorial/securing-graphql-api'),
+      page('admin-area/new-app-tutorial/securing-client-app'),
+    ]),
   ]),
 
   horizontalLine(),
@@ -142,21 +143,7 @@ export const documentationNav = [
     ]),
   ]),
   ///////////////////////// HERES BE NEW BLOCKS////////////////////
-  collapsable('Serverless CMS', [
-    collapsable('Admin Area', [
-      page('how-to-guides/webiny-applications/admin-area/introduction'),
 
-      collapsable('Extend Admin Area', [
-        page('tutorials/extend-admin-area/getting-started'),
-        page('tutorials/extend-admin-area/extending-entities'),
-        collapsable('Security', [
-          page('tutorials/extend-admin-area/security/introduction'),
-          page('tutorials/extend-admin-area/security/graphql-api'),
-          page('tutorials/extend-admin-area/security/admin-area'),
-        ]),
-      ]),
-    ]),
-  ]),
   collapsable('Deployment', [
     page('key-topics/deployment/introduction'),
     page('key-topics/deployment/environments'),

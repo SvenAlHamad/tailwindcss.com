@@ -105,7 +105,7 @@ export default /* GraphQL */ `
 
 <Alert type="success">
 
-If you've run the two [`webiny watch`](/docs/how-to-guides/use-watch-command/) commands, mentioned in the [previous section](/docs/tutorials/extend-admin-area/getting-started#using-the-watch-command), the performed application code changes should be automatically rebuilt and redeployed into the cloud.
+If you've run the two [`webiny watch`](/docs/how-to-guides/use-watch-command/) commands, mentioned in the [previous section](./get-started#using-the-watch-command), the performed application code changes should be automatically rebuilt and redeployed into the cloud.
 
 </Alert>
 
@@ -157,7 +157,7 @@ return (
 
 Once we've updated the [`CarManufacturersForm`](https://github.com/webiny/webiny-examples/blob/master/extend-admin-area/apps/admin/code/src/plugins/scaffolds/carManufacturers/views/CarManufacturersForm.tsx#L75-L84) React component, the form itself should look like the following:
 
-![Updated Car Manufacturers Form](./entities/form-updated.png)
+![Updated Car Manufacturers Form](./assets/extending-entities/form-updated.png)
 
 Finally, we need to add the `isPopular` field to all relevant GraphQL query and mutation operations. This ensures that we're both sending and receiving the `isPopular` value while interacting with the GraphQL API.
 
@@ -183,24 +183,22 @@ export const CAR_MANUFACTURER_FIELDS = /* GraphQL */ `
 
 With this final change in place, we should be able to edit the **isPopular** attribute for each car manufacturer entry. To test this, we can simply open an existing entry, try marking it as popular, and submitting the form. If everything was done correctly, the form submission should be successful.
 
-![Updated Car Manufacturers Form](./entities/popular-car-manufacturer-saved.png)
+![Updated Car Manufacturers Form](./assets/extending-entities/popular-car-manufacturer-saved.png)
 
 ## FAQ
 
-### Placeholder
-
-#### I see DynamoDB Toolbox is being used for interacting with Amazon DynamoDB. Can I use a different library?
+### I see DynamoDB Toolbox is being used for interacting with Amazon DynamoDB. Can I use a different library?
 
 On the GraphQL API side, you might have noticed we're using [DynamoDB Toolbox](https://github.com/jeremydaly/dynamodb-toolbox), which is a neat little library that makes interaction with DynamoDB a bit easier. But, note that if you wanted, you could easily replace it with the default [AWS DynamoDB Document Client](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/dynamodb-example-document-client.html) or maybe some other preferred library.
 
-#### Can I bring my own NPM libraries?
+### Can I bring my own NPM libraries?
 
 You are free to bring your own preferred NPM libraries.
 
-#### How can I perform data validation?
+### How can I perform data validation?
 
 For data validation in general, we recommend you check out the [`@webiny/validation`](https://github.com/webiny/webiny-js/tree/next/packages/validation) library. It's easy to use, provides a plethora of different data validation rules, and also enables you to expand it with your own.
 
-#### What about security (authentication and authorization)?
+### What about security (authentication and authorization)?
 
 Because this is not something we can effectively predict, the generated application code does not include any authentication and authorization logic. But luckily, with a couple of [built-in utilities](/docs/tutorials/extend-admin-area/security/introduction), this is not too hard to implement.

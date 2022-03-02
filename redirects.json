@@ -450,8 +450,32 @@
     "source": "/docs/how-to-guides/scaffolding/extend-admin-area",
     "destination": "/docs/admin-area/new-app-tutorial/scaffolding",
     "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/extend-admin-area/getting-started",
+    "destination": "/docs/admin-area/new-app-tutorial/get-started",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/extend-admin-area/extending-entities",
+    "destination": "/docs/admin-area/new-app-tutorial/extending-entities",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/extend-admin-area/security/introduction",
+    "destination": "/docs/admin-area/new-app-tutorial/security",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/extend-admin-area/security/graphql-api",
+    "destination": "/docs/admin-area/new-app-tutorial/securing-graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/extend-admin-area/security/admin-area",
+    "destination": "/docs/admin-area/new-app-tutorial/securing-client-app",
+    "permanent": true
   }
-  
   
   
 ]
