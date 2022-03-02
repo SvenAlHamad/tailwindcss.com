@@ -63,7 +63,7 @@ mutation CreatePin($data: PinCreateInput!) {
 
 Once run, we should receive a response similar to the following (the only piece of information that should be different on your end should be the returned `id`):
 
-![CreatePin Mutation - Publicly Accessible](./implementing-authentication-and-authorization-checks/create-pin-mutation-test.png)
+![CreatePin Mutation - Publicly Accessible](./assets/implementing-authentication-and-authorization-checks/create-pin-mutation-test.png)
 
 And that's not all. Anonymous users can even change the information on pins created by other users, and even delete them! This is certainly not what we'd expect of a modern application nor from any kind of application at all.
 
@@ -83,7 +83,7 @@ In the following couple of sections, we'll manually test the changes that we'll 
 
 When it comes to signed in users, in order to simulate one, we'll need to add the `authorization` header via the **HTTP Headers** tab:
 
-![GraphQL Playground - Setting authorization Header](./implementing-authentication-and-authorization-checks/graphql-client-authorization-header.png)
+![GraphQL Playground - Setting authorization Header](./assets/implementing-authentication-and-authorization-checks/graphql-client-authorization-header.png)
 
 ```json HTTP Headers
 {
@@ -106,7 +106,7 @@ To retrieve the token, follow these steps:
 - in the **Network** tab, from the list of all HTTP requests, pick any **POST** request directed at our GraphQL API's URL (if you're not seeing any, simply refresh the page)
 - in the **Headers** tab, you should be able to find the token in the **Request Headers** section (`authorization` header)
 
-![Google Chrome - Network Tab](./implementing-authentication-and-authorization-checks/network-tab-authorization-token.png)
+![Google Chrome - Network Tab](./assets/implementing-authentication-and-authorization-checks/network-tab-authorization-token.png)
 
 Once you've found it, simply copy and paste the token into the GraphQL playground as shown in the above screenshot, and you should be good to go.
 
@@ -116,18 +116,18 @@ Once you've found it, simply copy and paste the token into the GraphQL playgroun
 
 Let's start with the [`createPin(data: PinCreateInput!): Pin!`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/02-implementing-authentication-and-authorization-checks/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts#L52-L53) mutation. In order to make it secure, we'll apply the following changes to the [`createPin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/02-implementing-authentication-and-authorization-checks/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts#L47) resolver function:
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts {7-11,24-28}
+```diff-ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts
 /**
  * Creates and returns a new Pin entry.
  * @param data
  */
 async createPin({ data }: CreatePinParams) {
     // Before doing anything, let's make sure the user is signed in.
-    const { authentication } = this.context;
-    const identity = await authentication.getIdentity();
-    if (!identity) {
-        throw new Error("Not authenticated.");
-    }
++   const { authentication } = this.context;
++   const identity = await authentication.getIdentity();
++   if (!identity) {
++       throw new Error("Not authenticated.");
++   }
 
     // We use `mdbid` (https://www.npmjs.com/package/mdbid) library to generate
     // a random, unique, and sequential (sortable) ID for our new entry.
@@ -140,11 +140,11 @@ async createPin({ data }: CreatePinParams) {
         id,
         createdOn: new Date().toISOString(),
         savedOn: new Date().toISOString(),
-        createdBy: {
-            id: identity.id,
-            type: identity.type,
-            displayName: identity.displayName
-        },
++       createdBy: {
++           id: identity.id,
++           type: identity.type,
++           displayName: identity.displayName
++       },
         webinyVersion: process.env.WEBINY_VERSION
     };
 
@@ -161,11 +161,11 @@ We've also updated the `pin` object, where we added the `createdBy` property, an
 
 With all of the changes in place, while not signed in, performing the same `CreatePin` mutation, should give us the following **Not authenticated.** error response:
 
-![CreatePin Mutation - Not Authorized](./implementing-authentication-and-authorization-checks/create-pin-mutation-unauthorized.png)
+![CreatePin Mutation - Not Authorized](./assets/implementing-authentication-and-authorization-checks/create-pin-mutation-unauthorized.png)
 
 On the other hand, if we were perform the same mutation, but this time as a signed in user, we should receive the following response:
 
-![CreatePin Mutation - Authorized](./implementing-authentication-and-authorization-checks/create-pin-mutation-authorized.png)
+![CreatePin Mutation - Authorized](./assets/implementing-authentication-and-authorization-checks/create-pin-mutation-authorized.png)
 
 If that's true, that means everything is in order, and we can continue with updating the next resolver function in line, and that's [`updatePin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/02-implementing-authentication-and-authorization-checks/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts#L85).
 
@@ -175,7 +175,7 @@ Next up - the [`updatePin(id: ID!, data: PinUpdateInput!): Pin!`](https://github
 
 Apart from the initial signed in user check that we also performed in the previous resolver function, in the [`updatePin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/02-implementing-authentication-and-authorization-checks/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts#L85) resolver function, we also need to check whether the pin that's about to be updated actually belongs to the signed in user. Note that in order to perform this check, we actually need to retrieve the pin from the database and inspect its `createdBy` field, which we've defined in the [previous section](/docs/tutorials/create-custom-application/security/graphql-api/initial-setup#adding-createdby-field) of this tutorial.
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts {8-12,20-22}
+```diff-ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts
 /**
  * Updates and returns an existing Pin entry.
  * @param id
@@ -183,11 +183,11 @@ Apart from the initial signed in user check that we also performed in the previo
  */
 async updatePin({ id, data }: UpdatePinParams) {
     // Before doing anything, let's make sure the user is signed in.
-    const { authentication } = this.context;
-    const identity = await authentication.getIdentity();
-    if (!identity) {
-        throw new Error("Not authenticated.");
-    }
++   const { authentication } = this.context;
++   const identity = await authentication.getIdentity();
++   if (!identity) {
++       throw new Error("Not authenticated.");
++   }
 
     // If entry is not found, we throw an error.
     const { Item: pin } = await Pin.get({ PK: this.getPK(), SK: id });
@@ -195,9 +195,9 @@ async updatePin({ id, data }: UpdatePinParams) {
         throw new Error(`Pin "${id}" not found.`);
     }
 
-    if (pin.createdBy.id !== identity.id) {
-        throw new Error("Not authorized.");
-    }
++   if (pin.createdBy.id !== identity.id) {
++       throw new Error("Not authorized.");
++   }
 
     const updatedPin = { ...pin, ...data };
 
@@ -243,35 +243,35 @@ mutation UpdatePin($id: ID!, $data: PinUpdateInput!) {
 }
 ```
 
-![UpdatePin Mutation - Not Authorized](./implementing-authentication-and-authorization-checks/update-pin-cannot-update-other-users-pin.png)
+![UpdatePin Mutation - Not Authorized](./assets/implementing-authentication-and-authorization-checks/update-pin-cannot-update-other-users-pin.png)
 
 To manually test if this really works as intended, while signed in, we could create a new pin, and then immediately try to update it.
 
 <!--
 
-![CreatePin Mutation - Authorized](./implementing-authentication-and-authorization-checks/update-pin-update-with-user.png)
+![CreatePin Mutation - Authorized](./assets/implementing-authentication-and-authorization-checks/update-pin-update-with-user.png)
  -->
 
 Once the pin is created, upon updating it, we should not receive the already seen **Not authenticated.** error response, because we're signed in with the same user that created the pin:
 
-![UpdatePin Mutation - Authorized](./implementing-authentication-and-authorization-checks/update-pin-update-with-user.png)
+![UpdatePin Mutation - Authorized](./assets/implementing-authentication-and-authorization-checks/update-pin-update-with-user.png)
 
 ## Deleting Pins
 
 Finally, let's implement the same pair of checks that we performed in the previous resolver function, this time within the [`deletePin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/02-implementing-authentication-and-authorization-checks/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts#L115) resolver function:
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts {7-11,19-21}
+```diff-ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/resolvers/PinsMutation.ts
 /**
  * Deletes and returns an existing Pin entry.
  * @param id
  */
 async deletePin({ id }: DeletePinParams) {
     // Before doing anything, let's make sure the user is signed in.
-    const { authentication } = this.context;
-    const identity = await authentication.getIdentity();
-    if (!identity) {
-        throw new Error("Not authenticated.");
-    }
++   const { authentication } = this.context;
++   const identity = await authentication.getIdentity();
++   if (!identity) {
++       throw new Error("Not authenticated.");
++   }
 
     // If entry is not found, we throw an error.
     const { Item: pin } = await Pin.get({ PK: this.getPK(), SK: id });
@@ -279,9 +279,9 @@ async deletePin({ id }: DeletePinParams) {
         throw new Error(`Pin "${id}" not found.`);
     }
 
-    if (pin.createdBy.id !== identity.id) {
-        throw new Error("Not authorized.");
-    }
++   if (pin.createdBy.id !== identity.id) {
++       throw new Error("Not authorized.");
++   }
 
     // Will throw an error if something goes wrong.
     await Pin.delete(pin);
@@ -315,7 +315,7 @@ mutation DeletePin($id: ID!) {
 }
 ```
 
-![DeletePin Mutation - Authorized](./implementing-authentication-and-authorization-checks/delete-pin-authorized.png)
+![DeletePin Mutation - Authorized](./assets/implementing-authentication-and-authorization-checks/delete-pin-authorized.png)
 
 ## Final Result
 

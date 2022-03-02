@@ -29,7 +29,7 @@ The code that we cover in this section can also be found in our GitHub [examples
 
 With the all of the GraphQL API changes in place, let's wrap up the [Security](/docs/tutorials/create-custom-application/security/introduction) section of the tutorial by returning back to our React application and making one small addition to the **Pin Details** page, which currently looks like this:
 
-![Current Profile Details Page](./wrapping-it-up/pin-details-current.png)
+![Current Profile Details Page](./assets/wrapping-it-up/pin-details-current.png)
 
 Apart form the basic pin information, let's also show who created the pin we've clicked on. In order to do this, we'll need to perform the following two additions in the existing [`pinDetails.tsx`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/06-wrapping-it-up/pinterest-clone/app/code/src/plugins/routes/pinDetails.tsx) file, located in the [`pinterest-clone/app/code/src/plugins/routes`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/06-wrapping-it-up/pinterest-clone/app/code/src/plugins/routes) folder:
 1. expand the existing GraphQL query by adding the `createdBy` field
@@ -37,7 +37,7 @@ Apart form the basic pin information, let's also show who created the pin we've 
 
 Ultimately, our [`pinDetails.tsx`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/06-wrapping-it-up/pinterest-clone/app/code/src/plugins/routes/pinDetails.tsx) file should look like the following:
 
-```tsx pinterest-clone/app/code/src/plugins/routes/pinDetails.tsx {19-21,51-54}
+```diff-tsx pinterest-clone/app/code/src/plugins/routes/pinDetails.tsx
 import React from "react";
 import { RoutePlugin } from "@webiny/app/plugins/RoutePlugin";
 import { Link, Route, RouteChildrenProps } from "@webiny/react-router";
@@ -56,9 +56,9 @@ const GET_PIN = gql`
                 title
                 description
                 coverImage
-                createdBy {
-                    displayName
-                }
++               createdBy {
++                   displayName
++               }
             }
         }
     }
@@ -88,10 +88,10 @@ const PinDetails: React.FC<Props> = props => {
                     <Col span={12}>
                         <h1>{data.title}</h1>
                         <p>{data.description}</p>
-                        <Divider />
-                        <p>
-                            Created by: <b>{data.createdBy?.displayName || "Unknown"}</b>
-                        </p>
++                       <Divider />
++                       <p>
++                           Created by: <b>{data.createdBy?.displayName || "Unknown"}</b>
++                       </p>
                     </Col>
                 </Row>
             ) : (
@@ -113,7 +113,7 @@ export default new RoutePlugin({
 
 And this is how our **Pin Details** page should actually look like (notice the **Created by:** section below the pin description):
 
-![Updated Profile Details Page](./wrapping-it-up/pin-details-final.png)
+![Updated Profile Details Page](./assets/wrapping-it-up/pin-details-final.png)
 
 As we can see, we didn't do anything too complex in terms of the actual visual layout. But, nevertheless, we're now finally able to see who created the particular pin we're looking at, and that's what we were aiming for.
 

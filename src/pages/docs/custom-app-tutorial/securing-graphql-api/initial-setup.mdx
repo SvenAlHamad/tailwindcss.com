@@ -63,7 +63,7 @@ In order to start setting up the newly added libraries, we'll first need to upda
 
 More specifically, we'll need to pass two new environment variables to our GraphQL API handler function: `COGNITO_REGION` and `COGNITO_USER_POOL_ID`.
 
-```ts pinterest-clone/api/pulumi/dev/index.ts {29-30}
+```diff-ts pinterest-clone/api/pulumi/dev/index.ts
 import * as pulumi from "@pulumi/pulumi";
 import DynamoDB from "./dynamoDb";
 import Graphql from "./graphql";
@@ -92,8 +92,8 @@ export default () => {
         env: {
             // The single DynamoDB table in which data can be stored and queried.
             DB_TABLE: dynamoDb.table.name,
-            COGNITO_REGION: String(process.env.AWS_REGION),
-            COGNITO_USER_POOL_ID: cognito.userPool.id,
++           COGNITO_REGION: String(process.env.AWS_REGION),
++           COGNITO_USER_POOL_ID: cognito.userPool.id,
             DEBUG,
             WEBINY_LOGS_FORWARD_URL
         }
@@ -115,13 +115,13 @@ In order for the new environment variables to be available in our GraphQL API ha
 
 Essentially, both [`@webiny/api-authentication`](https://github.com/webiny/webiny-js/tree/next/packages/api-authentication) and [`@webiny/api-authentication-cognito`](https://github.com/webiny/webiny-js/tree/next/packages/api-authentication-cognito) packages are exporting a collection of plugins, which are meant to be registered within our GraphQL API handler function:
 
-```ts pinterest-clone/api/code/graphql/src/index.ts {4-6,18-19,24-28}
+```diff-ts pinterest-clone/api/code/graphql/src/index.ts
 import { createHandler } from "@webiny/handler-aws";
 import graphqlPlugins from "@webiny/handler-graphql";
 import logsPlugins from "@webiny/handler-logs";
-import authenticationPlugins from "@webiny/api-authentication";
-import { authenticateUsingHttpHeader } from "@webiny/api-authentication/authenticateUsingHttpHeader";
-import cognitoAuthenticationPlugins from "@webiny/api-authentication-cognito";
++ import authenticationPlugins from "@webiny/api-authentication";
++ import { authenticateUsingHttpHeader } from "@webiny/api-authentication/authenticateUsingHttpHeader";
++ import cognitoAuthenticationPlugins from "@webiny/api-authentication-cognito";
 
 // Imports plugins created via scaffolding utilities.
 import scaffoldsPlugins from "./plugins/scaffolds";
@@ -133,17 +133,17 @@ export const handler = createHandler({
         /**
          * Setup authentication plugins.
          */
-        authenticationPlugins(),
-        authenticateUsingHttpHeader(),
++       authenticationPlugins(),
++       authenticateUsingHttpHeader(),
 
         /**
          * Setup Amazon Cognito authentication plugins.
          */
-        cognitoAuthenticationPlugins({
-            region: process.env.COGNITO_REGION,
-            userPoolId: process.env.COGNITO_USER_POOL_ID,
-            identityType: "user"
-        }),
++       cognitoAuthenticationPlugins({
++           region: process.env.COGNITO_REGION,
++           userPoolId: process.env.COGNITO_USER_POOL_ID,
++           identityType: "user"
++       }),
 
         logsPlugins(),
         graphqlPlugins({ debug }),
@@ -171,12 +171,12 @@ If we were to open the [`pinterest-clone/api/code/graphql/src/types.ts`](https:/
 
 So, since the newly added libraries (sets of plugins) are actually modifying the `context` object by adding new properties to it, let's make sure those changes are reflected in the `Context` interface as well.
 
-```ts pinterest-clone/api/code/graphql/src/types.ts {5,18}
+```diff-ts pinterest-clone/api/code/graphql/src/types.ts {5,18}
 import { HandlerContext } from "@webiny/handler/types";
 import { HttpContext } from "@webiny/handler-http/types";
 import { ArgsContext } from "@webiny/handler-args/types";
 import { ClientContext } from "@webiny/handler-client/types";
-import { AuthenticationContext } from "@webiny/api-authentication/types";
++ import { AuthenticationContext } from "@webiny/api-authentication/types";
 
 // When working with the `context` object (for example while defining a new GraphQL resolver function),
 // you can import this interface and assign it to it. This will give you full autocomplete functionality
@@ -189,7 +189,7 @@ export interface Context
         HttpContext,
         ArgsContext,
         ClientContext,
-        AuthenticationContext {}
++        AuthenticationContext {}
 ```
 
 As we can see, at the top of the file, we've simply imported the `AuthenticationContext` interface, and then, below, added it to our `Context` interface. Which means that, from now on, every time we interact with the `context` object, we'll be able to safely access all of the additional properties that the newly added security-related plugins defined.
@@ -204,7 +204,7 @@ Apart from that, we'll also want to perform the same update on the GraphQL schem
 
 So, let's start by updating the [`Pin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/entities/Pin.ts#L10) entity and [`PinEntity`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/types.ts#L3) type first:
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/entities/Pin.ts {25}
+```diff-ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/entities/Pin.ts
 // https://github.com/jeremydaly/dynamodb-toolbox
 import { Entity } from "dynamodb-toolbox";
 import table from "./table";
@@ -229,7 +229,7 @@ export default new Entity<PinEntity>({
         savedOn: { type: "string" },
 
         // For the `Pin` entity, we can use a simple "map" type as the attribute type.
-        createdBy: { type: "map" },
++       createdBy: { type: "map" },
 
         // Will store current version of Webiny, for example "5.9.1".
         // Might be useful in the future or while performing upgrades.
@@ -238,8 +238,8 @@ export default new Entity<PinEntity>({
 });
 ```
 
-```ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/types.ts {1,14}
-import { Identity } from "@webiny/api-authentication/types";
+```diff-ts pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/types.ts
++ import { Identity } from "@webiny/api-authentication/types";
 
 export interface PinEntity {
     PK: string;
@@ -252,7 +252,7 @@ export interface PinEntity {
     savedOn: string;
 
     // For the `PinEntity` type, let's be specific and specify which fields are accepted.
-    createdBy: Pick<Identity, "id" | "type" | "displayName">;
++   createdBy: Pick<Identity, "id" | "type" | "displayName">;
 
     webinyVersion: string;
 }
@@ -271,7 +271,7 @@ Once that's in place, all that is left to do is update our GraphQL schema:
 1. define the new [`PinCreatedBy`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts#L12) type
 2. extend the existing [`Pin`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts#L2) type with the the new [`createdBy: PinCreatedBy`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts#L9) field
 
-```graphql pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts {9,12-16}
+```diff-graphql pinterest-clone/api/code/graphql/src/plugins/scaffolds/pins/typeDefs.ts
 export default /* GraphQL */ `
     type Pin {
         id: ID!
@@ -280,14 +280,14 @@ export default /* GraphQL */ `
         coverImage: String
         createdOn: DateTime!
         savedOn: DateTime!
-        createdBy: PinCreatedBy
++       createdBy: PinCreatedBy
     }
 
-    type PinCreatedBy {
-        id: String
-        type: String
-        displayName: String
-    }
++   type PinCreatedBy {
++       id: String
++       type: String
++       displayName: String
++   }
 
     (...)
 `;

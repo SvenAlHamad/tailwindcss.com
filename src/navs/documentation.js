@@ -115,7 +115,17 @@ export const documentationNav = [
       page('custom-app-tutorial/adding-user-pools/adding-user-pool-client'),
       page('custom-app-tutorial/adding-user-pools/adjusting-webiny-config-ts-configuration-file'),
     ]),
-    section('Step 5: Securing React App', []),
+    section('Step 5: Securing React App', [
+      page('custom-app-tutorial/securing-react-application/initial-setup'),
+      page('custom-app-tutorial/securing-react-application/integrating-hosted-ui-authentication-flow')
+    ]),
+    section('Step 6: Securing GraphQL API', [
+      page('custom-app-tutorial/securing-graphql-api/initial-setup'),
+      page('custom-app-tutorial/securing-graphql-api/implementing-authentication-and-authorization-checks')
+    ]),
+    section('Wrapping it up', [
+      page('custom-app-tutorial/wrapping-it-up/wrapping-it-up'),
+    ]),
   ]),
 
   horizontalLine(),

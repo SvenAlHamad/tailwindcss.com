@@ -206,37 +206,37 @@ export function SearchButton({ children, ...props }) {
   </button>);
   }else{
     return (
-      <div class="sticky z-10 top-[-1px] overflow-hidden -ml-[5px] pointer-events-none mr-[15px] invisible lg:visible">
-      <div class="h-5 bg-white dark:bg-dark-theme"></div>
-      <div class="bg-white dark:bg-dark-theme relative pointer-events-auto px-[15px]">
+      <div className="sticky z-10 top-[-1px] overflow-hidden -ml-[5px] pointer-events-none mr-[15px] invisible lg:visible">
+      <div className="h-5 bg-white dark:bg-dark-theme"></div>
+      <div className="bg-white dark:bg-dark-theme relative pointer-events-auto px-[15px]">
         <button
         ref={searchButtonRef} onClick={handleClick} {...props}
           type="button"
-          class="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-dark-grey-2 dark:highlight-white/5 dark:hover:bg-slate-700"
+          className="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-dark-grey-2 dark:highlight-white/5 dark:hover:bg-slate-700"
         >
-          <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none">
+          <svg width="24" height="24" fill="none" aria-hidden="true" className="mr-3 flex-none">
             <path
               d="m19 19-3.5-3.5"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
             <circle
               cx="11"
               cy="11"
               r="6"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></circle>
           </svg>
           Quick search...
-          <span class="ml-auto pl-3 flex-none text-xs font-semibold">⌘K</span>
+          <span className="ml-auto pl-3 flex-none text-xs font-semibold">⌘K</span>
         </button>
       </div>
-      <div class="h-5 bg-gradient-to-b from-white dark:from-dark-theme"></div>
+      <div className="h-5 bg-gradient-to-b from-white dark:from-dark-theme"></div>
     </div>
     );
   }

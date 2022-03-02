@@ -540,6 +540,31 @@
     "source": "/docs/tutorials/create-custom-application/security/cloud-infrastructure/adjusting-webiny-config-ts-configuration-file",
     "destination": "/docs/custom-app-tutorial/adding-user-pools/adjusting-webiny-config-ts-configuration-file",
     "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/react-application/initial-setup",
+    "destination": "/docs/custom-app-tutorial/securing-react-application/initial-setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/react-application/integrating-hosted-ui-authentication-flow",
+    "destination": "/docs/custom-app-tutorial/securing-react-application/integrating-hosted-ui-authentication-flow",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/graphql-api/initial-setup",
+    "destination": "/docs/custom-app-tutorial/securing-graphql-api/initial-setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/graphql-api/implementing-authentication-and-authorization-checks",
+    "destination": "/docs/custom-app-tutorial/securing-graphql-api/implementing-authentication-and-authorization-checks",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-custom-application/security/wrapping-it-up",
+    "destination": "/docs/custom-app-tutorial/wrapping-it-up/wrapping-it-up",
+    "permanent": true
   }
   
   
