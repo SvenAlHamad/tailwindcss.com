@@ -69,6 +69,24 @@ export const documentationNav = [
     ]),
     section('References', [page('form-builder/references/plugins')]),
   ]),
+  collapsable('File Manager', [
+    section('Extending functionality', [
+      page('file-manager/extending/create-a-file-type-plugin'),
+    ]),
+  ]),
+  collapsable('Admin Area', [
+    section('Basics', [
+      page('admin-area/basics/framework'),
+      page('admin-area/basics/api-playground'),
+    ]),
+    section('Extending functionality', [
+      page('admin-area/extending/change-logo')
+    ]),
+    section('New App Tutorial', [
+      page('admin-area/new-app-tutorial/introduction'),
+      page('admin-area/new-app-tutorial/scaffolding'),
+    ])
+  ]),
 
   horizontalLine(),
 
@@ -125,47 +143,10 @@ export const documentationNav = [
   ]),
   ///////////////////////// HERES BE NEW BLOCKS////////////////////
   collapsable('Serverless CMS', [
-    page('webiny-overview/serverless-cms/apps/intro'),
-    collapsable('Headless CMS', [
-      page('webiny-overview/serverless-cms/apps/headless-cms'),
-      page('key-topics/webiny-applications/headless-cms/graphql-api'),
-      page('how-to-guides/webiny-applications/headless-cms/using-graphql-api'),
-      page('how-to-guides/webiny-applications/headless-cms/extend-graphql-api'),
-      page('tutorials/headless-cms/create-a-webiny-headless-cms-custom-field-plugin'),
-      collapsable('Plugins', []),
-    ]),
-    collapsable('Page Builder', [
-      page('webiny-overview/serverless-cms/apps/page-builder'),
-      page('tutorials/page-builder/create-a-new-page-element'),
-      page('tutorials/page-builder/customize-an-existing-page-builder-element'),
-      page('how-to-guides/webiny-applications/page-builder/extend-graphql-api'),
-      page('how-to-guides/webiny-applications/page-builder/extend-page-settings'),
-      collapsable('Themes', [
-        page('how-to-guides/webiny-applications/themes/page-builder/introduction'),
-        page('how-to-guides/webiny-applications/themes/page-builder/colors'),
-        page('how-to-guides/webiny-applications/themes/page-builder/elements'),
-        page('how-to-guides/webiny-applications/themes/page-builder/layouts'),
-      ]),
-    ]),
-    collapsable('Form Builder', [
-      page('webiny-overview/serverless-cms/apps/form-builder'),
-      collapsable('Themes', [
-        page('how-to-guides/webiny-applications/themes/form-builder/introduction'),
-        page('how-to-guides/webiny-applications/themes/form-builder/layouts'),
-      ]),
-    ]),
-    collapsable('File Manager', [
-      page('webiny-overview/serverless-cms/apps/file-manager'),
-      page('how-to-guides/webiny-applications/file-manager/create-a-file-type-plugin'),
-    ]),
     collapsable('Admin Area', [
       page('how-to-guides/webiny-applications/admin-area/introduction'),
-      page('how-to-guides/webiny-applications/admin-area/framework'),
-      page('how-to-guides/webiny-applications/admin-area/api-playground'),
-      page('how-to-guides/webiny-applications/admin-area/change-logo'),
+
       collapsable('Extend Admin Area', [
-        page('tutorials/extend-admin-area/introduction'),
-        page('how-to-guides/scaffolding/extend-admin-area'),
         page('tutorials/extend-admin-area/getting-started'),
         page('tutorials/extend-admin-area/extending-entities'),
         collapsable('Security', [

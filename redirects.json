@@ -415,6 +415,43 @@
     "source": "/docs/how-to-guides/webiny-applications/themes/form-builder/layouts",
     "destination": "/docs/form-builder/theming/layouts",
     "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/file-manager/create-a-file-type-plugin",
+    "destination": "/docs/file-manager/extending/create-a-file-type-plugin",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/admin-area/framework",
+    "destination": "/docs/admin-area/basics/framework",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/admin-area/api-playground",
+    "destination": "/docs/admin-area/basics/api-playground",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/admin-area/change-logo",
+    "destination": "/docs/admin-area/extending/change-logo",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/admin-area/change-logo",
+    "destination": "/docs/admin-area/extending/change-logo",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/extend-admin-area/introduction",
+    "destination": "/docs/admin-area/new-app-tutorial/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/extend-admin-area",
+    "destination": "/docs/admin-area/new-app-tutorial/scaffolding",
+    "permanent": true
   }
+  
+  
   
 ]

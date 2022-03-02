@@ -27,7 +27,7 @@ In the following sections, we cover 5 fundamental components which make everythi
 
 The following diagram shows all 5 components in action:
 
-![Admin App Framework In Action](./framework/AdminAppFramework.png)
+![Admin App Framework In Action](./assets/framework/AdminAppFramework.png)
 
 As you can see, what you mount, is not exactly what gets rendered. The `Admin` component (the framework) takes care of rendering things _where_ and _when_ they need to be rendered, and also does various compositions and optimizations (caching) in the process.
 
@@ -78,7 +78,7 @@ The `Compose` component allows you to wrap (compose) _existing_ React components
 
 A good usage example are the menu items in the main navigation of the Admin app.
 
-![Navigation Menu Renderers](./framework/MenuRenderers.png)
+![Navigation Menu Renderers](./assets/framework/MenuRenderers.png)
 
 All the menu items are represented with a single underlying data structure. Depending on menu item's children, depth (menu within a menu), presence of a link (or an onClick callback), etc., different renderers need to be applied.
 
