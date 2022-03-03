@@ -38,7 +38,7 @@ For best practices on how to organize your environments and other workflows, che
 
 Every project application can be deployed into several different environments. For example, we might have three applications in our project, and for each, we might want to have three different environments: **dev**, **staging**, and **production**.
 
-![Environments.](./assets/environments.png)
+![Environments.](./assets/environments/environments.png)
 
 Note that Webiny does **not** sync environments across your project applications. Meaning, if you want to deploy your entire project into a specific environment, you need to deploy every application into it. So, in the case of the above project, you would need to deploy all three applications.
 
@@ -52,15 +52,15 @@ Deploying multiple project environments into the same AWS account may incur addi
 
 ## FAQ
 
-**How many different environments can a project have?**
+### How many different environments can a project have?
 
 The answer is: as many as needed. There is no limit on the count of different environments you can deploy.
 
-**Depending on the environment, can a different cloud infrastructure be deployed?**
+### Depending on the environment, can a different cloud infrastructure be deployed?
 
 This can be done. Since the cloud infrastructure is defined using code, nothing prevents you from using a couple of `if` statements to determine which resources need to be deployed.
 
-**Is it reasonable to have different cloud infrastructure deployed based on the environment?**
+### Is it reasonable to have different cloud infrastructure deployed based on the environment?
 
 In certain cases, this might be reasonable. For example, you can reduce development costs by not deploying custom VPCs (and related cloud infrastructure resources) for development environments. You only deploy the full set of cloud infrastructure resources into **staging** and **production** environments.
 

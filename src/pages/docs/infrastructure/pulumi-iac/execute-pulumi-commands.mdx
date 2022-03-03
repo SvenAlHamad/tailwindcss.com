@@ -64,17 +64,15 @@ Note that the `--`, used in shown examples, is not an error. The actual Pulumi c
 
 ## FAQ
 
-### Placeholder
-
-#### What is the package Webiny is using to execute Pulumi commands?
+### What is the package Webiny is using to execute Pulumi commands?
 
 We are using our own [Pulumi SDK (@webiny/pulumi-sdk)](https://github.com/webiny/webiny-js/tree/next/packages/pulumi-sdk), which is, essentially, a small wrapper over the original Pulumi CLI, that allows us to use it programmatically, via JavaScript code.
 
-#### Where is the Pulumi CLI downloaded?
+### Where is the Pulumi CLI downloaded?
 
 Pulumi CLI is downloaded into the following folder in your Webiny project: `node_modules/@webiny/pulumi-sdk/pulumi`.
 
-#### Which should I use, Webiny CLI or Pulumi CLI?
+### Which should I use, Webiny CLI or Pulumi CLI?
 
 Although both can be used to get the job done, we recommend you always rely on the Webiny CLI. This is because of the reasons mentioned in this guide:
 
@@ -84,8 +82,6 @@ Although both can be used to get the job done, we recommend you always rely on t
 
 ## Troubleshooting
 
-### Placeholder
-
-#### I'm receiving the `--yes must be passed in to proceed when running in non-interactive mode` error
+### I'm receiving the `--yes must be passed in to proceed when running in non-interactive mode` error
 
 This error may sometimes pop up because [Webiny's Pulumi SDK](https://github.com/webiny/webiny-js/tree/next/packages/pulumi-sdk) package runs all Pulumi commands in a non-interactive mode. Because of this, sometimes you will need to pass the `--yes` flag in order to confirm the execution of the Pulumi command you're about to execute.

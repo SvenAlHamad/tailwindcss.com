@@ -1,7 +1,10 @@
 export function PageHeader({ title, description, parents }) {
   if (!title && !description) return null
 
-  let parent = parents[1].title+' '+ (parents[0] ? '→ '+ parents[0].title : '');
+  let parent = '';
+  if(parents!==null){
+    parent = parents[1].title+' '+ (parents[0] ? '→ '+ parents[0].title : '');
+  }
 
   return (
     <header

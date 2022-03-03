@@ -74,7 +74,7 @@ We only need to update these two options:
 Let's suppose we've registered the `coolwebsite.com`, and we want to use it for the Website.
 So, we'll use it as the value for `aliases`, for example:
 
-```ts apps/website/pulumi/delivery.ts
+```diff-ts apps/website/pulumi/delivery.ts
 // Some of the code is removed for brevity.
 
 class Delivery {
@@ -88,7 +88,7 @@ class Delivery {
         defaultCacheBehavior: {...},
         priceClass: "PriceClass_100",
         restrictions: {...},
-        aliases: ["coolwebsite.com"],
++       aliases: ["coolwebsite.com"],
         viewerCertificate: {
             cloudfrontDefaultCertificate: true
         }
@@ -107,7 +107,7 @@ The ACM certificate must be in `us-east-1` region.
 For the sslSupportMethod, we'll use `"sni-only"` – which means distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication).
 This is recommended. Most browsers and clients support SNI.
 
-```ts apps/website/pulumi/delivery.ts
+```diff-ts apps/website/pulumi/delivery.ts
 // Some of the code is removed for brevity.
 
 class Delivery {
@@ -122,10 +122,10 @@ class Delivery {
         priceClass: "PriceClass_100",
         restrictions: {...},
         aliases: ["coolwebsite.com"],
-        viewerCertificate: {
-            acmCertificateArn: "...", // Arn of the certificate
-            sslSupportMethod: "sni-only"
-        }
++       viewerCertificate: {
++           acmCertificateArn: "...", // Arn of the certificate
++           sslSupportMethod: "sni-only"
++       }
     });
     (...)
 }

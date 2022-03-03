@@ -10,7 +10,11 @@ export function DocumentationLayout(props) {
   
   const parents = getParentNav(props.layoutProps.Layout.nav);
 
-  const parent = (parents[0] ? parents[0].title+' - ' : '')+parents[1].title;
+  let parent = ''
+  if(parents!==null){
+    parent = (parents[0] ? parents[0].title+' - ' : '')+parents[1].title;
+  }
+  
 
   let suffix = router.pathname === '/' ? parent : parent+' | Webiny Documentation';
 

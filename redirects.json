@@ -695,6 +695,57 @@
     "source": "/docs/how-to-guides/scaffolding/ci-cd",
     "destination": "/docs/core-development-concepts/ci-cd/setup",
     "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/deployment/introduction",
+    "destination": "/docs/infrastructure/basics/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/deployment/environments",
+    "destination": "/docs/infrastructure/basics/environments",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/preview-deployments",
+    "destination": "/docs/infrastructure/basics/preview-deployments",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/destroy-cloud-infrastructure",
+    "destination": "/docs/infrastructure/basics/destroy-cloud-infrastructure",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/build-and-deploy-hooks",
+    "destination": "/docs/infrastructure/basics/build-and-deploy-hooks",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/deployment/iac-with-pulumi",
+    "destination": "/docs/infrastructure/pulumi-iac/iac-with-pulumi",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/execute-pulumi-commands",
+    "destination": "/docs/infrastructure/pulumi-iac/execute-pulumi-commands",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/aws/configure-aws-credentials",
+    "destination": "/docs/infrastructure/aws/configure-aws-credentials",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/aws/use-aws-profiles",
+    "destination": "/docs/infrastructure/aws/use-aws-profiles",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/connect-custom-domain",
+    "destination": "/docs/infrastructure/additional-resources/connect-custom-domain",
+    "permanent": true
   }
+  
   
 ]

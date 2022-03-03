@@ -178,51 +178,50 @@ export const documentationNav = [
 
   collapsable('Infrastructure', [
     section('Basics', [
-      page('key-topics/deployment/introduction'),
-      page('key-topics/deployment/environments'),
-      page('how-to-guides/deployment/preview-deployments'),
-      page('how-to-guides/deployment/destroy-cloud-infrastructure'),
-      page('how-to-guides/deployment/build-and-deploy-hooks'),
+      page('infrastructure/basics/introduction'),
+      page('infrastructure/basics/environments'),
+      page('infrastructure/basics/preview-deployments'),
+      page('infrastructure/basics/destroy-cloud-infrastructure'),
+      page('infrastructure/basics/build-and-deploy-hooks'),
     ]),
     section('Pulumi IaC', [
-      page('key-topics/deployment/iac-with-pulumi'),
-      page('how-to-guides/deployment/execute-pulumi-commands'),
+      page('infrastructure/pulumi-iac/iac-with-pulumi'),
+      page('infrastructure/pulumi-iac/execute-pulumi-commands'),
     ]),
     section('AWS', [
-      page('how-to-guides/deployment/aws/configure-aws-credentials'),
-      page('how-to-guides/deployment/aws/use-aws-profiles'),
+      page('infrastructure/aws/configure-aws-credentials'),
+      page('infrastructure/aws/use-aws-profiles'),
     ]),
-    section('Additional resources', [page('how-to-guides/deployment/connect-custom-domain')]),
+    section('Additional resources', [page('infrastructure/additional-resources/connect-custom-domain')]),
+  ]),
+  
+  collapsable('Architecture', [
+    page('key-topics/cloud-infrastructure/introduction'),
+    section('API Architecture', [
+      page('key-topics/cloud-infrastructure/api/introduction'),
+      page('key-topics/cloud-infrastructure/api/overview'),
+      page('key-topics/cloud-infrastructure/api/graphql-requests'),
+      page('key-topics/cloud-infrastructure/api/file-upload'),
+      page('key-topics/cloud-infrastructure/api/file-download'),
+      page('key-topics/cloud-infrastructure/api/overview-vpc-default'),
+      page('key-topics/cloud-infrastructure/api/overview-vpc-custom'),
+    ]),
+    section('Admin Area Architecture', [
+      page('key-topics/cloud-infrastructure/admin/introduction'),
+      page('key-topics/cloud-infrastructure/admin/overview'),
+      page('key-topics/cloud-infrastructure/admin/serving-application-files'),
+    ]),
+    section('Website Architecture', [
+      page('key-topics/cloud-infrastructure/website/introduction'),
+      page('key-topics/cloud-infrastructure/website/overview'),
+      page('key-topics/cloud-infrastructure/website/prerendering-pages'),
+      page('key-topics/cloud-infrastructure/website/serving-pages'),
+    ]),
   ]),
 
   ///////////////////////// HERES BE NEW BLOCKS////////////////////
 
   collapsable('Key Topics', [
-    section('SECTION NAME', [
-      collapsable('Cloud Infrastructure', [
-        page('key-topics/cloud-infrastructure/introduction'),
-        collapsable('API', [
-          page('key-topics/cloud-infrastructure/api/introduction'),
-          page('key-topics/cloud-infrastructure/api/overview'),
-          page('key-topics/cloud-infrastructure/api/graphql-requests'),
-          page('key-topics/cloud-infrastructure/api/file-upload'),
-          page('key-topics/cloud-infrastructure/api/file-download'),
-          page('key-topics/cloud-infrastructure/api/overview-vpc-default'),
-          page('key-topics/cloud-infrastructure/api/overview-vpc-custom'),
-        ]),
-        collapsable('Admin Area', [
-          page('key-topics/cloud-infrastructure/admin/introduction'),
-          page('key-topics/cloud-infrastructure/admin/overview'),
-          page('key-topics/cloud-infrastructure/admin/serving-application-files'),
-        ]),
-        collapsable('Website', [
-          page('key-topics/cloud-infrastructure/website/introduction'),
-          page('key-topics/cloud-infrastructure/website/overview'),
-          page('key-topics/cloud-infrastructure/website/prerendering-pages'),
-          page('key-topics/cloud-infrastructure/website/serving-pages'),
-        ]),
-      ]),
-    ]),
     horizontalLine(),
     page('how-to-guides/webiny-applications/themes/introduction'),
     page('key-topics/multi-tenancy'),
