@@ -565,8 +565,136 @@
     "source": "/docs/tutorials/create-custom-application/security/wrapping-it-up",
     "destination": "/docs/custom-app-tutorial/wrapping-it-up/wrapping-it-up",
     "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/plugins",
+    "destination": "/docs/core-development-concepts/basics/plugins",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/tools-libraries",
+    "destination": "/docs/core-development-concepts/basics/tools-and-libraries",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/importing-plugins",
+    "destination": "/docs/core-development-concepts/basics/importing-plugins",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/extend-graphql-api",
+    "destination": "/docs/core-development-concepts/extending-and-customizing/extend-graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/webiny-cli",
+    "destination": "/docs/core-development-concepts/basics/webiny-cli",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/deployment/deploy-your-project",
+    "destination": "/docs/core-development-concepts/basics/project-deployment",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/use-watch-command",
+    "destination": "/docs/core-development-concepts/basics/watch-command",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/project-organization/project-applications",
+    "destination": "/docs/core-development-concepts/project-organization/project-applications",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/project-organization/project-applications-and-packages",
+    "destination": "/docs/core-development-concepts/project-organization/project-applications-and-packages",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/project-organization/monorepo-organization",
+    "destination": "/docs/core-development-concepts/project-organization/monorepo-organization",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/introduction",
+    "destination": "/docs/core-development-concepts/scaffolding/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/full-stack-application",
+    "destination": "/docs/core-development-concepts/scaffolding/full-stack-application",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/graphql-api",
+    "destination": "/docs/core-development-concepts/scaffolding/graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/extend-graphql-api",
+    "destination": "/docs/core-development-concepts/scaffolding/extend-graphql-api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/react-application",
+    "destination": "/docs/core-development-concepts/scaffolding/react-application",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/webiny-cli/adding-custom-commands",
+    "destination": "/docs/core-development-concepts/extending-and-customizing/adding-custom-cli-commands",
+    "permanent": true
+  },
+  {
+    "source": "/docs/tutorials/create-a-package-in-webiny-project",
+    "destination": "/docs/core-development-concepts/extending-and-customizing/create-a-package-in-webiny-project",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/integrations/integrate-tailwindcss",
+    "destination": "/docs/core-development-concepts/extending-and-customizing/integrate-tailwindcss",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/environment-variables",
+    "destination": "/docs/core-development-concepts/basics/environment-variables",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/ci-cd/introduction",
+    "destination": "/docs/core-development-concepts/ci-cd/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/ci-cd/environments",
+    "destination": "/docs/core-development-concepts/ci-cd/environments",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/ci-cd/version-control",
+    "destination": "/docs/core-development-concepts/ci-cd/version-control",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/ci-cd/cloud-infrastructure-state-files",
+    "destination": "/docs/core-development-concepts/ci-cd/cloud-infrastructure-state-files",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/ci-cd/testing",
+    "destination": "/docs/core-development-concepts/ci-cd/testing",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/ci-cd/workflows",
+    "destination": "/docs/core-development-concepts/ci-cd/workflows",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/scaffolding/ci-cd",
+    "destination": "/docs/core-development-concepts/ci-cd/setup",
+    "permanent": true
   }
-  
-  
   
 ]

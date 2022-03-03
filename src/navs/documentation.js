@@ -117,106 +117,88 @@ export const documentationNav = [
     ]),
     section('Step 5: Securing React App', [
       page('custom-app-tutorial/securing-react-application/initial-setup'),
-      page('custom-app-tutorial/securing-react-application/integrating-hosted-ui-authentication-flow')
+      page(
+        'custom-app-tutorial/securing-react-application/integrating-hosted-ui-authentication-flow'
+      ),
     ]),
     section('Step 6: Securing GraphQL API', [
       page('custom-app-tutorial/securing-graphql-api/initial-setup'),
-      page('custom-app-tutorial/securing-graphql-api/implementing-authentication-and-authorization-checks')
+      page(
+        'custom-app-tutorial/securing-graphql-api/implementing-authentication-and-authorization-checks'
+      ),
     ]),
-    section('Wrapping it up', [
-      page('custom-app-tutorial/wrapping-it-up/wrapping-it-up'),
-    ]),
+    section('Wrapping it up', [page('custom-app-tutorial/wrapping-it-up/wrapping-it-up')]),
   ]),
 
   horizontalLine(),
 
-  collapsable('Core Concepts', [
-    collapsable('Project Organization', [
-      page('key-topics/project-organization/project-applications'),
-      page('key-topics/project-organization/project-applications-and-packages'),
-      page('key-topics/project-organization/monorepo-organization'),
+  collapsable('Core Development Concepts', [
+    section('Basics', [
+      page('core-development-concepts/basics/tools-and-libraries'),
+      page('core-development-concepts/basics/plugins'),
+      page('core-development-concepts/basics/importing-plugins'),
+      page('core-development-concepts/basics/webiny-cli'),
+      page('core-development-concepts/basics/project-deployment'),
+      page('core-development-concepts/basics/watch-command'),
+      page('core-development-concepts/basics/environment-variables'),
     ]),
-    page('key-topics/plugins'),
-    page('how-to-guides/use-watch-command'),
-    page('how-to-guides/deployment/deploy-your-project'),
-    page('key-topics/webiny-cli'),
-  ]),
-  /*
-  collapsable('Create Custom Application', [
-    page('tutorials/create-custom-application/introduction'),
-    page('tutorials/create-custom-application/getting-started'),
-    page('tutorials/create-custom-application/graphql-api'),
-    section('React Application', [
-      page('tutorials/create-custom-application/react-application/introduction'),
-      page('tutorials/create-custom-application/react-application/layout'),
-      page('tutorials/create-custom-application/react-application/new-pin-modal-dialog'),
-      page('tutorials/create-custom-application/react-application/homepage'),
-      page('tutorials/create-custom-application/react-application/pin-details-page'),
-    ]),
-    collapsable('Security', [
-      page('tutorials/create-custom-application/security/introduction'),
-      page('tutorials/create-custom-application/security/getting-started'),
-      section('Cloud Infrastructure', [
-        page(
-          'tutorials/create-custom-application/security/cloud-infrastructure/adding-user-pool-and-user-pool-domain'
-        ),
-        page(
-          'tutorials/create-custom-application/security/cloud-infrastructure/adding-user-pool-client'
-        ),
-        page(
-          'tutorials/create-custom-application/security/cloud-infrastructure/adjusting-webiny-config-ts-configuration-file'
-        ),
-      ]),
-      collapsable('React Application', [
-        page('tutorials/create-custom-application/security/react-application/initial-setup'),
-        page(
-          'tutorials/create-custom-application/security/react-application/integrating-hosted-ui-authentication-flow'
-        ),
-      ]),
-      collapsable('GraphQL API', [
-        page('tutorials/create-custom-application/security/graphql-api/initial-setup'),
-        page(
-          'tutorials/create-custom-application/security/graphql-api/implementing-authentication-and-authorization-checks'
-        ),
-      ]),
-      page('tutorials/create-custom-application/security/wrapping-it-up'),
-    ]),
-  ]),
-  */
-  ///////////////////////// HERES BE NEW BLOCKS////////////////////
 
-  collapsable('Deployment', [
-    page('key-topics/deployment/introduction'),
-    page('key-topics/deployment/environments'),
-    page('how-to-guides/deployment/preview-deployments'),
-    page('key-topics/deployment/iac-with-pulumi'),
-    page('how-to-guides/deployment/execute-pulumi-commands'),
-    page('how-to-guides/deployment/connect-custom-domain'),
-    page('how-to-guides/deployment/destroy-cloud-infrastructure'),
-    page('how-to-guides/deployment/build-and-deploy-hooks'),
-    collapsable('AWS', [
+    section('Project Organization', [
+      page('core-development-concepts/project-organization/project-applications'),
+      page('core-development-concepts/project-organization/project-applications-and-packages'),
+      page('core-development-concepts/project-organization/monorepo-organization'),
+    ]),
+
+    section('Scaffolding', [
+      page('core-development-concepts/scaffolding/introduction'),
+      page('core-development-concepts/scaffolding/full-stack-application'),
+      page('core-development-concepts/scaffolding/graphql-api'),
+      page('core-development-concepts/scaffolding/extend-graphql-api'),
+      page('core-development-concepts/scaffolding/react-application'),
+    ]),
+
+    section('Extending and Customizing', [
+      page('core-development-concepts/extending-and-customizing/extend-graphql-api'),
+      page('core-development-concepts/extending-and-customizing/adding-custom-cli-commands'),
+      page(
+        'core-development-concepts/extending-and-customizing/create-a-package-in-webiny-project'
+      ),
+      page('core-development-concepts/extending-and-customizing/integrate-tailwindcss'),
+    ]),
+    section('CI/CD', [
+      page('core-development-concepts/ci-cd/introduction'),
+      page('core-development-concepts/ci-cd/environments'),
+      page('core-development-concepts/ci-cd/version-control'),
+      page('core-development-concepts/ci-cd/cloud-infrastructure-state-files'),
+      page('core-development-concepts/ci-cd/testing'),
+      page('core-development-concepts/ci-cd/workflows'),
+      page('core-development-concepts/ci-cd/setup'),
+    ]),
+  ]),
+
+  collapsable('Infrastructure', [
+    section('Basics', [
+      page('key-topics/deployment/introduction'),
+      page('key-topics/deployment/environments'),
+      page('how-to-guides/deployment/preview-deployments'),
+      page('how-to-guides/deployment/destroy-cloud-infrastructure'),
+      page('how-to-guides/deployment/build-and-deploy-hooks'),
+    ]),
+    section('Pulumi IaC', [
+      page('key-topics/deployment/iac-with-pulumi'),
+      page('how-to-guides/deployment/execute-pulumi-commands'),
+    ]),
+    section('AWS', [
       page('how-to-guides/deployment/aws/configure-aws-credentials'),
       page('how-to-guides/deployment/aws/use-aws-profiles'),
     ]),
-    section('CI/CD', [
-      page('key-topics/ci-cd/introduction'),
-      page('key-topics/ci-cd/environments'),
-      page('key-topics/ci-cd/version-control'),
-      page('key-topics/ci-cd/cloud-infrastructure-state-files'),
-      page('key-topics/ci-cd/testing'),
-      page('key-topics/ci-cd/workflows'),
-      page('how-to-guides/scaffolding/ci-cd'),
-    ]),
+    section('Additional resources', [page('how-to-guides/deployment/connect-custom-domain')]),
   ]),
+
+  ///////////////////////// HERES BE NEW BLOCKS////////////////////
+
   collapsable('Key Topics', [
     section('SECTION NAME', [
-      collapsable('Scaffolding', [
-        page('how-to-guides/scaffolding/introduction'),
-        page('how-to-guides/scaffolding/full-stack-application'),
-        page('how-to-guides/scaffolding/graphql-api'),
-        page('how-to-guides/scaffolding/extend-graphql-api'),
-        page('how-to-guides/scaffolding/react-application'),
-      ]),
       collapsable('Cloud Infrastructure', [
         page('key-topics/cloud-infrastructure/introduction'),
         collapsable('API', [
@@ -240,17 +222,10 @@ export const documentationNav = [
           page('key-topics/cloud-infrastructure/website/serving-pages'),
         ]),
       ]),
-      page('how-to-guides/environment-variables'),
-      page('how-to-guides/importing-plugins'),
     ]),
     horizontalLine(),
-    page('how-to-guides/extend-graphql-api'),
-    page('tutorials/webiny-cli/adding-custom-commands'),
-    page('key-topics/tools-libraries'),
     page('how-to-guides/webiny-applications/themes/introduction'),
-    page('tutorials/create-a-package-in-webiny-project'),
     page('key-topics/multi-tenancy'),
-    collapsable('Integrations', [page('how-to-guides/integrations/integrate-tailwindcss')]),
   ]),
   collapsable('Security', [
     page('webiny-overview/security'),
