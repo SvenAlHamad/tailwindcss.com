@@ -113,7 +113,7 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
       <li
         href="#"
         onClick={() => setShowMenu(!showMenu)}
-        className="relative flex items-center cursor-pointer h-[30px] mt-[10px] mb-[8px]"
+        className="root-element relative flex items-center cursor-pointer h-[30px] mt-[5px] mb-[3px]"
       >
         <div className={`${depth === 0 ? 'absolute left-[-15px] top-[9px]' : 'mr-[10px]'}`}>
           <div className={"transition-all transform duration-300 "+ (showMenu ? 'rotate-90' : '')} alt="collapsable">
@@ -140,7 +140,7 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
           {title}
         </button>
       </li>
-      <ul className={"transition-all transform duration-300 " + clsx({ 'ml-[20px] ': depth > 0, 'h-max opacity-1 overflow-visible': showMenu, 'h-0 opacity-0 overflow-hidden': !showMenu })}>
+      <ul className={"transition-all duration-300 " + clsx({ 'ml-[20px] ': depth > 0, 'transform max-h-[1500px] opacity-1 overflow-visible': showMenu, 'max-h-0 transform opacity-0 overflow-hidden': !showMenu })}>
         {subElements.map((navElement, index) => (
           <NavTreeElement key={index} element={navElement} ref={ref} depth={depth + 1} />
         ))}
