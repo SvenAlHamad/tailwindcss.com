@@ -269,8 +269,9 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
         </div>
       </ContentsContext.Provider>
 
+      {/*
       <WasThisArticleHelpful className="xl:hidden" />
-
+      */}
       <Footer previous={prev} next={next}>
         <Link
           href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
@@ -287,7 +288,9 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
             <TableOfContents tableOfContents={toc} currentSection={currentSection} />
           </div>
         )}
+        {/*
         <WasThisArticleHelpful />
+        */}
       </div>
     </div>
   )

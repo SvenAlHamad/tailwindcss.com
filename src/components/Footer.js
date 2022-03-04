@@ -53,7 +53,12 @@ export function Footer({ previous, next }) {
             <div className="mr-2.5 pt-2.5 h-7 w-1.5">{ArrowIcon}</div>
             <p>
               Questions? &nbsp;
-              <a href="#" className="font-source-sans-pro text-orange underline hover:decoration-2">
+              <a
+                href="https://www.webiny.com/slack"
+                target="_blank"
+                rel="noreferrer"
+                className="font-source-sans-pro text-orange underline hover:decoration-2"
+              >
                 Find us on slack.
               </a>
             </p>
@@ -62,7 +67,12 @@ export function Footer({ previous, next }) {
             <div className="mr-2.5 pt-2.5 h-7 w-1.5">{ArrowIcon}</div>
             <p>
               Found a bug on the page, &nbsp;
-              <a href="#" className="font-source-sans-pro text-orange underline hover:decoration-2">
+              <a
+                href="https://github.com/webiny/docs.webiny.com"
+                target="_blank"
+                rel="noreferrer"
+                className="font-source-sans-pro text-orange underline hover:decoration-2"
+              >
                 submit an issue or a PR.
               </a>
             </p>
@@ -71,7 +81,12 @@ export function Footer({ previous, next }) {
             <div className="mr-2.5 pt-2.5 h-7 w-1.5">{ArrowIcon}</div>
             <p>
               Check out our &nbsp;
-              <a href="#" className="font-source-sans-pro text-orange underline hover:decoration-2">
+              <a
+                href="https://www.webiny.com/roadmap"
+                target="_blank"
+                rel="noreferrer"
+                className="font-source-sans-pro text-orange underline hover:decoration-2"
+              >
                 roadmap.
               </a>
             </p>

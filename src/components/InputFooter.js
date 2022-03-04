@@ -10,10 +10,21 @@ export function InputFooter({ className }) {
     <form
       onSubmit={(event) => {
         event.preventDefault()
-        console.log(`Form Submitted with data: 
-        name: ${inputRef.current.name}
-        value: ${inputRef.current.value}`)
+
+        fetch(
+          'https://app.mailerlite.com/webforms/submit/g9f1i1?fields%5Bemail%5D=' +
+            encodeURIComponent(inputRef.current.value) +
+            '&ml-submit=1&ajax=1',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          }
+        )
+
         setIsFormSubmitted(true)
+        inputRef.current.value = "Thanks, you're on the list!"
       }}
       className={clsx(inputFooterForm, className)}
     >
@@ -24,9 +35,9 @@ export function InputFooter({ className }) {
         id="email"
         name="email"
         type="email"
-        placeholder="Your e-mail..."
+        placeholder={'Your e-mail...'}
         title="Please, Provide A Valid Email Address!"
-        className={clsx(inputFooterInput, "dark:border-0")}
+        className={clsx(inputFooterInput, 'dark:border-0')}
       />
     </form>
   )
