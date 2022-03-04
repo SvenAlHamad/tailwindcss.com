@@ -245,7 +245,7 @@ module.exports = {
             },
             table: {
               fontSize: theme('fontSize.sm')[0],
-              lineHeight: theme('fontSize.sm')[1].lineHeight,
+              lineHeight: '2rem',
               display: 'block',
               overflowX: 'auto',
             },

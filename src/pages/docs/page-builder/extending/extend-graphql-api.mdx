@@ -13,7 +13,7 @@ import { Alert } from '@/components/Alert'
 
 <Alert type="info">
 
-Use the [`webiny watch`](/docs/how-to-guides/use-watch-command) command to continuously deploy application code changes into the cloud and instantly see them in action. For quick (manual) testing, you can use the built-in [API Playground](/docs/how-to-guides/webiny-applications/admin-area/api-playground/).
+Use the [`webiny watch`](../../core-development-concepts/basics/watch-command) command to continuously deploy application code changes into the cloud and instantly see them in action. For quick (manual) testing, you can use the built-in [API Playground](/docs/how-to-guides/webiny-applications/admin-area/api-playground/).
 
 </Alert>
 
@@ -104,9 +104,9 @@ Running the above mutation should mark the page with the `60f903881f76a100082006
 
 If needed, existing pages-related GraphQL queries can be modified too.
 
-Continuing from the [previous](/docs/how-to-guides/webiny-applications/page-builder/extend-graphql-api#adding-new-page-fields) example, let's say we also wanted to be able to list special pages only. We can do that with the help of the [`SearchLatestPagesPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/api-page-builder/src/plugins/SearchLatestPagesPlugin.ts#L3) and [`SearchPublishedPagesPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/api-page-builder/src/plugins/SearchPublishedPagesPlugin.ts#L3) plugins (both extending [`SearchPagesPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/api-page-builder/src/plugins/SearchPagesPlugin.ts#L22)):
+Continuing from the [previous](#adding-new-page-fields) example, let's say we also wanted to be able to list special pages only. We can do that with the help of the [`SearchLatestPagesPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/api-page-builder/src/plugins/SearchLatestPagesPlugin.ts#L3) and [`SearchPublishedPagesPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/api-page-builder/src/plugins/SearchPublishedPagesPlugin.ts#L3) plugins (both extending [`SearchPagesPlugin`](https://github.com/webiny/webiny-js/blob/v5.11.0/packages/api-page-builder/src/plugins/SearchPagesPlugin.ts#L22)):
 
-```diff-js ts api/code/graphql/src/plugins/pages.ts {34-40,48-72}
+```diff-ts api/code/graphql/src/plugins/pages.ts
 import { GraphQLSchemaPlugin } from '@webiny/handler-graphql/plugins'
 import { IndexPageDataPlugin } from '@webiny/api-page-builder/plugins/IndexPageDataPlugin'
 import { Page } from '@webiny/api-page-builder/types'
@@ -307,9 +307,7 @@ After the mutation has been executed, we should be able to see the created copy 
 
 ## FAQ
 
-### Placeholder
-
-#### What is the `context` object and where are all of its properties coming from?
+### What is the `context` object and where are all of its properties coming from?
 
 In the shown examples, you may have noticed we were using the `context` object in GraphQL resolver functions. This object contains multiple different properties, mainly being defined from different Webiny applications that were imported in the GraphQL API's [`api/code/graphql/src/index.ts`](https://github.com/webiny/webiny-examples/blob/master/page-builder/extend-graphql-api/custom-mutations/api/code/graphql/src/index.ts) entrypoint file.
 

@@ -183,9 +183,9 @@ Also, make the following style changes to make our layout stand apart:
 Now that you have your newly created React component in place,
 let's register a new [`form layout`](../references/plugins#form-layout) plugin:
 
-```ts {2,14-22} apps/theme/formBuilder/index.ts
+```diff-ts apps/theme/formBuilder/index.ts
 import DefaultFormLayout from './layouts/DefaultFormLayout'
-import SimpleFormLayout from './layouts/SimpleFormLayout'
++ import SimpleFormLayout from './layouts/SimpleFormLayout'
 
 export default [
   {
@@ -197,14 +197,14 @@ export default [
       component: DefaultFormLayout,
     },
   },
-  {
-    name: 'form-layout-simple',
-    type: 'form-layout',
-    layout: {
-      name: 'simple',
-      title: 'Simple layout',
-      component: SimpleFormLayout,
-    },
++ {
++   name: 'form-layout-simple',
++   type: 'form-layout',
++   layout: {
++     name: 'simple',
++     title: 'Simple layout',
++     component: SimpleFormLayout,
++   },
   },
 ]
 ```

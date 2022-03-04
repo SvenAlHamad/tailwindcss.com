@@ -73,13 +73,13 @@ If you open the [variables.scss](https://github.com/webiny/webiny-js/blob/next/a
 As an example, updating the following colors in the [variables.scss](https://github.com/webiny/webiny-js/blob/next/apps/theme/pageBuilder/styles/variables.scss)
 file would result in a different value of primary and secondary colors as shown below:
 
-```scss {5-6} apps/theme/pageBuilder/styles/variables.scss
+```diff-scss apps/theme/pageBuilder/styles/variables.scss
 // Some code is removed for the sake of brevity.
 (...)//colors$webiny-pb-theme-primary:#77a6f7!default$webiny-pb-theme-secondary:#00887a!default$webiny-pb-theme-background:#eaecec!default$webiny-pb-theme-surface:#ffffff!default$webiny-pb-theme-on-primary:#ffffff!default$webiny-pb-theme-on-secondary: #ffffff !default;
 $webiny-pb-theme-on-surface: #000000 !default;
 $webiny-pb-theme-on-background: #131313 !default;
-$webiny-pb-theme-text-primary: #293042 !default;
-$webiny-pb-theme-text-secondary: #616161 !default;
++ $webiny-pb-theme-text-primary: #293042 !default;
++ $webiny-pb-theme-text-secondary: #616161 !default;
 $webiny-pb-theme-color-border: #e8ebee !default;
 
 //...

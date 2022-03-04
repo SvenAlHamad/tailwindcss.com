@@ -107,7 +107,7 @@ We achieve this in two steps:
 
 Make the following change in [`apps/theme/pageBuilder/index.ts`](https://github.com/webiny/webiny-js/blob/next/apps/theme/pageBuilder/index.ts#L21) file:
 
-```ts {11} apps/theme/pageBuilder/index.ts
+```diff-ts apps/theme/pageBuilder/index.ts
 (...)
 
   elements: {
@@ -118,7 +118,7 @@ Make the following change in [`apps/theme/pageBuilder/index.ts`](https://github.
             { className: "secondary", label: "Secondary" },
             { className: "outline-primary", label: "Outline Primary" },
             { className: "outline-secondary", label: "Outline Secondary" },
-            { className: "simple", label: "Simple" },
++           { className: "simple", label: "Simple" },
             { className: "playful", label: "Playful" }
         ]
     },

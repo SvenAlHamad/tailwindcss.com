@@ -259,7 +259,18 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
                     </a>
                   )
                 } else {
-                  return <Link href={props.href}>{props.children}</Link>
+                  if(typeof props.children === 'object'){
+                    if(props.children.props.originalType=='inlineCode'){
+                      return <code><Link href={props.href}>{props.children.props.children}</Link></code>
+                    }else if(props.children.props.originalType=='img'){
+                      return <a target={"_blank"} href={props.href}><img src={props.href}/></a>
+                    }else{
+                      return <Link href={props.href}>{props.children}</Link>
+                    }
+                  }else{
+                    return <Link href={props.href}>{props.children}</Link>
+                  }
+                  
                 }
               },
             }}
