@@ -22,7 +22,7 @@ This feature is available since Webiny **v5.22.0**.
 
 Theme Manager module makes it possible to assign website themes to individual tenants. Root tenant has access to all themes that are registered in the Admin app, and gets to decide which of those themes will be available to the sub-tenant.
 
-![Assign Themes to an Individual Tenant](./theme-manager/tenant-themes.png)
+![Assign Themes to an Individual Tenant](./assets/theme-manager/tenant-themes.png)
 
 ## 1) Prepare the Project
 
@@ -73,34 +73,32 @@ import themeManager from "@webiny/api-theme-manager";
 
 Then, add the plugin to the Lambda handler, towards the end of the plugins list. This plugin is extending the Page Builder app, so it has to be registered _after_ the Page Builder. See an example in the image below:
 
-![Enable Theme Manager Plugin in the GraphQL API.](./theme-manager/import-theme-manager-api.png)
+![Enable Theme Manager Plugin in the GraphQL API.](./assets/theme-manager/import-theme-manager-api.png)
 
 ## 4) Import and Configure Theme Manager in the Admin App
 
 Now we need to enable the Theme Manager module in the Admin app. In your `apps/admin/code/src/App.tsx`, add the following:
 
-```tsx apps/admin/code/src/App.tsx
+```diff-tsx apps/admin/code/src/App.tsx
 import React from "react";
 import { Admin } from "@webiny/app-serverless-cms";
 import { Cognito } from "@webiny/app-admin-users-cognito";
 import { TenantManager } from "@webiny/app-tenant-manager";
-import { ThemeManager } from "@webiny/app-theme-manager";
++ import { ThemeManager } from "@webiny/app-theme-manager";
 import "./App.scss";
 
-const themes = [
-  {
-    name: "default",
-    label: "Default Theme",
-    load: () => import("theme").then(m => m.default)
-  }
-];
++ const themes = [{
++   name: "default",
++   label: "Default Theme",
++   load: () => import("theme").then(m => m.default)
++ }];
 
 export const App = () => {
   return (
     <Admin>
       <Cognito />
       <TenantManager />
-      <ThemeManager themes={themes} />
++     <ThemeManager themes={themes} />
     </Admin>
   );
 };
@@ -114,32 +112,30 @@ The `name` property will be used by Webiny, and will be stored to the database w
 
 Now we need to enable the Theme Manager module in the Website app. In your `apps/website/code/src/App.tsx`, add the following:
 
-```tsx apps/website/code/src/App.tsx
+```diff-tsx apps/website/code/src/App.tsx
 import React from "react";
 import { ApolloProvider } from "@apollo/react-components";
 import { BrowserRouter, Switch, Route } from "@webiny/react-router";
 import { PageBuilderProvider } from "@webiny/app-page-builder/contexts/PageBuilder";
-import { ThemeLoader } from "@webiny/app-theme-manager";
++ import { ThemeLoader } from "@webiny/app-theme-manager";
 import { createApolloClient } from "./components/apolloClient";
 import Page from "./components/Page";
 
-const themes = [
-  {
-    name: "default",
-    load: () => import("theme").then(m => m.default)
-  }
-];
++ const themes = [{
++   name: "default",
++   load: () => import("theme").then(m => m.default)
++ }];
 
 export const App = () => (
   <ApolloProvider client={createApolloClient()}>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <ThemeLoader themes={themes}>
++     <ThemeLoader themes={themes}>
         <PageBuilderProvider>
           <Switch>
             <Route path={"*"} component={Page} />
           </Switch>
         </PageBuilderProvider>
-      </ThemeLoader>
++     </ThemeLoader>
     </BrowserRouter>
   </ApolloProvider>
 );
@@ -159,7 +155,7 @@ To create more themes, all you have to do is duplicate the existing `theme` work
 
 **3)** Add this new workspace path to the project level `package.json`, located at `<project>/package.json`:
 
-![Add the New Workspace to the Project.](./theme-manager/workspaces.png)
+![Add the New Workspace to the Project.](./assets/theme-manager/workspaces.png)
 
 **4)** Run `yarn` to register the new workspace.
 
@@ -171,7 +167,7 @@ yarn workspace admin add theme-1 && yarn workspace website add theme-1
 
 With this, you can now add your new theme in the Admin app, like so:
 
-```tsx apps/admin/code/src/App.tsx
+```diff-tsx apps/admin/code/src/App.tsx
 import React from "react";
 import { Admin } from "@webiny/app-serverless-cms";
 import { Cognito } from "@webiny/app-admin-users-cognito";
@@ -185,11 +181,11 @@ const themes = [
     label: "Default Theme",
     load: () => import("theme").then(m => m.default)
   },
-  {
-    name: "theme-1",
-    label: "Theme #1",
-    load: () => import("theme-1").then(m => m.default)
-  }
++ {
++   name: "theme-1",
++   label: "Theme #1",
++   load: () => import("theme-1").then(m => m.default)
++ }
 ];
 
 export const App = () => {
@@ -205,7 +201,7 @@ export const App = () => {
 
 And we also need to add the new theme in the Website app:
 
-```tsx apps/website/code/src/App.tsx
+```diff-tsx apps/website/code/src/App.tsx
 import React from "react";
 import { ApolloProvider } from "@apollo/react-components";
 import { BrowserRouter, Switch, Route } from "@webiny/react-router";
@@ -219,10 +215,10 @@ const themes = [
     name: "default",
     load: () => import("theme").then(m => m.default)
   },
-  {
-    name: "theme-1",
-    load: () => import("theme-1").then(m => m.default)
-  }
++ {
++   name: "theme-1",
++   load: () => import("theme-1").then(m => m.default)
++ }
 ];
 
 export const App = () => (
@@ -256,13 +252,13 @@ Every time you add a new theme, you need to deploy your Admin and Website apps.
 
 In the Tenant Manager, your themes will be visible in the tenant creation form. You can assign as many themes as you like to an individual tenant. Tenants will then be able to activate one of the assigned themes in their Page Builder settings.
 
-![Assign Themes to an Individual Tenant](./theme-manager/tenant-themes.png)
+![Assign Themes to an Individual Tenant](./assets/theme-manager/tenant-themes.png)
 
 ## 8) Activating a Theme within the Page Builder
 
 Tenant admin users need to activate a specific theme in **Settings -> Page Builder -> Website**:
 
-![Activate a Specific Theme](./theme-manager/tenant-pb-settings.png)
+![Activate a Specific Theme](./assets/theme-manager/tenant-pb-settings.png)
 
 ## Conclusion
 

@@ -745,7 +745,140 @@
     "source": "/docs/how-to-guides/deployment/connect-custom-domain",
     "destination": "/docs/infrastructure/additional-resources/connect-custom-domain",
     "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/introduction",
+    "destination": "/docs/architecture/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/introduction",
+    "destination": "/docs/architecture/introduction",
+    "permanent": true
+  },
+
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/introduction",
+    "destination": "/docs/architecture/api/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/overview",
+    "destination": "/docs/architecture/api/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/graphql-requests",
+    "destination": "/docs/architecture/api/graphql-requests",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/file-upload",
+    "destination": "/docs/architecture/api/file-upload",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/file-download",
+    "destination": "/docs/architecture/api/file-download",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/default-vpc",
+    "destination": "/docs/architecture/api/default-vpc",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/api/custom-vpc",
+    "destination": "/docs/architecture/api/custom-vpc",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/admin/introduction",
+    "destination": "/docs/architecture/admin/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/admin/overview",
+    "destination": "/docs/architecture/admin/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/admin/serving-application-files",
+    "destination": "/docs/architecture/admin/serving-application-files",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/website/introduction",
+    "destination": "/docs/architecture/website/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/website/overview",
+    "destination": "/docs/architecture/website/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/website/prerendering-pages",
+    "destination": "/docs/architecture/website/prerendering-pages",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/cloud-infrastructure/website/serving-pages",
+    "destination": "/docs/architecture/website/serving-pages",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/security-framework/introduction",
+    "destination": "/docs/core-development-concepts/security-framework/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/security-framework/api-security",
+    "destination": "/docs/core-development-concepts/security-framework/api-security",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/security-framework/react-security",
+    "destination": "/docs/core-development-concepts/security-framework/react-security",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/performance-benchmark/introduction",
+    "destination": "/docs/performance-and-load-benchmark/introduction",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/performance-benchmark/headless-cmswrite-benchmark",
+    "destination": "/docs/performance-and-load-benchmark/headless-cms/write-benchmark",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/performance-benchmark/headless-cms-read-benchmark",
+    "destination": "/docs/performance-and-load-benchmark/headless-cms/read-benchmark",
+    "permanent": true
+  },
+  {
+    "source": "/docs/webiny-overview/performance-benchmark/pb-deliver-a-page",
+    "destination": "/docs/performance-and-load-benchmark/page-builder/deliver-a-page",
+    "permanent": true
+  },
+  {
+    "source": "/docs/key-topics/multi-tenancy",
+    "destination": "/docs/overview/features/multi-tenancy",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/webiny-applications/admin-area/introduction",
+    "destination": "/docs/overview/applications/admin",
+    "permanent": true
+  },
+  {
+    "source": "/docs/how-to-guides/upgrade-webiny",
+    "destination": "/docs/release-notes/upgrade-webiny",
+    "permanent": true
   }
+  
+  
   
   
 ]

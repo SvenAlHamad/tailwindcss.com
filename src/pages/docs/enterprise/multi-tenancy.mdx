@@ -74,22 +74,22 @@ import tenantManager from "@webiny/api-tenant-manager";
 
 Then, add the plugin to the Lambda handler, below `securityPlugins`. See an example in the image below:
 
-![Enable Tenant Manager plugin.](./multi-tenancy/import-tenant-manager-api.png)
+![Enable Tenant Manager plugin.](./assets/multi-tenancy/import-tenant-manager-api.png)
 
 Now we need to enable the Tenant Manager module in the Admin app. In your `apps/admin/code/src/App.tsx`, add the following:
 
-```tsx apps/admin/code/src/App.tsx
+```diff-tsx apps/admin/code/src/App.tsx
 import React from "react";
 import { Admin } from "@webiny/app-serverless-cms";
 import { Cognito } from "@webiny/app-admin-users-cognito";
-import { TenantManager } from "@webiny/app-tenant-manager";
++ import { TenantManager } from "@webiny/app-tenant-manager";
 import "./App.scss";
 
 export const App = () => {
   return (
     <Admin>
       <Cognito />
-      <TenantManager />
++     <TenantManager />
     </Admin>
   );
 };
@@ -127,10 +127,10 @@ There are several changes we need to do on the CloudFront distribution:
 
 Open `apps/website/pulumi/delivery.ts` and add the following changes:
 
-```ts apps/website/pulumi/delivery.ts
+```diff-ts apps/website/pulumi/delivery.ts
 import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-import { WebsiteTenantRouter } from "@webiny/pulumi-aws";
++ import * as pulumi from "@pulumi/pulumi";
++ import { WebsiteTenantRouter } from "@webiny/pulumi-aws";
 
 class Delivery {
   bucket: aws.s3.Bucket;
@@ -145,7 +145,7 @@ class Delivery {
       }
     });
 
-    const websiteRouter = new WebsiteTenantRouter("website-router");
++   const websiteRouter = new WebsiteTenantRouter("website-router");
 
     this.cloudfront = new aws.cloudfront.Distribution("delivery", {
       enabled: true,
@@ -203,19 +203,19 @@ class Delivery {
         forwardedValues: {
           cookies: { forward: "none" },
           queryString: true,
-          headers: ["Host"]
++         headers: ["Host"]
         },
         // MinTTL <= DefaultTTL <= MaxTTL
         minTtl: 0,
         defaultTtl: 30,
         maxTtl: 30,
-        lambdaFunctionAssociations: [
-          {
-            eventType: "origin-request",
-            includeBody: false,
-            lambdaArn: pulumi.interpolate`${websiteRouter.originRequest.qualifiedArn}`
-          }
-        ]
++       lambdaFunctionAssociations: [
++         {
++           eventType: "origin-request",
++           includeBody: false,
++           lambdaArn: pulumi.interpolate`${websiteRouter.originRequest.qualifiedArn}`
++         }
++       ]
       },
       priceClass: "PriceClass_100",
       restrictions: {
@@ -223,12 +223,12 @@ class Delivery {
           restrictionType: "none"
         }
       },
-      aliases: ["custom.domain.com", "*.saas.com"],
-      viewerCertificate: {
-        acmCertificateArn:
-          "arn:aws:acm:us-east-1:656932293860:certificate/eb47f296-39c3-44df-a04e-339e17f25f4f",
-        sslSupportMethod: "sni-only"
-      }
++     aliases: ["custom.domain.com", "*.saas.com"],
++     viewerCertificate: {
++       acmCertificateArn:
++         "arn:aws:acm:us-east-1:656932293860:certificate/eb47f296-39c3-44df-a04e-339e17f25f4f",
++       sslSupportMethod: "sni-only"
++     }
     });
   }
 }
@@ -260,9 +260,9 @@ To find your CloudFront website domain, run `yarn webiny info --env=dev` and loo
 
 Once your project is deployed, open your `admin` app. To configure a custom domain for the root tenant, hover over the `Root Tenant` label in the top app bar, and click it. This will open a settings dialog, where you can configure custom domains for your root tenant.
 
-![Open Root Tenant Settings Dialog.](./multi-tenancy/root-tenant-settings.png)
+![Open Root Tenant Settings Dialog.](./assets/multi-tenancy/root-tenant-settings.png)
 
-![Configure Root Tenant Custom Domains.](./multi-tenancy/tenant-settings-dialog.png)
+![Configure Root Tenant Custom Domains.](./assets/multi-tenancy/tenant-settings-dialog.png)
 
 <Alert type="danger" title="Important">
 
@@ -274,7 +274,7 @@ To find your CloudFront website domain, run `yarn webiny info --env=dev` and loo
 
 For your sub-tenants, domain configuration is located in the tenant form:
 
-![Domain Settings For Sub-Tenants.](./multi-tenancy/new-tenant.png)
+![Domain Settings For Sub-Tenants.](./assets/multi-tenancy/new-tenant.png)
 
 ## FAQ
 
@@ -302,7 +302,7 @@ After this, running the `deploy` command goes back to normal.
 
 You're probably seeing the following error:
 
-![Error Deleting Lambda@Edge Function.](./multi-tenancy/lambda-delete-error.png)
+![Error Deleting Lambda@Edge Function.](./assets/multi-tenancy/lambda-delete-error.png)
 
 Lambda@Edge functions are replicated to all AWS Edge locations. This means that this particular function will not be deleted until AWS removes it from all the Edge locations. Even thought this error looks terrible, your deploy went just fine. Give it a couple of minutes, and re-deploy. You'll see that, after some time, your old Lambda@Edge function will be deleted successfully.
 

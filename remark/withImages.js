@@ -17,9 +17,15 @@ module.exports.withImages = () => {
         const imageImportName = addImportImage(preTree, node.url, 'Image' + counter++)
 
         node.type = 'jsx'
-        node.value = `<figure><img src={${imageImportName}} alt="${
-          node.alt || getImageFileName(node.url)
-        }"></img>${node.alt ? `<figcaption>${node.alt}</figcaption>` : ''}</figure>`
+        node.value = `
+        <figure className="cursor-pointer">
+          <a href={${imageImportName}} target="_blank">
+            <img 
+              src={${imageImportName}} 
+              alt="${node.alt || getImageFileName(node.url)}"/>
+          </a>
+          ${node.alt ? `<figcaption>${node.alt}</figcaption>` : ''}
+        </figure>`
       } else if (node.children) {
         node.children.map((nodeChild) => processImages(nodeChild))
       }

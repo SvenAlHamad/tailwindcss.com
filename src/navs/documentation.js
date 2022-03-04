@@ -174,6 +174,12 @@ export const documentationNav = [
       page('core-development-concepts/ci-cd/workflows'),
       page('core-development-concepts/ci-cd/setup'),
     ]),
+
+    section('Security Framework', [
+      page('core-development-concepts/security-framework/introduction'),
+      page('core-development-concepts/security-framework/api-security'),
+      page('core-development-concepts/security-framework/react-security'),
+    ]),
   ]),
 
   collapsable('Infrastructure', [
@@ -192,160 +198,159 @@ export const documentationNav = [
       page('infrastructure/aws/configure-aws-credentials'),
       page('infrastructure/aws/use-aws-profiles'),
     ]),
-    section('Additional resources', [page('infrastructure/additional-resources/connect-custom-domain')]),
+    section('Additional resources', [
+      page('infrastructure/additional-resources/connect-custom-domain'),
+    ]),
   ]),
-  
+
   collapsable('Architecture', [
-    page('key-topics/cloud-infrastructure/introduction'),
+    page('architecture/introduction'),
     section('API Architecture', [
-      page('key-topics/cloud-infrastructure/api/introduction'),
-      page('key-topics/cloud-infrastructure/api/overview'),
-      page('key-topics/cloud-infrastructure/api/graphql-requests'),
-      page('key-topics/cloud-infrastructure/api/file-upload'),
-      page('key-topics/cloud-infrastructure/api/file-download'),
-      page('key-topics/cloud-infrastructure/api/overview-vpc-default'),
-      page('key-topics/cloud-infrastructure/api/overview-vpc-custom'),
+      page('architecture/api/introduction'),
+      page('architecture/api/overview'),
+      page('architecture/api/graphql-requests'),
+      page('architecture/api/file-upload'),
+      page('architecture/api/file-download'),
+      page('architecture/api/overview-vpc-default'),
+      page('architecture/api/overview-vpc-custom'),
     ]),
     section('Admin Area Architecture', [
-      page('key-topics/cloud-infrastructure/admin/introduction'),
-      page('key-topics/cloud-infrastructure/admin/overview'),
-      page('key-topics/cloud-infrastructure/admin/serving-application-files'),
+      page('architecture/admin/introduction'),
+      page('architecture/admin/overview'),
+      page('architecture/admin/serving-application-files'),
     ]),
     section('Website Architecture', [
-      page('key-topics/cloud-infrastructure/website/introduction'),
-      page('key-topics/cloud-infrastructure/website/overview'),
-      page('key-topics/cloud-infrastructure/website/prerendering-pages'),
-      page('key-topics/cloud-infrastructure/website/serving-pages'),
+      page('architecture/website/introduction'),
+      page('architecture/website/overview'),
+      page('architecture/website/prerendering-pages'),
+      page('architecture/website/serving-pages'),
     ]),
   ]),
 
-  ///////////////////////// HERES BE NEW BLOCKS////////////////////
+  collapsable('Performance & Load Benchmark', [
+    page('performance-and-load-benchmark/introduction'),
+    section('Headless CMS', [
+      page('performance-and-load-benchmark/headless-cms/write-benchmark'),
+      page('performance-and-load-benchmark/headless-cms/read-benchmark'),
+    ]),
+    section('Page Builder', [page('performance-and-load-benchmark/page-builder/deliver-a-page')]),
+  ]),
 
-  collapsable('Key Topics', [
-    horizontalLine(),
-    page('how-to-guides/webiny-applications/themes/introduction'),
-    page('key-topics/multi-tenancy'),
-  ]),
-  collapsable('Security', [
-    page('webiny-overview/security'),
-    page('key-topics/security-framework/introduction'),
-    page('key-topics/security-framework/api-security'),
-    page('key-topics/security-framework/react-security'),
-  ]),
-  collapsable('Performance', [
-    page('webiny-overview/performance-benchmark/introduction'),
-    page('webiny-overview/performance-benchmark/headless-cms-write-benchmark'),
-    page('webiny-overview/performance-benchmark/headless-cms-read-benchmark'),
-    page('webiny-overview/performance-benchmark/pb-deliver-a-page'),
-  ]),
-  collapsable('Community Plugins', [page('community-plugins/introduction')]),
   horizontalLine(),
-  collapsable('Release Notes', [
-    page('how-to-guides/upgrade-webiny'),
-    collapsable('5.23.0', [
-      page('release-notes/5.23.0/changelog'),
-      page('release-notes/5.23.0/upgrade-guide'),
-    ]),
-    collapsable('5.22.1', [
-      page('release-notes/5.22.1/changelog'),
-      page('release-notes/5.22.1/upgrade-guide'),
-    ]),
-    collapsable('5.22.0', [
-      page('release-notes/5.22.0/changelog'),
-      page('release-notes/5.22.0/upgrade-guide'),
-    ]),
-    collapsable('5.21.0', [
-      page('release-notes/5.21.0/changelog'),
-      page('release-notes/5.21.0/upgrade-guide'),
-    ]),
-    collapsable('5.20.0', [
-      page('release-notes/5.20.0/changelog'),
-      page('release-notes/5.20.0/upgrade-guide'),
-    ]),
-    collapsable('5.19.1', [
-      page('release-notes/5.19.1/changelog'),
-      page('release-notes/5.19.1/upgrade-guide'),
-    ]),
-    collapsable('5.19.0', [
-      page('release-notes/5.19.0/changelog'),
-      page('release-notes/5.19.0/upgrade-guide'),
-    ]),
-    collapsable('Older Releases', [
-      collapsable('5.18.0', [
-        page('release-notes/5.18.0/changelog'),
-        page('release-notes/5.18.0/upgrade-guide'),
-      ]),
-      collapsable('5.17.0', [
-        page('release-notes/5.17.0/changelog'),
-        page('release-notes/5.17.0/upgrade-guide'),
-      ]),
-      collapsable('5.16.0', [
-        page('release-notes/5.16.0/changelog'),
-        page('release-notes/5.16.0/upgrade-guide'),
-      ]),
-      collapsable('5.15.0', [
-        page('release-notes/5.15.0/changelog'),
-        page('release-notes/5.15.0/upgrade-guide'),
-      ]),
-      collapsable('5.14.0', [
-        page('release-notes/5.14.0/changelog'),
-        page('release-notes/5.14.0/upgrade-guide'),
-      ]),
-      collapsable('5.13.0', [
-        page('release-notes/5.13.0/changelog'),
-        page('release-notes/5.13.0/upgrade-guide'),
-      ]),
-      collapsable('5.12.0', [
-        page('release-notes/5.12.0/changelog'),
-        page('release-notes/5.12.0/upgrade-guide'),
-      ]),
-      collapsable('5.11.1', [
-        page('release-notes/5.11.1/changelog'),
-        page('release-notes/5.11.1/upgrade-guide'),
-      ]),
-      collapsable('5.11.0', [
-        page('release-notes/5.11.0/changelog'),
-        page('release-notes/5.11.0/upgrade-guide'),
-      ]),
-      collapsable('5.10.0', [
-        page('release-notes/5.10.0/changelog'),
-        page('release-notes/5.10.0/upgrade-guide'),
-      ]),
-      collapsable('5.9.0', [
-        page('release-notes/5.9.0/changelog'),
-        page('release-notes/5.9.0/upgrade-guide'),
-      ]),
-      collapsable('5.8.0', [
-        page('release-notes/5.8.0/changelog'),
-        page('release-notes/5.8.0/upgrade-guide'),
-      ]),
-      collapsable('5.7.0', [
-        page('release-notes/5.7.0/changelog'),
-        page('release-notes/5.7.0/upgrade-guide'),
-      ]),
-      collapsable('5.6.0', [
-        page('release-notes/5.6.0/changelog'),
-        page('release-notes/5.6.0/upgrade-guide'),
-      ]),
-      collapsable('5.5.0', [
-        page('release-notes/5.5.0/changelog'),
-        page('release-notes/5.5.0/upgrade-guide'),
-      ]),
-      collapsable('5.4.0', [
-        page('release-notes/5.4.0/changelog'),
-        page('release-notes/5.4.0/upgrade-guide'),
-      ]),
-      collapsable('5.3.0', [page('release-notes/5.3.0/changelog')]),
-    ]),
-  ]),
-  collapsable('Contributing', [
-    page('contributing/documentation'),
-    page('contributing/new-page-template'),
-  ]),
-  collapsable('Enterprise', [
+
+  collapsable('Webiny Enterprise', [
     page('enterprise/multi-tenancy'),
     page('enterprise/theme-manager'),
     page('enterprise/okta-integration'),
   ]),
-  page('webiny-telemetry'),
+
+  horizontalLine(),
+  collapsable('Release Notes', [
+    page('release-notes/upgrade-webiny'),
+    section('Release Notes', [
+      collapsable('5.23.0', [
+        page('release-notes/5.23.0/changelog'),
+        page('release-notes/5.23.0/upgrade-guide'),
+      ]),
+      collapsable('5.22.1', [
+        page('release-notes/5.22.1/changelog'),
+        page('release-notes/5.22.1/upgrade-guide'),
+      ]),
+      collapsable('5.22.0', [
+        page('release-notes/5.22.0/changelog'),
+        page('release-notes/5.22.0/upgrade-guide'),
+      ]),
+      collapsable('5.21.0', [
+        page('release-notes/5.21.0/changelog'),
+        page('release-notes/5.21.0/upgrade-guide'),
+      ]),
+      collapsable('5.20.0', [
+        page('release-notes/5.20.0/changelog'),
+        page('release-notes/5.20.0/upgrade-guide'),
+      ]),
+      collapsable('5.19.1', [
+        page('release-notes/5.19.1/changelog'),
+        page('release-notes/5.19.1/upgrade-guide'),
+      ]),
+      collapsable('5.19.0', [
+        page('release-notes/5.19.0/changelog'),
+        page('release-notes/5.19.0/upgrade-guide'),
+      ]),
+      collapsable('Older Releases', [
+        collapsable('5.18.0', [
+          page('release-notes/5.18.0/changelog'),
+          page('release-notes/5.18.0/upgrade-guide'),
+        ]),
+        collapsable('5.17.0', [
+          page('release-notes/5.17.0/changelog'),
+          page('release-notes/5.17.0/upgrade-guide'),
+        ]),
+        collapsable('5.16.0', [
+          page('release-notes/5.16.0/changelog'),
+          page('release-notes/5.16.0/upgrade-guide'),
+        ]),
+        collapsable('5.15.0', [
+          page('release-notes/5.15.0/changelog'),
+          page('release-notes/5.15.0/upgrade-guide'),
+        ]),
+        collapsable('5.14.0', [
+          page('release-notes/5.14.0/changelog'),
+          page('release-notes/5.14.0/upgrade-guide'),
+        ]),
+        collapsable('5.13.0', [
+          page('release-notes/5.13.0/changelog'),
+          page('release-notes/5.13.0/upgrade-guide'),
+        ]),
+        collapsable('5.12.0', [
+          page('release-notes/5.12.0/changelog'),
+          page('release-notes/5.12.0/upgrade-guide'),
+        ]),
+        collapsable('5.11.1', [
+          page('release-notes/5.11.1/changelog'),
+          page('release-notes/5.11.1/upgrade-guide'),
+        ]),
+        collapsable('5.11.0', [
+          page('release-notes/5.11.0/changelog'),
+          page('release-notes/5.11.0/upgrade-guide'),
+        ]),
+        collapsable('5.10.0', [
+          page('release-notes/5.10.0/changelog'),
+          page('release-notes/5.10.0/upgrade-guide'),
+        ]),
+        collapsable('5.9.0', [
+          page('release-notes/5.9.0/changelog'),
+          page('release-notes/5.9.0/upgrade-guide'),
+        ]),
+        collapsable('5.8.0', [
+          page('release-notes/5.8.0/changelog'),
+          page('release-notes/5.8.0/upgrade-guide'),
+        ]),
+        collapsable('5.7.0', [
+          page('release-notes/5.7.0/changelog'),
+          page('release-notes/5.7.0/upgrade-guide'),
+        ]),
+        collapsable('5.6.0', [
+          page('release-notes/5.6.0/changelog'),
+          page('release-notes/5.6.0/upgrade-guide'),
+        ]),
+        collapsable('5.5.0', [
+          page('release-notes/5.5.0/changelog'),
+          page('release-notes/5.5.0/upgrade-guide'),
+        ]),
+        collapsable('5.4.0', [
+          page('release-notes/5.4.0/changelog'),
+          page('release-notes/5.4.0/upgrade-guide'),
+        ]),
+        collapsable('5.3.0', [page('release-notes/5.3.0/changelog')]),
+      ]),
+    ]),
+  ]),
+  collapsable('Community Plugins', [page('community-plugins/introduction')]),
+  /*
+  collapsable('Contributing', [
+    page('contributing/documentation'),
+    page('contributing/new-page-template'),
+  ]),
+  */
+  collapsable('Webiny Telemetry', [page('webiny-telemetry/webiny-telemetry')]),
 ]

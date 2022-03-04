@@ -12,6 +12,10 @@ abbr[title] {
   text-decoration: none;
 }
 
-.inside-tab>.alert-box{
+.inside-tab > .alert-box {
   margin-top: 25px;
+}
+.inside-tab > .code-block {
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
 }
