@@ -7,9 +7,10 @@ import { Title } from '@/components/Title'
 import Router from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
-import socialCardLarge from '@/img/social-card-large.jpg'
+import socialCardLarge from '@/img/webiny-social-share.jpg'
 import { ResizeObserver } from '@juggle/resize-observer'
 import { SearchProvider } from '@/components/Search'
+const { WTS } = require('wts/src/web')
 
 if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
   window.ResizeObserver = ResizeObserver
@@ -33,6 +34,28 @@ Router.events.on('routeChangeStart', () => progress.start())
 Router.events.on('routeChangeComplete', () => progress.finish())
 Router.events.on('routeChangeError', () => progress.finish())
 
+const isBrowser = typeof window !== 'undefined'
+
+if (isBrowser) {
+  // For the first page load
+  setTimeout(async () => {
+    if (window.heap) {
+      window.wts = new WTS()
+      window.wts.identify()
+    }
+  }, 500)
+
+  // Subsequent route changes
+  Router.onRouteChangeComplete = (_url) => {
+    // Webiny Telemetry System
+    // trigger telemetry when changing routes
+
+    if (window.wts) {
+      window.wts.identify()
+    }
+  }
+}
+
 export default function App({ Component, pageProps, router }) {
   let [navIsOpen, setNavIsOpen] = useState(false)
 
@@ -54,7 +77,7 @@ export default function App({ Component, pageProps, router }) {
   const showHeader = router.pathname !== '/'
   const meta = Component.layoutProps?.meta || {}
   const description =
-    meta.metaDescription || meta.description || 'Documentation for the Webiny framework.'
+    meta.metaDescription || meta.description || 'Documentation for the Webiny CMS.'
 
   if (router.pathname.startsWith('/examples/')) {
     return <Component {...pageProps} />
@@ -65,14 +88,14 @@ export default function App({ Component, pageProps, router }) {
       <Title suffix="Webiny Docs">{meta.metaTitle || meta.title}</Title>
       <Head>
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
+        <meta key="twitter:site" name="twitter:site" content="@WebinyCMS" />
         <meta key="twitter:description" name="twitter:description" content={description} />
         <meta
           key="twitter:image"
           name="twitter:image"
           content={`https://www.webiny.com/docs${socialCardLarge}`}
         />
-        <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
+        <meta key="twitter:creator" name="twitter:creator" content="@WebinyCMS" />
         <meta
           key="og:url"
           property="og:url"
