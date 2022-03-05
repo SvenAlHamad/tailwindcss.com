@@ -155,7 +155,7 @@ export const handler = createHandler({
 
 As we can see, via the [`authenticationPlugins`](#) and [`authenticateUsingHttpHeader`](#) function calls, we're first registering the plugins that set up the authentication layer. No additional configuration parameters need to be passed here.
 
-Then, via the [`cognitoAuthenticationPlugins`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/index.ts#L24) function call, we're registering another set of plugins that will essentially enable us to perform authentication against Amazon Cognito and the User Pool we've defined in a [previous section](/docs/tutorials/create-custom-application/security/cloud-infrastructure/adding-user-pool-and-user-pool-domain).
+Then, via the [`cognitoAuthenticationPlugins`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/05-graphql-api/01-initial-setup/pinterest-clone/api/code/graphql/src/index.ts#L24) function call, we're registering another set of plugins that will essentially enable us to perform authentication against Amazon Cognito and the User Pool we've defined in a [previous section](../../custom-app-tutorial/adding-user-pools/adding-user-pool-and-user-pool-domain).
 
 ### Configuration Parameters
 
@@ -260,7 +260,7 @@ export interface PinEntity {
 
 <Alert type="info" title="In Case You Forgot">
 
-In the [GraphQL API](/docs/tutorials/create-custom-application/graphql-api) section of this tutorial, we've used the [Extend GraphQL API](/docs/how-to-guides/scaffolding/extend-graphql-api) scaffold to extend our GraphQL API and introduce essential CRUD GraphQL queries and mutations.
+In the [GraphQL API](../../custom-app-tutorial/graphql-api/create-a-graphql-api) section of this tutorial, we've used the [Extend GraphQL API](../../core-development-concepts/scaffolding/extend-graphql-api) scaffold to extend our GraphQL API and introduce essential CRUD GraphQL queries and mutations.
 
 By default, the application code relies on [DynamoDB Toolbox](https://github.com/jeremydaly/dynamodb-toolbox), which is a library that makes it a bit easier to interact with the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/features/) database. The `Entity` class we've seen in the above code sample is part of it.
 

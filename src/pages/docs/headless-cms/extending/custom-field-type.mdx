@@ -106,7 +106,7 @@ We will start by creating a field type plugin (`CmsEditorFieldTypePlugin`) to de
   ];
   ```
 
-Run the [`webiny watch`](/docs/how-to-guides/use-watch-command) command to start a new watch session on `apps/admin` application code.
+Run the [`webiny watch`](../../core-development-concepts/basics/watch-command) command to start a new watch session on `apps/admin` application code.
 
 ```
 yarn webiny watch apps/admin --env dev
@@ -177,7 +177,7 @@ As our next step, we'll define a renderer for our new field. The renderer determ
     ];
   ```
 
-3. As the [`webiny watch`](/docs/how-to-guides/use-watch-command) command is already running on `apps/admin`, we should see these changes immediately.
+3. As the [`webiny watch`](../../core-development-concepts/basics/watch-command) command is already running on `apps/admin`, we should see these changes immediately.
    Drag and drop the **Secret Text** field to create a model and navigate to the **PREVIEW** tab; you should see an input field here:
    ![Field Rendered](./assets/custom-field-type/field-renderer.png)
 
@@ -248,7 +248,7 @@ Cool, so far, we are done with the UI part of the custom field. In the next step
   });
   ```
 
-4. Deploy the API changes, run the [`webiny watch`](/docs/how-to-guides/use-watch-command) command to start a new watch session on `api/code/headlessCMS` application code.
+4. Deploy the API changes, run the [`webiny watch`](../../core-development-concepts/basics/watch-command) command to start a new watch session on `api/code/headlessCMS` application code.
 
 ```
 yarn webiny watch api/code/headlessCMS --env dev

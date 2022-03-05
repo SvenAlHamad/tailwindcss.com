@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { usePrevNext } from '@/hooks/usePrevNext'
 import Link from 'next/link'
 import { MDXProvider } from '@mdx-js/react'
+import externalLinkIcon from '@/img/external-link.svg';
 
 import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout'
 import { PageHeader } from '@/components/PageHeader'
@@ -255,7 +256,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
                 if (props.href.startsWith('http')) {
                   return (
                     <a target="_blank" href={props.href}>
-                      {props.children}
+                      {props.children} <img style={{display: 'inline', width: '12px'}} src={externalLinkIcon}/>
                     </a>
                   )
                 } else {

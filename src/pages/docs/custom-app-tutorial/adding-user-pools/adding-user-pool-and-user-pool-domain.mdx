@@ -108,7 +108,7 @@ Then, in order to enable the mentioned Hosted UI authentication flow, we're also
 
 The next step is to import the new file in the existing [`index.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev/index.ts) entrypoint file, located in the [`pinterest-clone/api/pulumi/dev`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev) folder. Once imported, we'll also need to perform two additional changes.
 
-First, in order for the new cloud infrastructure code to be actually executed, we'll instantiate the imported `Cognito` class. Second, we will modify the list of returned values, which, as previously mentioned, represents the [stack output](/docs/tutorials/create-custom-application/security/getting-started#stack-output).
+First, in order for the new cloud infrastructure code to be actually executed, we'll instantiate the imported `Cognito` class. Second, we will modify the list of returned values, which, as previously mentioned, represents the [stack output](../../custom-app-tutorial/security-overview/get-started#stack-output).
 
 Ultimately, this is how the updated [`index.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/03-cloud-infrastructure/01-adding-user-pool-and-user-pool-domain/pinterest-clone/api/pulumi/dev/index.ts) entrypoint file should look like:
 
