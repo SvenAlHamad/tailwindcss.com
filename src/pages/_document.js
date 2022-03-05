@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
 const FAVICON_VERSION = 3
@@ -83,16 +82,18 @@ export default class Document extends NextDocument {
           />
 
           <script async src="https://www.googletagmanager.com/gtag/js?id=AW-698369826" />
-          <script>
-            {`
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
                   window.dataLayer = window.dataLayer || []; 
                   function gtag(){
                       dataLayer.push(arguments);
                   } 
                   gtag('js', new Date()); 
                   gtag('config', 'AW-698369826'); 
-              `}
-          </script>
+              `}}
+          />
         </Head>
         <body className="antialiased text-slate-500 dark:text-slate-400 dark:bg-dark-theme">
           <Main />

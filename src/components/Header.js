@@ -17,7 +17,7 @@ function Featured() {
         rel="noreferrer"
       >
         <span className="text-nav-link dark:text-white ml-2">
-          ⭐️ If you like Webiny, help us out by giving us a star on GitHub!
+        <span role="img">⭐️</span> If you like Webiny, help us out by giving us a star on GitHub!
         </span>
         <svg
           width="6"
@@ -155,10 +155,14 @@ export function NavItems() {
 }
 
 export function Header({ navIsOpen, onNavToggle }) {
+  /*
   let [isOpen, setIsOpen] = useState(false)
+  
   const openDialog = () => {
     return setIsOpen(!isOpen)
   }
+  */
+  
   return (
     <>
       <div className="fixed top-0 z-40 w-full bg-smoke/90 backdrop-blur backdrop-opacity-80 supports-backdrop-blur:bg-white/95 flex-none transition-colors duration-500 lg:z-50 dark:bg-dark-grey-2 shadow-[0_1px_0_rgb(229,229,229)] dark:shadow-[0_1px_0_rgb(78,78,78)]">

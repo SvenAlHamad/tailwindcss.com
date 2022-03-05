@@ -1,11 +1,14 @@
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import { useEffect, useRef, useState } from 'react'
 
+let DEFAULT_THEME = 'light';
+if(typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches){
+  DEFAULT_THEME = 'dark';
+}
+
+
 function update() {
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
+  if ( localStorage.theme === 'dark' || (!('theme' in localStorage) && DEFAULT_THEME==='dark')) {
     document.documentElement.classList.add('dark', 'changing-theme')
   } else {
     document.documentElement.classList.remove('dark', 'changing-theme')
@@ -16,7 +19,7 @@ function update() {
 }
 
 function useTheme() {
-  let [setting, setSetting] = useState('light')
+  let [setting, setSetting] = useState(DEFAULT_THEME)
   let initial = useRef(true)
 
   useIsomorphicLayoutEffect(() => {
@@ -72,8 +75,8 @@ function useTheme() {
 }
 
 export function ThemeToggle() {
-  let [setting, setSetting] = useTheme()
-
+  let [setting, setSetting] = useTheme() // eslint-disable-line no-use-before-define
+  
   return (
     <>
       <button className="dark:hidden focus:outline-none" onClick={() => setSetting('dark')}>
