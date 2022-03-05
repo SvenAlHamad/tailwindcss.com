@@ -256,7 +256,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
                 if (props.href.startsWith('http')) {
                   return (
                     <a target="_blank" href={props.href}>
-                      {props.children} <img style={{display: 'inline', width: '12px'}} src={externalLinkIcon}/>
+                      {props.children} <img className='inline w-[12px] m-0' src={externalLinkIcon}/>
                     </a>
                   )
                 } else {

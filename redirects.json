@@ -751,11 +751,6 @@
     "destination": "/docs/architecture/introduction",
     "permanent": true
   },
-  {
-    "source": "/docs/key-topics/cloud-infrastructure/introduction",
-    "destination": "/docs/architecture/introduction",
-    "permanent": true
-  },
 
   {
     "source": "/docs/key-topics/cloud-infrastructure/api/introduction",

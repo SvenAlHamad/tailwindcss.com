@@ -72,7 +72,7 @@ const NavTreeElement = forwardRef(({ element, depth = 0 }, ref) => {
       />
     )
   } else if (type === 'page') {
-    return <Page title={title} link={link} isActive={isActive} ref={ref} depth={depth} />
+      return <Page title={title} link={link} isActive={isActive} ref={ref} depth={depth} />
   } else if (type === 'section') {
     return (
       <Section
@@ -152,7 +152,7 @@ const Collapsable = forwardRef(({ title, subElements = [], isActiveChild, depth 
 const Page = forwardRef(({ title, link, isActive, depth = 0 }, ref) => {
   return (
     <li
-      ref={ref}
+      ref={isActive ? ref : null}
       className={clsx(
         'link-element grid content-center block my-[15px] ml-[-1px] pl-[15px] cursor-pointer border-slate-100 dark:border-transparent',
         {
@@ -233,20 +233,25 @@ function Nav({ nav, mobile = false }) {
         updatePreviousRef()
         return
       }
-
       updatePreviousRef()
 
-      const scrollable = nearestScrollableContainer(scrollRef.current)
+      // this part calculates the scroll offset of the navigation sidebar so the active element is centered on the screen
+      // because of the css animations where certain sidebar nav elements need to expand, we need to offset the execution
+      // of this code until those animations are done so we can correctly calculate the placement of items on the screen
+      setTimeout(()=>{
+        const scrollable = nearestScrollableContainer(scrollRef.current)
 
-      const scrollRect = scrollable.getBoundingClientRect()
-      const activeItemRect = activeItemRef.current.getBoundingClientRect()
+        const scrollRect = scrollable.getBoundingClientRect()
+        const activeItemRect = activeItemRef.current.getBoundingClientRect()
 
-      const top = activeItemRef.current.offsetTop
-      const bottom = top - scrollRect.height + activeItemRect.height
+        const top = activeItemRef.current.offsetTop
+        const bottom = top - scrollRect.height + activeItemRect.height
 
-      if (scrollable.scrollTop > top || scrollable.scrollTop < bottom) {
-        scrollable.scrollTop = top - scrollRect.height / 2 + activeItemRect.height / 2
-      }
+        if (scrollable.scrollTop > top || scrollable.scrollTop < bottom) {
+          scrollable.scrollTop = top - scrollRect.height / 2 + activeItemRect.height / 2
+        }
+      }, 500);
+
     }
   }, [router.pathname])
 
