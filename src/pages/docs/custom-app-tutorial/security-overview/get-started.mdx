@@ -90,7 +90,7 @@ module.exports = {
 };
 ```
 
-Essentially, the main purpose of this file is to export the needed `watch` and `build` commands, which are then internally utilized by the [`webiny watch`](/docs/how-to-guides/use-watch-command/)  and [`webiny deploy`](/docs/how-to-guides/deployment/deploy-your-project) commands, respectively. As we can see, these can be simple one-liners, but note that we could also expand them with additional custom steps, if need be.
+Essentially, the main purpose of this file is to export the needed `watch` and `build` commands, which are then internally utilized by the [`webiny watch`](../../core-development-concepts/basics/watch-command/)  and [`webiny deploy`](../../core-development-concepts/basics/project-deployment) commands, respectively. As we can see, these can be simple one-liners, but note that we could also expand them with additional custom steps, if need be.
 
 As another example, if we were to open our React application's [`webiny.config.ts`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/02-getting-started/pinterest-clone/app/code/webiny.config.ts) file located in the [`pinterest-clone/app/code`](https://github.com/webiny/webiny-examples/blob/master/create-custom-application/05-security/02-getting-started/pinterest-clone/app/code) folder, we'd see the following:
 

@@ -77,7 +77,7 @@ import S3 from "./s3";
 const DEBUG = String(process.env.DEBUG);
 
 // Enables logs forwarding.
-// https://www.webiny.com/docs/how-to-guides/use-watch-command#enabling-logs-forwarding
+// https://www.webiny.com../../core-development-concepts/basics/watch-command#enabling-logs-forwarding
 const WEBINY_LOGS_FORWARD_URL = String(process.env.WEBINY_LOGS_FORWARD_URL);
 
 export default () => {
@@ -107,7 +107,7 @@ As we'll soon see, in our application code, these will be passed to our GraphQL 
 
 <Alert type="info">
 
-In order for the new environment variables to be available in our GraphQL API handler function, we'll need to redeploy it. If you had a watch session already up and running, this should've happened automatically. Otherwise, you'll need to either start a new session via the [`webiny watch`](/docs/how-to-guides/use-watch-command), or simply deploy the change via the [`webiny deploy`](/docs/how-to-guides/deployment/deploy-your-project) command.
+In order for the new environment variables to be available in our GraphQL API handler function, we'll need to redeploy it. If you had a watch session already up and running, this should've happened automatically. Otherwise, you'll need to either start a new session via the [`webiny watch`](../../core-development-concepts/basics/watch-command), or simply deploy the change via the [`webiny deploy`](../../core-development-concepts/basics/project-deployment) command.
 
 </Alert>
 
