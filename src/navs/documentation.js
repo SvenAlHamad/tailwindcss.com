@@ -19,6 +19,7 @@ export const documentationNav = [
       page('overview/features/framework'),
       page('overview/features/multi-tenancy'),
       page('overview/features/multiple-environments'),
+      page('overview/features/nocode-suite'),
       page('overview/features/self-hosted'),
       page('overview/features/serverless-infrastructure'),
       page('overview/features/site-reliability'),
