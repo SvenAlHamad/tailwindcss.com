@@ -4,6 +4,7 @@ import { usePrevNext } from '@/hooks/usePrevNext'
 import Link from 'next/link'
 import { MDXProvider } from '@mdx-js/react'
 import externalLinkIcon from '@/img/external-link.svg';
+import Image from '../components/Image';
 
 import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout'
 import { PageHeader } from '@/components/PageHeader'
@@ -252,6 +253,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
             components={{
               Heading,
               ol: (props) => <ol {...props} style={{ '--start': props.start ?? 1 }} />,
+              //img: (props) => <Image {...props}/>,
               a: (props) => {
                 if (props.href.startsWith('http')) {
                   return (

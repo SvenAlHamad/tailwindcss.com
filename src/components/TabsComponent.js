@@ -14,8 +14,8 @@ export function TabsComponent({ children = [] }) {
           return (
             <Tab
               key={i}
-              className="px-[25px] border-b-2 border-b-smoke text-center hover:bg-smoke hover:rounded-md py-2 font-roboto text-[0.875rem] font-semibold cursor-pointer"
-              selectedClassName="border-b-orange border-b-2 text-orange hover:rounded-b-none"
+              className="px-[25px] border-b-2 border-b-smoke text-center hover:bg-smoke p-3 font-roboto text-[0.875rem] font-semibold cursor-pointer dark:hover:bg-orange text-white"
+              selectedClassName="border-b-orange border-b-2 text-orange hover:rounded-b-none dark:bg-orange text-white"
             >
               {tabItem.props.title}
             </Tab>
@@ -23,7 +23,7 @@ export function TabsComponent({ children = [] }) {
         })}
       </TabList>
       {children.map((tabsItem, index) => (
-        <TabPanel selectedClassName={'inside-tab border-2 py-[5px] px-[25px] rounded -mt-[22px] border-slate-100 dark:border-slate-800'} key={index}>{tabsItem?.props?.children}</TabPanel>
+        <TabPanel selectedClassName={'inside-tab border-2 py-[5px] px-[25px] rounded -mt-[23px] border-slate-100 dark:dark-grey'} key={index}>{tabsItem?.props?.children}</TabPanel>
       ))}
     </Tabs>
   )
