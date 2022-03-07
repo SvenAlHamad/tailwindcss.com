@@ -14,9 +14,8 @@ export function DocumentationLayout(props) {
   if(parents!==null){
     parent = (parents[0] ? parents[0].title+' - ' : '')+parents[1].title;
   }
-  
 
-  let suffix = router.pathname === '/' ? parent : parent+' | Webiny Documentation';
+  let suffix = router.pathname === '/' ? parent : parent+' | Webiny Docs';
 
   return (
     <>

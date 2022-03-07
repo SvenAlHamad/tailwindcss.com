@@ -1,8 +1,8 @@
 import Head from 'next/head'
 
 export function Title({ suffix, title, description }) {
-  let titleWithSuffix = title + (suffix ? ` - ${suffix}` : '');
-
+  let titleWithSuffix = title + (suffix.trim().startsWith('|') ? '' : ' - ') +suffix;
+  
   return (
     <Head>
       <title key="title">{titleWithSuffix}</title>
