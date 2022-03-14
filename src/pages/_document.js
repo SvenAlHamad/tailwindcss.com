@@ -81,6 +81,18 @@ export default class Document extends NextDocument {
             }}
           />
 
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35527198-1" />
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-35527198-1');
+              `}}
+          />
+          
           <script async src="https://www.googletagmanager.com/gtag/js?id=AW-698369826" />
           <script
             type="text/javascript"
@@ -94,6 +106,7 @@ export default class Document extends NextDocument {
                   gtag('config', 'AW-698369826'); 
               `}}
           />
+
         </Head>
         <body className="antialiased text-slate-500 dark:text-slate-400 dark:bg-dark-theme">
           <Main />
