@@ -80,20 +80,8 @@ export default class Document extends NextDocument {
               `,
             }}
           />
-
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35527198-1" />
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'UA-35527198-1');
-              `}}
-          />
           
-          <script async src="https://www.googletagmanager.com/gtag/js?id=AW-698369826" />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5TG2W9G" />
           <script
             type="text/javascript"
             dangerouslySetInnerHTML={{
@@ -103,7 +91,7 @@ export default class Document extends NextDocument {
                       dataLayer.push(arguments);
                   } 
                   gtag('js', new Date()); 
-                  gtag('config', 'AW-698369826'); 
+                  gtag('config', 'GTM-5TG2W9G'); 
               `}}
           />
 
